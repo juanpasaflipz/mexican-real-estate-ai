@@ -1,0 +1,58 @@
+# PostgreSQL MCP Server - Claude Reference Guide (Example)
+
+This is an example template of CLAUDE.md. Create your own CLAUDE.md file with your actual connection details.
+
+## Project Overview
+
+This project connects a Supabase PostgreSQL database to Claude Desktop using the Model Context Protocol (MCP). The setup enables natural language database queries with comprehensive, analytical responses.
+
+### Database Connection
+
+#### Connection Details (Replace with your actual values)
+- **Database Type**: PostgreSQL (Supabase hosted)
+- **Connection String**: Uses `DATABASE_URL` or `SUPABASE_DATABASE_URL` from environment
+- **Host**: `db.YOUR_PROJECT_ID.supabase.co`
+- **Port**: `5432`
+- **Database Name**: `postgres`
+- **User**: `postgres`
+- **Password**: `YOUR_DATABASE_PASSWORD`
+
+### MCP Server Configuration
+```json
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://postgres:YOUR_PASSWORD@db.YOUR_PROJECT.supabase.co:5432/postgres"
+      ]
+    }
+  }
+}
+```
+
+## Project Status Tracking
+
+### Latest Updates (Update this section as you progress)
+
+#### Completed
+- List completed features here
+- Track what's been implemented
+
+#### In Progress
+- Current tasks being worked on
+
+#### Next Steps
+- Upcoming features and tasks
+
+### Important URLs and Resources
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:3001
+- Database: Supabase (connection configured)
+
+### Technical Implementation Details
+- Document key technical decisions
+- Track important file changes
+- Note architecture choices
