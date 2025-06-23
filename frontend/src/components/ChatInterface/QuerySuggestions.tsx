@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Search, TrendingUp, Clock, Star } from 'lucide-react'
 import { nlpQueryService } from '@/services/api'
-import clsx from 'clsx'
 
 interface QuerySuggestionsProps {
   query: string
@@ -10,7 +9,7 @@ interface QuerySuggestionsProps {
   onClose: () => void
 }
 
-const QuerySuggestions: React.FC<QuerySuggestionsProps> = ({ query, onSelect, onClose }) => {
+const QuerySuggestions: React.FC<QuerySuggestionsProps> = ({ query, onSelect }) => {
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [loading, setLoading] = useState(false)
 

@@ -107,7 +107,7 @@ const DataVisualization: React.FC<DataVisualizationProps> = ({ config, className
               fill="#8884d8"
               dataKey="value"
             >
-              {config.data.map((entry, index) => (
+              {config.data.map((_, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>

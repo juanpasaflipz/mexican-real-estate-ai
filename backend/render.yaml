@@ -5,8 +5,8 @@ services:
     repo: https://github.com/juanpasaflipz/mexican-real-estate-ai
     branch: main
     rootDir: backend
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
     envVars:
       - key: NODE_ENV
         value: production

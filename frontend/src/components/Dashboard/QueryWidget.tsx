@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { RefreshCw, Maximize2, LucideIcon } from 'lucide-react'
+import { RefreshCw, Maximize2 } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { nlpQueryService } from '@/services/api'
 import DataVisualization from '../DataVisualization/DataVisualization'
 import DataTable from '../ChatInterface/DataTable'
@@ -11,7 +12,7 @@ interface QueryWidgetProps {
   title: string
   query: string
   icon: LucideIcon
-  displayType?: 'table' | 'line' | 'bar' | 'pie' | 'auto'
+  displayType?: 'table' | 'line' | 'bar' | 'pie' | 'scatter' | 'auto'
   refreshInterval?: number
   className?: string
 }

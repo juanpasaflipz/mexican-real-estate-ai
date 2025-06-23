@@ -11,7 +11,6 @@ import {
   AlertCircle
 } from 'lucide-react'
 import { databaseService, nlpQueryService } from '@/services/api'
-import DataVisualization from '../DataVisualization/DataVisualization'
 import QueryWidget from './QueryWidget'
 import StatsCard from './StatsCard'
 import { motion } from 'framer-motion'

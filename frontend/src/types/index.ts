@@ -40,7 +40,7 @@ export interface Pattern {
 }
 
 export interface VisualizationConfig {
-  type: 'line' | 'bar' | 'pie' | 'scatter' | 'heatmap'
+  type: 'line' | 'bar' | 'pie' | 'scatter'
   title: string
   xAxis?: string
   yAxis?: string

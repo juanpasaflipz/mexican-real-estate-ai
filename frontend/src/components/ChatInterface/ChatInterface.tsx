@@ -1,12 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Send, Loader2, Database, Sparkles, Download, Save } from 'lucide-react'
+import { Send, Loader2, Database, Sparkles } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { QueryMessage } from '@/types'
 import { useNaturalLanguageQuery } from '@/hooks/useNaturalLanguageQuery'
 import MessageList from './MessageList'
 import QueryInput from './QueryInput'
 import QuerySuggestions from './QuerySuggestions'
-import DataVisualization from '../DataVisualization/DataVisualization'
 import { exportService } from '@/services/api'
 import toast from 'react-hot-toast'
 

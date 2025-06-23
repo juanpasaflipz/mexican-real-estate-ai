@@ -1,10 +1,10 @@
-import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Toaster } from 'react-hot-toast'
 import ChatInterface from './components/ChatInterface/ChatInterface'
 import Dashboard from './components/Dashboard/Dashboard'
-import { BlogList, BlogPost } from './pages/Blog'
+// @ts-ignore
+import { BlogList, BlogPost } from './pages/Blog.jsx'
 
 const queryClient = new QueryClient({
   defaultOptions: {
