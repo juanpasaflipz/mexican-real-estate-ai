@@ -3,6 +3,10 @@ import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
+import axios from 'axios'
+
+// Use the same API configuration as the rest of the app
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://mexican-real-estate-api.onrender.com/api' || '/api'
 
 const BlogList = () => {
   const [posts, setPosts] = useState([])
@@ -23,7 +27,7 @@ const BlogList = () => {
         ...(selectedCategory && { category: selectedCategory })
       })
       
-      const response = await fetch(`http://localhost:3001/api/blog/posts?${params}`)
+      const response = await fetch(`${API_BASE_URL}/blog/posts?${params}`)
       const data = await response.json()
       setPosts(data.posts)
     } catch (error) {
@@ -35,7 +39,7 @@ const BlogList = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/blog/categories')
+      const response = await fetch(`${API_BASE_URL}/blog/categories`)
       const data = await response.json()
       setCategories(data)
     } catch (error) {
@@ -129,7 +133,7 @@ const BlogPost = () => {
 
   const fetchPost = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/api/blog/posts/${slug}`)
+      const response = await fetch(`${API_BASE_URL}/blog/posts/${slug}`)
       if (response.ok) {
         const data = await response.json()
         setPost(data)
