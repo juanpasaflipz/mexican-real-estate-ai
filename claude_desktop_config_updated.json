@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "property-mx": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://postgres.pfpyfxspinghdhrjalsg:T8cBFXxnxe2rvd8aBuWN@aws-0-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require"
+      ],
+      "env": {
+        "NODE_TLS_REJECT_UNAUTHORIZED": "0"
+      }
+    },
+    "postgres-direct": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://postgres:T8cBFXxnxe2rvd8aBuWN@db.pfpyfxspinghdhrjalsg.supabase.co:5432/postgres"
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}

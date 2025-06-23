@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://postgres:T8cBFXxnxe2rvd8aBuWN@db.pfpyfxspinghdhrjalsg.supabase.co:5432/postgres"
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}

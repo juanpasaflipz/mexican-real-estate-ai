@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "postgres": {
+      "command": "sh",
+      "args": [
+        "-c",
+        "source ~/.zshrc && npx -y @modelcontextprotocol/server-postgres \"$DATABASE_URL\""
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}
