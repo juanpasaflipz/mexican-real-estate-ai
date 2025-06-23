@@ -18,6 +18,9 @@ dist/
 .env.test.local
 .env.production.local
 
+# Project-specific sensitive files
+CLAUDE.md
+
 # Logs
 logs
 *.log
