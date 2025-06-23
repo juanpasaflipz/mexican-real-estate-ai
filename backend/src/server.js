@@ -46,6 +46,7 @@ app.use('/api/chat-ai', nlpRoutes)  // Alias for compatibility with old frontend
 app.use('/api/database', databaseRoutes)
 app.use('/api/queries', queryRoutes)
 app.use('/api/export', exportRoutes)
+app.use('/api/blog', require('./routes/blogRoutes'))
 
 // Health check
 app.get('/health', (req, res) => {
