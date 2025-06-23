@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Toaster } from 'react-hot-toast'
 import ChatInterface from './components/ChatInterface/ChatInterface'
 import Dashboard from './components/Dashboard/Dashboard'
+import { BlogList, BlogPost } from './pages/Blog'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,6 +23,8 @@ function App() {
           <Routes>
             <Route path="/" element={<ChatInterface />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
           <Toaster
             position="top-right"
