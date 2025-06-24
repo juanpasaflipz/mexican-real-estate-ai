@@ -4,6 +4,10 @@ import ReactMarkdown from 'react-markdown'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import axios from 'axios'
+import BlogSchema from '../components/SEO/BlogSchema'
+import SocialShare from '../components/Blog/SocialShare'
+import RelatedPosts from '../components/Blog/RelatedPosts'
+import PropertySearchLinks from '../components/Blog/PropertySearchLinks'
 
 // Use the same API configuration as the rest of the app
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://mexican-real-estate-ai.onrender.com/api' || '/api'
@@ -196,10 +200,12 @@ const BlogPost = () => {
   }
 
   return (
-    <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <Link to="/blog" className="text-blue-600 hover:text-blue-700 mb-6 inline-block">
-        ← Volver al blog
-      </Link>
+    <>
+      <BlogSchema post={post} />
+      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <Link to="/blog" className="text-blue-600 hover:text-blue-700 mb-6 inline-block">
+          ← Volver al blog
+        </Link>
       
       <header className="mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title_es}</h1>
@@ -225,6 +231,15 @@ const BlogPost = () => {
         className="prose prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content_es }}
       />
+
+      {/* Social Sharing */}
+      <SocialShare 
+        url={`https://mexican-real-estate-ai-jy2t.vercel.app/blog/${post.slug}`}
+        title={post.title_es}
+      />
+
+      {/* Property Search Links */}
+      <PropertySearchLinks post={post} />
 
       {/* Related Properties */}
       {post.related_properties && post.related_properties.length > 0 && (
@@ -260,7 +275,15 @@ const BlogPost = () => {
           </div>
         </div>
       )}
+
+      {/* Related Posts */}
+      <RelatedPosts 
+        currentPost={post.slug}
+        category={post.category}
+        tags={post.tags}
+      />
     </article>
+    </>
   )
 }
 
