@@ -41,7 +41,7 @@ const BlogList = () => {
             summary_es: 'Un análisis profundo del mercado inmobiliario en la Ciudad de México, incluyendo tendencias en Polanco, Roma Norte y Condesa.',
             category: 'market-insights',
             published_at: new Date().toISOString(),
-            featured_image_url: 'https://source.unsplash.com/800x400/?mexico,real-estate'
+            featured_image_url: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=400&fit=crop'
           }
         ])
         return
@@ -111,7 +111,7 @@ const BlogList = () => {
           <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
             {post.featured_image_url && (
               <img
-                src={`${post.featured_image_url}&w=800&h=400&fit=crop`}
+                src={post.featured_image_url}
                 alt={post.title_es}
                 className="w-full h-48 object-cover"
                 loading="lazy"
@@ -214,7 +214,7 @@ const BlogPost = () => {
 
       {post.featured_image_url && (
         <img
-          src={`${post.featured_image_url}&w=1200&h=600&fit=crop`}
+          src={post.featured_image_url}
           alt={post.title_es}
           className="w-full h-96 object-cover rounded-lg mb-8"
           loading="lazy"
