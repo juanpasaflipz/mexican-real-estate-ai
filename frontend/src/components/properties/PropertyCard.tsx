@@ -39,16 +39,23 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
     >
       {/* Image Container */}
       <div className="relative h-56 bg-gray-100 overflow-hidden">
-        <img
-          src={property.primary_image === '/api/placeholder/property' 
-            ? 'https://via.placeholder.com/400x300?text=Sin+Imagen' 
-            : property.primary_image}
-          alt={property.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x300?text=Sin+Imagen';
-          }}
-        />
+        {property.primary_image ? (
+          <img
+            src={property.primary_image}
+            alt={property.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop';
+            }}
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+            <div className="text-center">
+              <Home className="w-12 h-12 text-gray-400 mx-auto mb-2" />
+              <p className="text-sm text-gray-500">Sin imagen</p>
+            </div>
+          </div>
+        )}
         <div className="absolute top-4 left-4">
           <span className="inline-flex px-3 py-1 text-xs font-medium text-white bg-gray-900 bg-opacity-75 backdrop-blur-sm rounded-full">
             {property.property_type}

@@ -145,7 +145,7 @@ const Properties: React.FC = () => {
 
   useEffect(() => {
     fetchProperties(1);
-  }, [searchParams]);
+  }, [fetchProperties]);
 
   return (
     <div className="min-h-screen bg-white">

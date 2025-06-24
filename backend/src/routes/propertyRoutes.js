@@ -96,9 +96,11 @@ router.get('/', async (req, res) => {
         created_at,
         updated_at,
         CASE 
+          WHEN image_url IS NOT NULL AND image_url NOT LIKE 'data:image%' AND image_url != ''
+          THEN image_url
           WHEN images IS NOT NULL AND jsonb_array_length(images) > 0 
           THEN images->0->>'url'
-          ELSE '/api/placeholder/property'
+          ELSE NULL
         END as primary_image
       FROM properties 
       ${whereClause}
@@ -213,9 +215,11 @@ router.get('/:id/similar', async (req, res) => {
         city,
         state,
         CASE 
+          WHEN image_url IS NOT NULL AND image_url NOT LIKE 'data:image%' AND image_url != ''
+          THEN image_url
           WHEN images IS NOT NULL AND jsonb_array_length(images) > 0 
           THEN images->0->>'url'
-          ELSE '/api/placeholder/property'
+          ELSE NULL
         END as primary_image,
         ABS(price - $2) as price_difference
       FROM properties
@@ -267,9 +271,11 @@ router.get('/featured/listings', async (req, res) => {
         city,
         state,
         CASE 
+          WHEN image_url IS NOT NULL AND image_url NOT LIKE 'data:image%' AND image_url != ''
+          THEN image_url
           WHEN images IS NOT NULL AND jsonb_array_length(images) > 0 
           THEN images->0->>'url'
-          ELSE '/api/placeholder/property'
+          ELSE NULL
         END as primary_image
       FROM properties
       WHERE price IS NOT NULL
