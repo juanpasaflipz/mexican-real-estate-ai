@@ -111,9 +111,10 @@ const BlogList = () => {
           <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
             {post.featured_image_url && (
               <img
-                src={post.featured_image_url}
+                src={`${post.featured_image_url}&w=800&h=400&fit=crop`}
                 alt={post.title_es}
                 className="w-full h-48 object-cover"
+                loading="lazy"
               />
             )}
             <div className="p-6">
@@ -213,15 +214,17 @@ const BlogPost = () => {
 
       {post.featured_image_url && (
         <img
-          src={post.featured_image_url}
+          src={`${post.featured_image_url}&w=1200&h=600&fit=crop`}
           alt={post.title_es}
           className="w-full h-96 object-cover rounded-lg mb-8"
+          loading="lazy"
         />
       )}
 
-      <div className="prose prose-lg max-w-none">
-        <ReactMarkdown>{post.content_es}</ReactMarkdown>
-      </div>
+      <div 
+        className="prose prose-lg max-w-none"
+        dangerouslySetInnerHTML={{ __html: post.content_es }}
+      />
 
       {/* Related Properties */}
       {post.related_properties && post.related_properties.length > 0 && (
