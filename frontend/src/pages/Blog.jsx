@@ -10,7 +10,7 @@ import RelatedPosts from '../components/Blog/RelatedPosts'
 import PropertySearchLinks from '../components/Blog/PropertySearchLinks'
 
 // Use the same API configuration as the rest of the app
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://mexican-real-estate-ai.onrender.com/api' || '/api'
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
 
 const BlogList = () => {
   console.log('BlogList component mounted')

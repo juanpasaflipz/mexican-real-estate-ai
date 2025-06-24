@@ -7,7 +7,7 @@ const RelatedPosts = ({ currentPost, category, tags }) => {
   const [relatedPosts, setRelatedPosts] = useState([])
   const [loading, setLoading] = useState(true)
   
-  const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://mexican-real-estate-ai.onrender.com/api' || '/api'
+  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
 
   useEffect(() => {
     fetchRelatedPosts()
