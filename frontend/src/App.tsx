@@ -5,6 +5,9 @@ import ChatInterface from './components/ChatInterface/ChatInterface'
 import Dashboard from './components/Dashboard/Dashboard'
 // @ts-ignore
 import { BlogList, BlogPost } from './pages/Blog.jsx'
+import Properties from './pages/Properties'
+import PropertyDetail from './pages/PropertyDetail'
+import Navigation from './components/Navigation'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,9 +23,12 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router>
         <div className="min-h-screen bg-gray-50">
+          <Navigation />
           <Routes>
             <Route path="/" element={<ChatInterface />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/properties" element={<Properties />} />
+            <Route path="/properties/:id" element={<PropertyDetail />} />
             <Route path="/blog" element={<BlogList />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>

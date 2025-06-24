@@ -1,0 +1,326 @@
+const express = require('express');
+const router = express.Router();
+const pool = require('../config/database');
+
+// Get all properties with pagination and filtering
+router.get('/', async (req, res) => {
+  try {
+    const {
+      page = 1,
+      limit = 24,
+      city,
+      state,
+      minPrice,
+      maxPrice,
+      bedrooms,
+      bathrooms,
+      propertyType,
+      sortBy = 'created_at',
+      sortOrder = 'DESC'
+    } = req.query;
+
+    const offset = (page - 1) * limit;
+    
+    // Build dynamic WHERE clause
+    const conditions = [];
+    const params = [];
+    let paramCount = 1;
+
+    if (city) {
+      conditions.push(`LOWER(city) = LOWER($${paramCount})`);
+      params.push(city);
+      paramCount++;
+    }
+
+    if (state) {
+      conditions.push(`LOWER(state) = LOWER($${paramCount})`);
+      params.push(state);
+      paramCount++;
+    }
+
+    if (minPrice) {
+      conditions.push(`price >= $${paramCount}`);
+      params.push(minPrice);
+      paramCount++;
+    }
+
+    if (maxPrice) {
+      conditions.push(`price <= $${paramCount}`);
+      params.push(maxPrice);
+      paramCount++;
+    }
+
+    if (bedrooms) {
+      conditions.push(`bedrooms >= $${paramCount}`);
+      params.push(bedrooms);
+      paramCount++;
+    }
+
+    if (bathrooms) {
+      conditions.push(`bathrooms >= $${paramCount}`);
+      params.push(bathrooms);
+      paramCount++;
+    }
+
+    if (propertyType) {
+      conditions.push(`property_type = $${paramCount}`);
+      params.push(propertyType);
+      paramCount++;
+    }
+
+    const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
+    
+    // Get total count for pagination
+    const countQuery = `SELECT COUNT(*) FROM properties ${whereClause}`;
+    const countResult = await pool.query(countQuery, params);
+    const totalCount = parseInt(countResult.rows[0].count);
+
+    // Get properties with limit and offset
+    params.push(limit, offset);
+    const query = `
+      SELECT 
+        id,
+        title,
+        description,
+        price,
+        bedrooms,
+        bathrooms,
+        area_sqm,
+        property_type,
+        address,
+        city,
+        state,
+        neighborhood,
+        features,
+        images,
+        created_at,
+        updated_at,
+        CASE 
+          WHEN images IS NOT NULL AND jsonb_array_length(images) > 0 
+          THEN images->0->>'url'
+          ELSE '/api/placeholder/property'
+        END as primary_image
+      FROM properties 
+      ${whereClause}
+      ORDER BY ${sortBy} ${sortOrder}
+      LIMIT $${paramCount} OFFSET $${paramCount + 1}
+    `;
+
+    const result = await pool.query(query, params);
+
+    res.json({
+      success: true,
+      data: {
+        properties: result.rows,
+        pagination: {
+          currentPage: parseInt(page),
+          totalPages: Math.ceil(totalCount / limit),
+          totalCount,
+          hasMore: offset + result.rows.length < totalCount
+        }
+      }
+    });
+
+  } catch (error) {
+    console.error('Error fetching properties:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to fetch properties'
+    });
+  }
+});
+
+// Get single property by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    const query = `
+      SELECT 
+        p.*,
+        CASE 
+          WHEN p.images IS NOT NULL AND jsonb_array_length(p.images) > 0 
+          THEN p.images
+          ELSE '[]'::jsonb
+        END as images,
+        COUNT(DISTINCT pv.id) as view_count
+      FROM properties p
+      LEFT JOIN property_views pv ON p.id = pv.property_id
+      WHERE p.id = $1
+      GROUP BY p.id
+    `;
+
+    const result = await pool.query(query, [id]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        error: 'Property not found'
+      });
+    }
+
+    // Log property view (non-blocking)
+    pool.query(
+      'INSERT INTO property_views (property_id, viewed_at) VALUES ($1, NOW())',
+      [id]
+    ).catch(err => console.error('Error logging property view:', err));
+
+    res.json({
+      success: true,
+      data: result.rows[0]
+    });
+
+  } catch (error) {
+    console.error('Error fetching property:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to fetch property'
+    });
+  }
+});
+
+// Get similar properties
+router.get('/:id/similar', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { limit = 6 } = req.query;
+
+    // First get the property details
+    const propertyResult = await pool.query(
+      'SELECT city, state, price, bedrooms, property_type FROM properties WHERE id = $1',
+      [id]
+    );
+
+    if (propertyResult.rows.length === 0) {
+      return res.status(404).json({
+        success: false,
+        error: 'Property not found'
+      });
+    }
+
+    const property = propertyResult.rows[0];
+    
+    // Find similar properties based on location and characteristics
+    const query = `
+      SELECT 
+        id,
+        title,
+        price,
+        bedrooms,
+        bathrooms,
+        area_sqm,
+        property_type,
+        city,
+        state,
+        CASE 
+          WHEN images IS NOT NULL AND jsonb_array_length(images) > 0 
+          THEN images->0->>'url'
+          ELSE '/api/placeholder/property'
+        END as primary_image,
+        ABS(price - $2) as price_difference
+      FROM properties
+      WHERE id != $1
+        AND city = $3
+        AND property_type = $4
+        AND bedrooms BETWEEN $5 - 1 AND $5 + 1
+      ORDER BY price_difference
+      LIMIT $6
+    `;
+
+    const result = await pool.query(query, [
+      id,
+      property.price,
+      property.city,
+      property.property_type,
+      property.bedrooms,
+      limit
+    ]);
+
+    res.json({
+      success: true,
+      data: result.rows
+    });
+
+  } catch (error) {
+    console.error('Error fetching similar properties:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to fetch similar properties'
+    });
+  }
+});
+
+// Get featured properties
+router.get('/featured/listings', async (req, res) => {
+  try {
+    const { limit = 8 } = req.query;
+
+    const query = `
+      SELECT 
+        id,
+        title,
+        price,
+        bedrooms,
+        bathrooms,
+        area_sqm,
+        property_type,
+        city,
+        state,
+        CASE 
+          WHEN images IS NOT NULL AND jsonb_array_length(images) > 0 
+          THEN images->0->>'url'
+          ELSE '/api/placeholder/property'
+        END as primary_image
+      FROM properties
+      WHERE price IS NOT NULL
+      ORDER BY created_at DESC, view_count DESC
+      LIMIT $1
+    `;
+
+    const result = await pool.query(query, [limit]);
+
+    res.json({
+      success: true,
+      data: result.rows
+    });
+
+  } catch (error) {
+    console.error('Error fetching featured properties:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to fetch featured properties'
+    });
+  }
+});
+
+// Search properties using AI (leverages existing NLP service)
+router.post('/search', async (req, res) => {
+  try {
+    const { query } = req.body;
+
+    if (!query) {
+      return res.status(400).json({
+        success: false,
+        error: 'Search query is required'
+      });
+    }
+
+    // Forward to the AI-powered search endpoint
+    const nlpService = require('../services/nlpService');
+    const result = await nlpService.processNaturalLanguageQuery(query);
+
+    res.json({
+      success: true,
+      data: result
+    });
+
+  } catch (error) {
+    console.error('Error in AI property search:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to process search query'
+    });
+  }
+});
+
+module.exports = router;

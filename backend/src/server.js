@@ -50,6 +50,7 @@ app.use('/api/database', databaseRoutes)
 app.use('/api/queries', queryRoutes)
 app.use('/api/export', exportRoutes)
 app.use('/api/blog', require('./routes/blogRoutes'))
+app.use('/api/properties', require('./routes/propertyRoutes'))
 
 // Health check
 app.get('/health', (req, res) => {
