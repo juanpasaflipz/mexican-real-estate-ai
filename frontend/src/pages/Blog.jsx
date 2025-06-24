@@ -6,15 +6,17 @@ import { es } from 'date-fns/locale'
 import axios from 'axios'
 
 // Use the same API configuration as the rest of the app
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://mexican-real-estate-api.onrender.com/api' || '/api'
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://mexican-real-estate-ai.onrender.com/api' || '/api'
 
 const BlogList = () => {
+  console.log('BlogList component mounted')
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState('')
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
+    console.log('BlogList useEffect running')
     fetchPosts()
     fetchCategories()
   }, [selectedCategory])
