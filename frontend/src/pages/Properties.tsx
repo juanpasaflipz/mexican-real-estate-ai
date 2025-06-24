@@ -76,12 +76,18 @@ const Properties: React.FC = () => {
       params.append('page', page.toString());
       params.append('limit', '24');
       
-      // Add filters
-      if (filters.city) params.append('city', filters.city);
-      if (filters.minPrice) params.append('minPrice', filters.minPrice);
-      if (filters.maxPrice) params.append('maxPrice', filters.maxPrice);
-      if (filters.bedrooms) params.append('bedrooms', filters.bedrooms);
-      if (filters.propertyType) params.append('propertyType', filters.propertyType);
+      // Add filters from URL params
+      const city = searchParams.get('city');
+      const minPrice = searchParams.get('minPrice');
+      const maxPrice = searchParams.get('maxPrice');
+      const bedrooms = searchParams.get('bedrooms');
+      const propertyType = searchParams.get('propertyType');
+
+      if (city) params.append('city', city);
+      if (minPrice) params.append('minPrice', minPrice);
+      if (maxPrice) params.append('maxPrice', maxPrice);
+      if (bedrooms) params.append('bedrooms', bedrooms);
+      if (propertyType) params.append('propertyType', propertyType);
 
       const response = await axios.get(`${API_URL}/properties?${params}`);
       
@@ -94,7 +100,7 @@ const Properties: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  }, [filters]);
+  }, [searchParams]);
 
   // AI-powered search
   const handleAISearch = async () => {
@@ -146,6 +152,17 @@ const Properties: React.FC = () => {
   useEffect(() => {
     fetchProperties(1);
   }, [fetchProperties]);
+
+  // Sync filters with URL params
+  useEffect(() => {
+    setFilters({
+      city: searchParams.get('city') || '',
+      minPrice: searchParams.get('minPrice') || '',
+      maxPrice: searchParams.get('maxPrice') || '',
+      bedrooms: searchParams.get('bedrooms') || '',
+      propertyType: searchParams.get('propertyType') || '',
+    });
+  }, [searchParams]);
 
   return (
     <div className="min-h-screen bg-white">
