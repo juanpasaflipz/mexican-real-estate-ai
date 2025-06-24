@@ -23,6 +23,9 @@ const io = new Server(httpServer, {
   }
 })
 
+// Trust proxy for Render deployment
+app.set('trust proxy', true)
+
 // Middleware
 app.use(helmet())
 app.use(cors({
