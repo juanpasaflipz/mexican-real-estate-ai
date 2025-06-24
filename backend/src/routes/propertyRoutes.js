@@ -27,9 +27,24 @@ router.get('/', async (req, res) => {
     let paramCount = 1;
 
     if (city) {
-      conditions.push(`LOWER(city) = LOWER($${paramCount})`);
-      params.push(city);
-      paramCount++;
+      // Special handling for Ciudad de México - search all CDMX alcaldías
+      if (city.toLowerCase() === 'ciudad de méxico' || city.toLowerCase() === 'cdmx') {
+        const cdmxAlcaldias = [
+          'Cuauhtémoc', 'Miguel Hidalgo', 'Benito Juárez', 'Coyoacán', 
+          'Tlalpan', 'Xochimilco', 'Azcapotzalco', 'Iztapalapa', 
+          'Gustavo A. Madero', 'Álvaro Obregón', 'Venustiano Carranza',
+          'Iztacalco', 'Tláhuac', 'Magdalena Contreras', 'Cuajimalpa',
+          'Milpa Alta'
+        ];
+        const placeholders = cdmxAlcaldias.map((_, index) => `$${paramCount + index}`).join(',');
+        conditions.push(`city IN (${placeholders})`);
+        params.push(...cdmxAlcaldias);
+        paramCount += cdmxAlcaldias.length;
+      } else {
+        conditions.push(`LOWER(city) = LOWER($${paramCount})`);
+        params.push(city);
+        paramCount++;
+      }
     }
 
     if (state) {

@@ -53,11 +53,29 @@ const Properties: React.FC = () => {
 
   const [showFilters, setShowFilters] = useState(false);
 
-  // Cities for dropdown (could be fetched from API)
+  // Cities for dropdown - includes main cities and CDMX alcaldías
   const cities = [
-    'Ciudad de México', 'Guadalajara', 'Monterrey', 'Puebla', 'Tijuana',
-    'León', 'Zapopan', 'Mérida', 'San Luis Potosí', 'Querétaro',
-    'Cancún', 'Playa del Carmen', 'Puerto Vallarta', 'Tulum'
+    { value: 'Ciudad de México', label: 'Ciudad de México (Todas las alcaldías)' },
+    { value: '', label: '─────────────', disabled: true },
+    { value: 'Cuauhtémoc', label: 'Cuauhtémoc (CDMX)' },
+    { value: 'Miguel Hidalgo', label: 'Miguel Hidalgo (CDMX)' },
+    { value: 'Benito Juárez', label: 'Benito Juárez (CDMX)' },
+    { value: 'Coyoacán', label: 'Coyoacán (CDMX)' },
+    { value: 'Tlalpan', label: 'Tlalpan (CDMX)' },
+    { value: '', label: '─────────────', disabled: true },
+    { value: 'Guadalajara', label: 'Guadalajara' },
+    { value: 'Monterrey', label: 'Monterrey' },
+    { value: 'Puebla', label: 'Puebla' },
+    { value: 'Tijuana', label: 'Tijuana' },
+    { value: 'León', label: 'León' },
+    { value: 'Zapopan', label: 'Zapopan' },
+    { value: 'Mérida', label: 'Mérida' },
+    { value: 'San Luis Potosí', label: 'San Luis Potosí' },
+    { value: 'Querétaro', label: 'Querétaro' },
+    { value: 'Cancún', label: 'Cancún' },
+    { value: 'Playa del Carmen', label: 'Playa del Carmen' },
+    { value: 'Puerto Vallarta', label: 'Puerto Vallarta' },
+    { value: 'Tulum', label: 'Tulum' }
   ];
 
   const propertyTypes = [
@@ -238,8 +256,14 @@ const Properties: React.FC = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="">Todas las ciudades</option>
-                    {cities.map(city => (
-                      <option key={city} value={city}>{city}</option>
+                    {cities.map((city, index) => (
+                      <option 
+                        key={city.value || `separator-${index}`} 
+                        value={city.value}
+                        disabled={city.disabled}
+                      >
+                        {city.label}
+                      </option>
                     ))}
                   </select>
                 </div>
