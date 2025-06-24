@@ -18,7 +18,7 @@ const app = express()
 const httpServer = createServer(app)
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: allowedOrigins,
     credentials: true
   }
 })
@@ -26,10 +26,27 @@ const io = new Server(httpServer, {
 // Trust proxy for Render deployment
 app.set('trust proxy', true)
 
+// CORS configuration - allow multiple origins
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'https://mexican-real-estate-ai-jy2t.vercel.app',
+  process.env.CLIENT_URL
+].filter(Boolean)
+
 // Middleware
 app.use(helmet())
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true)
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
   credentials: true
 }))
 app.use(morgan('dev'))
