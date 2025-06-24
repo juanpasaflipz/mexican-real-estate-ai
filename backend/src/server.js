@@ -16,6 +16,16 @@ const { setupSocketHandlers } = require('./services/socketService')
 
 const app = express()
 const httpServer = createServer(app)
+
+// CORS configuration - allow multiple origins
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'http://localhost:5175',
+  'https://mexican-real-estate-ai-jy2t.vercel.app',
+  process.env.CLIENT_URL
+].filter(Boolean)
+
 const io = new Server(httpServer, {
   cors: {
     origin: allowedOrigins,
@@ -25,14 +35,6 @@ const io = new Server(httpServer, {
 
 // Trust proxy for Render deployment
 app.set('trust proxy', true)
-
-// CORS configuration - allow multiple origins
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:5174',
-  'https://mexican-real-estate-ai-jy2t.vercel.app',
-  process.env.CLIENT_URL
-].filter(Boolean)
 
 // Middleware
 app.use(helmet())
