@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Home, AlertCircle } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import { checkAuthConfig, enableAuthDebug } from '../utils/debug';
 
 const Login: React.FC = () => {
   const { login } = useAuth();
@@ -142,6 +143,23 @@ const Login: React.FC = () => {
             Política de Privacidad
           </Link>
         </p>
+        
+        {/* Debug info (only in development) */}
+        {import.meta.env.DEV && (
+          <div className="mt-4 text-center">
+            <button
+              onClick={() => {
+                enableAuthDebug();
+                const config = checkAuthConfig();
+                console.log('Auth Configuration:', config);
+                alert(`Auth URL: ${config.authUrl}`);
+              }}
+              className="text-xs text-gray-500 hover:text-gray-700 underline"
+            >
+              Debug Auth Config
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

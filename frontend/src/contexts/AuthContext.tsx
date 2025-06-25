@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import Cookies from 'js-cookie';
 import api from '../services/api';
+import { debugAuth } from '../utils/debug';
 
 interface User {
   id: number;
@@ -96,7 +97,20 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   // Login (redirect to Google OAuth)
   const login = () => {
-    window.location.href = '/api/auth/google';
+    debugAuth.log('Login initiated');
+    
+    // Get the base URL from environment variable
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+    // Remove the /api suffix since we're adding /auth/google
+    const baseUrl = apiUrl.replace('/api', '');
+    const authUrl = `${baseUrl}/api/auth/google`;
+    
+    debugAuth.log('Redirecting to OAuth', { authUrl });
+    
+    // Store current location for redirect after auth
+    sessionStorage.setItem('auth_redirect', window.location.pathname);
+    
+    window.location.href = authUrl;
   };
 
   // Logout

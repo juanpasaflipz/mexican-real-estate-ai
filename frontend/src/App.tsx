@@ -11,7 +11,9 @@ import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
 import Login from './pages/Login'
 import AuthCallback from './pages/AuthCallback'
+import AuthTest from './pages/AuthTest'
 import { AuthProvider } from './contexts/AuthContext'
+import ErrorBoundary from './components/ErrorBoundary'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,23 +26,25 @@ const queryClient = new QueryClient({
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <Router>
-          <div className="min-h-screen bg-gray-50">
-            <Navigation />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/auth/callback" element={<AuthCallback />} />
-              <Route path="/ai-search" element={<ChatInterface />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/properties" element={<Properties />} />
-              <Route path="/properties/:id" element={<PropertyDetail />} />
-              <Route path="/blog" element={<BlogList />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-            </Routes>
-          <Toaster
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <Router>
+            <div className="min-h-screen bg-gray-50">
+              <Navigation />
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/auth/callback" element={<AuthCallback />} />
+                <Route path="/auth/test" element={<AuthTest />} />
+                <Route path="/ai-search" element={<ChatInterface />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/properties" element={<Properties />} />
+                <Route path="/properties/:id" element={<PropertyDetail />} />
+                <Route path="/blog" element={<BlogList />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+              </Routes>
+            <Toaster
             position="top-right"
             toastOptions={{
               duration: 4000,
@@ -64,6 +68,7 @@ function App() {
       </Router>
     </AuthProvider>
     </QueryClientProvider>
+    </ErrorBoundary>
   )
 }
 
