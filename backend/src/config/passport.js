@@ -5,6 +5,23 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 const pool = require('./database');
 
 // Google OAuth Strategy
+// Helper function to generate username from Google profile
+function generateUsername(profile) {
+  // Try to generate from email
+  if (profile.emails && profile.emails[0]) {
+    const emailParts = profile.emails[0].value.split('@');
+    return emailParts[0].toLowerCase().replace(/[^a-z0-9]/g, '');
+  }
+  
+  // Fallback to name
+  if (profile.displayName) {
+    return profile.displayName.toLowerCase().replace(/[^a-z0-9]/g, '');
+  }
+  
+  // Last resort: use Google ID
+  return `user${profile.id.slice(0, 8)}`;
+}
+
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -22,13 +39,74 @@ passport.use(new GoogleStrategy({
     if (authUserResult.rows.length > 0) {
       authUserId = authUserResult.rows[0].id;
       
-      // Update Google ID if not set
+      // Check if user needs username or Google ID update
+      const userDetails = await pool.query(
+        'SELECT username, google_id FROM users WHERE id = $1',
+        [authUserId]
+      );
+      
+      const updates = [];
+      const values = [];
+      let paramCount = 1;
+      
+      // Always update Google ID and avatar
+      updates.push(`google_id = $${paramCount++}`);
+      values.push(profile.id);
+      
+      updates.push(`avatar_url = $${paramCount++}`);
+      values.push(profile.photos[0]?.value || null);
+      
+      // Check if username needs to be set
+      if (!userDetails.rows[0].username) {
+        let username = generateUsername(profile);
+        
+        // Ensure username is unique
+        let usernameExists = true;
+        let suffix = 1;
+        while (usernameExists) {
+          const usernameCheck = await pool.query(
+            'SELECT id FROM users WHERE username = $1',
+            [username]
+          );
+          if (usernameCheck.rows.length === 0) {
+            usernameExists = false;
+          } else {
+            username = `${generateUsername(profile)}${suffix}`;
+            suffix++;
+          }
+        }
+        
+        updates.push(`username = $${paramCount++}`);
+        values.push(username);
+      }
+      
+      // Update user with any necessary fields
+      values.push(authUserId);
       await pool.query(
-        'UPDATE users SET google_id = $1, avatar_url = $2 WHERE id = $3',
-        [profile.id, profile.photos[0]?.value || null, authUserId]
+        `UPDATE users SET ${updates.join(', ')} WHERE id = $${paramCount}`,
+        values
       );
     } else {
       // Create new user in auth.users
+      // Generate a unique username
+      let username = generateUsername(profile);
+      
+      // Check if username already exists and make it unique if necessary
+      let usernameExists = true;
+      let suffix = 1;
+      while (usernameExists) {
+        const usernameCheck = await pool.query(
+          'SELECT id FROM users WHERE username = $1',
+          [username]
+        );
+        if (usernameCheck.rows.length === 0) {
+          usernameExists = false;
+        } else {
+          username = `${generateUsername(profile)}${suffix}`;
+          suffix++;
+        }
+      }
+      
       // Check if password column exists and handle accordingly
       const columnCheck = await pool.query(`
         SELECT column_name 
@@ -42,12 +120,13 @@ passport.use(new GoogleStrategy({
       if (columnCheck.rows.length > 0) {
         // Password column exists, insert with NULL password for OAuth
         newAuthUser = await pool.query(
-          `INSERT INTO users (email, name, google_id, avatar_url, email_verified, id, password) 
-           VALUES ($1, $2, $3, $4, NOW(), gen_random_uuid(), NULL) 
+          `INSERT INTO users (email, name, username, google_id, avatar_url, email_verified, id, password) 
+           VALUES ($1, $2, $3, $4, $5, NOW(), gen_random_uuid(), NULL) 
            RETURNING id`,
           [
             profile.emails[0].value,
             profile.displayName,
+            username,
             profile.id,
             profile.photos[0]?.value || null
           ]
@@ -55,12 +134,13 @@ passport.use(new GoogleStrategy({
       } else {
         // No password column, use original query
         newAuthUser = await pool.query(
-          `INSERT INTO users (email, name, google_id, avatar_url, email_verified, id) 
-           VALUES ($1, $2, $3, $4, NOW(), gen_random_uuid()) 
+          `INSERT INTO users (email, name, username, google_id, avatar_url, email_verified, id) 
+           VALUES ($1, $2, $3, $4, $5, NOW(), gen_random_uuid()) 
            RETURNING id`,
           [
             profile.emails[0].value,
             profile.displayName,
+            username,
             profile.id,
             profile.photos[0]?.value || null
           ]
