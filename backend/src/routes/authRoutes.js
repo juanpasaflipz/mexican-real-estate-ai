@@ -190,10 +190,10 @@ router.patch('/users/:userId/role',
       const { userId } = req.params;
       const { role } = req.body;
 
-      if (!['admin', 'broker', 'subscriber', 'user'].includes(role)) {
+      if (!['admin', 'analyst', 'viewer'].includes(role)) {
         return res.status(400).json({
           success: false,
-          error: 'Invalid role'
+          error: 'Invalid role. Valid roles are: admin, analyst, viewer'
         });
       }
 

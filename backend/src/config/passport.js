@@ -135,8 +135,8 @@ passport.use(new GoogleStrategy({
       if (columnCheck.rows.length > 0) {
         // Password column exists, insert with NULL password for OAuth
         newAuthUser = await pool.query(
-          `INSERT INTO users (email, name, username, google_id, avatar_url, email_verified, id, password) 
-           VALUES ($1, $2, $3, $4, $5, NOW(), gen_random_uuid(), NULL) 
+          `INSERT INTO users (email, name, username, google_id, avatar_url, email_verified, id, password, role) 
+           VALUES ($1, $2, $3, $4, $5, NOW(), gen_random_uuid(), NULL, 'viewer') 
            RETURNING id`,
           [
             profile.emails[0].value,
@@ -149,8 +149,8 @@ passport.use(new GoogleStrategy({
       } else {
         // No password column, use original query
         newAuthUser = await pool.query(
-          `INSERT INTO users (email, name, username, google_id, avatar_url, email_verified, id) 
-           VALUES ($1, $2, $3, $4, $5, NOW(), gen_random_uuid()) 
+          `INSERT INTO users (email, name, username, google_id, avatar_url, email_verified, id, role) 
+           VALUES ($1, $2, $3, $4, $5, NOW(), gen_random_uuid(), 'viewer') 
            RETURNING id`,
           [
             profile.emails[0].value,
