@@ -9,6 +9,9 @@ import Properties from './pages/Properties'
 import PropertyDetail from './pages/PropertyDetail'
 import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
+import Login from './pages/Login'
+import AuthCallback from './pages/AuthCallback'
+import { AuthProvider } from './contexts/AuthContext'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,18 +25,21 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <div className="min-h-screen bg-gray-50">
-          <Navigation />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/ai-search" element={<ChatInterface />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/properties" element={<Properties />} />
-            <Route path="/properties/:id" element={<PropertyDetail />} />
-            <Route path="/blog" element={<BlogList />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
-          </Routes>
+      <AuthProvider>
+        <Router>
+          <div className="min-h-screen bg-gray-50">
+            <Navigation />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/auth/callback" element={<AuthCallback />} />
+              <Route path="/ai-search" element={<ChatInterface />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/properties" element={<Properties />} />
+              <Route path="/properties/:id" element={<PropertyDetail />} />
+              <Route path="/blog" element={<BlogList />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+            </Routes>
           <Toaster
             position="top-right"
             toastOptions={{
@@ -56,6 +62,7 @@ function App() {
           />
         </div>
       </Router>
+    </AuthProvider>
     </QueryClientProvider>
   )
 }
