@@ -29,17 +29,43 @@ passport.use(new GoogleStrategy({
       );
     } else {
       // Create new user in auth.users
-      const newAuthUser = await pool.query(
-        `INSERT INTO users (email, name, google_id, avatar_url, email_verified, id) 
-         VALUES ($1, $2, $3, $4, NOW(), gen_random_uuid()) 
-         RETURNING id`,
-        [
-          profile.emails[0].value,
-          profile.displayName,
-          profile.id,
-          profile.photos[0]?.value || null
-        ]
-      );
+      // Check if password column exists and handle accordingly
+      const columnCheck = await pool.query(`
+        SELECT column_name 
+        FROM information_schema.columns 
+        WHERE table_schema = 'public' 
+        AND table_name = 'users' 
+        AND column_name = 'password'
+      `);
+      
+      let newAuthUser;
+      if (columnCheck.rows.length > 0) {
+        // Password column exists, insert with NULL password for OAuth
+        newAuthUser = await pool.query(
+          `INSERT INTO users (email, name, google_id, avatar_url, email_verified, id, password) 
+           VALUES ($1, $2, $3, $4, NOW(), gen_random_uuid(), NULL) 
+           RETURNING id`,
+          [
+            profile.emails[0].value,
+            profile.displayName,
+            profile.id,
+            profile.photos[0]?.value || null
+          ]
+        );
+      } else {
+        // No password column, use original query
+        newAuthUser = await pool.query(
+          `INSERT INTO users (email, name, google_id, avatar_url, email_verified, id) 
+           VALUES ($1, $2, $3, $4, NOW(), gen_random_uuid()) 
+           RETURNING id`,
+          [
+            profile.emails[0].value,
+            profile.displayName,
+            profile.id,
+            profile.photos[0]?.value || null
+          ]
+        );
+      }
       authUserId = newAuthUser.rows[0].id;
     }
 

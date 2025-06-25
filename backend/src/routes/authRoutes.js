@@ -56,11 +56,12 @@ router.get('/google/callback',
       );
 
       // Redirect to frontend with tokens
-      const frontendUrl = process.env.CLIENT_URL || 'http://localhost:5175';
+      const frontendUrl = process.env.CLIENT_URL || 'http://localhost:5173';
       res.redirect(`${frontendUrl}/auth/callback?token=${accessToken}&refresh=${refreshToken}`);
     } catch (error) {
       console.error('Error in Google callback:', error);
-      res.redirect(`${process.env.CLIENT_URL}/login?error=auth_failed`);
+      const frontendUrl = process.env.CLIENT_URL || 'http://localhost:5173';
+      res.redirect(`${frontendUrl}/login?error=auth_failed`);
     }
   }
 );

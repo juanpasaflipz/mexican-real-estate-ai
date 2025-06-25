@@ -80,7 +80,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const refresh = Cookies.get('refresh_token');
       if (!refresh) throw new Error('No refresh token');
 
-      const response = await api.post('/auth/refresh`, {
+      const response = await api.post('/auth/refresh', {
         refreshToken: refresh
       });
 
@@ -98,7 +98,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   // Login (redirect to Google OAuth)
   const login = () => {
-    window.location.href = '/auth/google`;
+    window.location.href = '/api/auth/google';
   };
 
   // Logout
@@ -107,7 +107,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const refresh = Cookies.get('refresh_token');
       
       // Call logout endpoint
-      await api.post('/auth/logout`, {
+      await api.post('/auth/logout', {
         refreshToken: refresh
       });
     } catch (error) {
