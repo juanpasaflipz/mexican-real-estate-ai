@@ -6,6 +6,8 @@ const morgan = require('morgan')
 const { createServer } = require('http')
 const { Server } = require('socket.io')
 const rateLimit = require('express-rate-limit')
+const session = require('express-session')
+const passport = require('./config/passport')
 
 const nlpRoutes = require('./routes/nlpRoutes')
 const databaseRoutes = require('./routes/databaseRoutes')
@@ -55,6 +57,22 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+// Session configuration for Passport
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'your-session-secret-here',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }
+}))
+
+// Initialize Passport
+app.use(passport.initialize())
+app.use(passport.session())
+
 // Rate limiting
 const limiter = rateLimit({
   windowMs: process.env.RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000,
@@ -63,6 +81,7 @@ const limiter = rateLimit({
 app.use('/api', limiter)
 
 // Routes
+app.use('/api/auth', require('./routes/authRoutes'))
 app.use('/api/nlp', nlpRoutes)
 app.use('/api/chat-ai', nlpRoutes)  // Alias for compatibility with old frontend
 app.use('/api/database', databaseRoutes)
