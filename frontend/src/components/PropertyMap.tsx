@@ -48,7 +48,7 @@ const PropertyMap: React.FC<PropertyMapProps> = memo(({
 }) => {
   const navigate = useNavigate();
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
-  const [map, setMap] = useState<google.maps.Map | null>(null);
+  const [, setMap] = useState<google.maps.Map | null>(null);
 
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '',

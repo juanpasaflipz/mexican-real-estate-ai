@@ -24,7 +24,10 @@
      - Select "HTTP referrers"
      - Add these URLs:
        - `http://localhost:*/*` (for development)
-       - `https://mexican-real-estate-ai-jy2t.vercel.app/*` (for production)
+       - `https://mexican-real-estate-ai-jy2t.vercel.app/*
+       - 
+       - 
+       - ` (for production)
    - Under "API restrictions":
      - Select "Restrict key"
      - Check: Maps JavaScript API, Places API
