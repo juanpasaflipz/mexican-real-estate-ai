@@ -170,9 +170,11 @@ const PropertyDetail: React.FC = () => {
                 <span className="text-4xl font-bold text-gray-900">
                   {propertyService.formatPrice(property.price)}
                 </span>
-                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                  {propertyService.getPropertyTypeLabel(property.property_type)}
-                </span>
+                {property.property_type && (
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                    {propertyService.getPropertyTypeLabel(property.property_type)}
+                  </span>
+                )}
               </div>
             </div>
 

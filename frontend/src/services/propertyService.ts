@@ -42,7 +42,8 @@ class PropertyService {
   async getPropertyById(id: string): Promise<PropertyDetailResponse> {
     try {
       const response = await axios.get(`${API_URL}/properties/${id}`);
-      return response.data;
+      // Handle both direct data and wrapped response
+      return response.data.data || response.data;
     } catch (error) {
       console.error('Error fetching property:', error);
       throw new Error('Failed to fetch property details');
@@ -52,7 +53,9 @@ class PropertyService {
   async getSimilarProperties(id: string): Promise<SimilarProperty[]> {
     try {
       const response = await axios.get(`${API_URL}/properties/${id}/similar`);
-      return response.data;
+      // Handle both direct array and wrapped response
+      const data = response.data.data || response.data;
+      return Array.isArray(data) ? data : [];
     } catch (error) {
       console.error('Error fetching similar properties:', error);
       return []; // Return empty array on error
@@ -74,7 +77,9 @@ class PropertyService {
     return this.formatPrice(pricePerSqm);
   }
 
-  getPropertyTypeLabel(type: string): string {
+  getPropertyTypeLabel(type: string | undefined | null): string {
+    if (!type) return 'Propiedad';
+    
     const typeLabels: { [key: string]: string } = {
       'house': 'Casa',
       'apartment': 'Departamento',
