@@ -30,7 +30,22 @@ const allowedOrigins = [
 
 const io = new Server(httpServer, {
   cors: {
-    origin: allowedOrigins,
+    origin: function(origin, callback) {
+      // Allow requests with no origin
+      if (!origin) return callback(null, true)
+      
+      // Check if origin is in the allowed list
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        return callback(null, true)
+      }
+      
+      // Allow all Vercel preview deployments
+      if (origin && origin.includes('.vercel.app')) {
+        return callback(null, true)
+      }
+      
+      callback(new Error('Not allowed by CORS'))
+    },
     credentials: true
   }
 })
@@ -45,11 +60,17 @@ app.use(cors({
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true)
     
+    // Check if origin is in the allowed list
     if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
+      return callback(null, true)
     }
+    
+    // Allow all Vercel preview deployments
+    if (origin.includes('.vercel.app')) {
+      return callback(null, true)
+    }
+    
+    callback(new Error('Not allowed by CORS'))
   },
   credentials: true
 }))
