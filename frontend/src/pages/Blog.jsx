@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
+import rehypeSanitize from 'rehype-sanitize'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import axios from 'axios'
@@ -227,10 +229,41 @@ const BlogPost = () => {
         />
       )}
 
-      <div 
-        className="prose prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content_es }}
-      />
+      <div className="prose prose-lg max-w-none">
+        {/* Check if content is HTML or Markdown */}
+        {post.content_es && post.content_es.trim().startsWith('<') ? (
+          // If content starts with HTML tag, render as HTML with ReactMarkdown + rehype-raw
+          <ReactMarkdown 
+            rehypePlugins={[rehypeRaw, rehypeSanitize]}
+            components={{
+              // Customize how certain elements are rendered
+              img: ({node, ...props}) => (
+                <img {...props} loading="lazy" className="rounded-lg" />
+              ),
+              a: ({node, ...props}) => (
+                <a {...props} className="text-blue-600 hover:text-blue-700" target="_blank" rel="noopener noreferrer" />
+              )
+            }}
+          >
+            {post.content_es}
+          </ReactMarkdown>
+        ) : (
+          // If content is pure Markdown, render without rehype-raw for better performance
+          <ReactMarkdown 
+            components={{
+              // Customize how certain elements are rendered
+              img: ({node, ...props}) => (
+                <img {...props} loading="lazy" className="rounded-lg" />
+              ),
+              a: ({node, ...props}) => (
+                <a {...props} className="text-blue-600 hover:text-blue-700" target="_blank" rel="noopener noreferrer" />
+              )
+            }}
+          >
+            {post.content_es || ''}
+          </ReactMarkdown>
+        )}
+      </div>
 
       {/* Social Sharing */}
       <SocialShare 
