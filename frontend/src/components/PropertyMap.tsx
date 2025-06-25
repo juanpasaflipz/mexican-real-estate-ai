@@ -48,19 +48,18 @@ const PropertyMap: React.FC<PropertyMapProps> = memo(({
 }) => {
   const navigate = useNavigate();
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
-  const [, setMap] = useState<google.maps.Map | null>(null);
 
   const { isLoaded, loadError } = useJsApiLoader({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '',
     libraries: ['places']
   });
 
-  const onLoad = useCallback((map: google.maps.Map) => {
-    setMap(map);
+  const onLoad = useCallback((_map: google.maps.Map) => {
+    // Map instance is available here if needed
   }, []);
 
   const onUnmount = useCallback(() => {
-    setMap(null);
+    // Cleanup if needed
   }, []);
 
   const handleMarkerClick = (property: Property) => {
