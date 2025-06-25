@@ -8,6 +8,7 @@ import { BlogList, BlogPost } from './pages/Blog.jsx'
 import Properties from './pages/Properties'
 import PropertyDetail from './pages/PropertyDetail'
 import Navigation from './components/Navigation'
+import HomePage from './pages/HomePage'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,7 +26,8 @@ function App() {
         <div className="min-h-screen bg-gray-50">
           <Navigation />
           <Routes>
-            <Route path="/" element={<ChatInterface />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/ai-search" element={<ChatInterface />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/properties" element={<Properties />} />
             <Route path="/properties/:id" element={<PropertyDetail />} />

@@ -39,7 +39,7 @@ const Properties: React.FC = () => {
   });
   
   // AI Search state
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
   const [isSearching, setIsSearching] = useState(false);
 
   // Filter states
@@ -121,13 +121,14 @@ const Properties: React.FC = () => {
   }, [searchParams]);
 
   // AI-powered search
-  const handleAISearch = async () => {
-    if (!searchQuery.trim()) return;
+  const handleAISearch = useCallback(async (query?: string) => {
+    const searchText = query || searchQuery;
+    if (!searchText.trim()) return;
 
     setIsSearching(true);
     try {
       const response = await axios.post(`${API_URL}/properties/search`, {
-        query: searchQuery
+        query: searchText
       });
 
       if (response.data.success && response.data.data.results) {
@@ -144,7 +145,7 @@ const Properties: React.FC = () => {
     } finally {
       setIsSearching(false);
     }
-  };
+  }, [searchQuery]);
 
   // Update URL when filters change
   const applyFilters = () => {
@@ -180,7 +181,14 @@ const Properties: React.FC = () => {
       bedrooms: searchParams.get('bedrooms') || '',
       propertyType: searchParams.get('propertyType') || '',
     });
-  }, [searchParams]);
+    
+    // Execute AI search if search parameter is present
+    const search = searchParams.get('search');
+    if (search && search !== searchQuery) {
+      setSearchQuery(search);
+      handleAISearch(search);
+    }
+  }, [searchParams, searchQuery, handleAISearch]);
 
   return (
     <div className="min-h-screen bg-white">
