@@ -174,6 +174,24 @@ router.post('/logout',
   }
 );
 
+// Debug endpoint to check OAuth configuration
+router.get('/debug/oauth-config', (req, res) => {
+  const apiUrl = process.env.NODE_ENV === 'production' 
+    ? process.env.API_URL 
+    : 'http://localhost:3001';
+    
+  res.json({
+    NODE_ENV: process.env.NODE_ENV || 'not set',
+    API_URL: process.env.API_URL || 'not set',
+    callbackURL: `${apiUrl}/api/auth/google/callback`,
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID ? 'Set' : 'Not set',
+    actualEnv: {
+      NODE_ENV: process.env.NODE_ENV,
+      API_URL: process.env.API_URL
+    }
+  });
+});
+
 // Update user role (admin only)
 router.patch('/users/:userId/role',
   passport.authenticate('jwt', { session: false }),
