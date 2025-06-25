@@ -110,8 +110,15 @@ const Properties: React.FC = () => {
       const response = await axios.get(`${API_URL}/properties?${params}`);
       
       if (response.data.success) {
-        setProperties(response.data.data.properties);
-        setPagination(response.data.data.pagination);
+        const propertiesData = response.data.data?.properties || [];
+        // Ensure we have an array
+        setProperties(Array.isArray(propertiesData) ? propertiesData : []);
+        setPagination(response.data.data?.pagination || {
+          currentPage: 1,
+          totalPages: 1,
+          totalCount: 0,
+          hasMore: false
+        });
       }
     } catch (error) {
       console.error('Error fetching properties:', error);
@@ -131,12 +138,13 @@ const Properties: React.FC = () => {
         query: searchText
       });
 
-      if (response.data.success && response.data.data.results) {
-        setProperties(response.data.data.results);
+      if (response.data.success && response.data.data?.results) {
+        const results = response.data.data.results || [];
+        setProperties(Array.isArray(results) ? results : []);
         setPagination({
           currentPage: 1,
           totalPages: 1,
-          totalCount: response.data.data.results.length,
+          totalCount: Array.isArray(results) ? results.length : 0,
           hasMore: false
         });
       }
@@ -377,7 +385,7 @@ const Properties: React.FC = () => {
           <>
             {/* Property Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {properties.map((property) => (
+              {Array.isArray(properties) && properties.map((property) => (
                 <PropertyCard key={property.id} property={property} />
               ))}
             </div>

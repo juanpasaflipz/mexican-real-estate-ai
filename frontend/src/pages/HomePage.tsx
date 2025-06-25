@@ -35,7 +35,8 @@ const HomePage: React.FC = () => {
     try {
       const response = await axios.get(`${API_URL}/properties/featured/listings?limit=8`);
       if (response.data.success) {
-        setFeaturedProperties(response.data.data);
+        const data = response.data.data || [];
+        setFeaturedProperties(Array.isArray(data) ? data : []);
       }
     } catch (error) {
       console.error('Error fetching featured properties:', error);
@@ -177,7 +178,7 @@ const HomePage: React.FC = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {featuredProperties.map((property) => (
+              {Array.isArray(featuredProperties) && featuredProperties.map((property) => (
                 <PropertyCard key={property.id} property={property} />
               ))}
             </div>

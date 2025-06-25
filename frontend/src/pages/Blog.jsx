@@ -53,7 +53,8 @@ const BlogList = () => {
         return
       }
       const data = await response.json()
-      setPosts(data.posts || [])
+      const postsData = data.posts || data || []
+      setPosts(Array.isArray(postsData) ? postsData : [])
     } catch (error) {
       console.error('Error fetching posts:', error)
       // Show at least one post so users know the blog exists
@@ -77,7 +78,8 @@ const BlogList = () => {
     try {
       const response = await fetch(`${API_BASE_URL}/blog/categories`)
       const data = await response.json()
-      setCategories(data)
+      const categoriesData = data.categories || data || []
+      setCategories(Array.isArray(categoriesData) ? categoriesData : [])
     } catch (error) {
       console.error('Error fetching categories:', error)
     }
@@ -103,7 +105,7 @@ const BlogList = () => {
           className="block w-full md:w-64 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
         >
           <option value="">Todas las categorías</option>
-          {categories.map(cat => (
+          {Array.isArray(categories) && categories.map(cat => (
             <option key={cat.id} value={cat.slug}>
               {cat.name_es} ({cat.post_count})
             </option>
@@ -113,7 +115,7 @@ const BlogList = () => {
 
       {/* Blog Posts Grid */}
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map(post => (
+        {Array.isArray(posts) && posts.map(post => (
           <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
             {post.featured_image_url && (
               <img

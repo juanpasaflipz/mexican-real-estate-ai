@@ -97,10 +97,12 @@ const PropertyMap: React.FC<PropertyMapProps> = memo(({
   }
 
   // Filter properties with valid coordinates
-  const validProperties = properties.filter(
-    p => p.latitude && p.longitude && 
-    !isNaN(p.latitude) && !isNaN(p.longitude)
-  );
+  const validProperties = Array.isArray(properties) 
+    ? properties.filter(
+        p => p && p.latitude && p.longitude && 
+        !isNaN(p.latitude) && !isNaN(p.longitude)
+      )
+    : [];
 
   return (
     <div className={className}>
@@ -112,7 +114,7 @@ const PropertyMap: React.FC<PropertyMapProps> = memo(({
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
-        {validProperties.map((property) => (
+        {validProperties.length > 0 && validProperties.map((property) => property && (
           <Marker
             key={property.id}
             position={{

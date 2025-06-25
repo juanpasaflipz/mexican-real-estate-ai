@@ -48,26 +48,40 @@ const MapSearch: React.FC = () => {
     try {
       setLoading(true);
       const response = await axios.get(`${API_URL}/properties`);
-      setProperties(response.data.data || response.data);
+      const data = response.data.data || response.data || [];
+      // Ensure we have an array
+      const propertiesData = Array.isArray(data) ? data : [];
+      setProperties(propertiesData);
     } catch (err) {
       setError('Error al cargar las propiedades');
       console.error(err);
+      setProperties([]); // Set empty array on error
     } finally {
       setLoading(false);
     }
   };
 
   const applyFilters = () => {
+    // Ensure properties is an array before spreading
+    if (!Array.isArray(properties)) {
+      console.error('Properties is not an array:', properties);
+      setFilteredProperties([]);
+      return;
+    }
     let filtered = [...properties];
 
     // Search query
     if (searchQuery) {
-      filtered = filtered.filter(p => 
-        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.state.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.address?.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+      filtered = filtered.filter(p => {
+        if (!p) return false;
+        const query = searchQuery.toLowerCase();
+        return (
+          (p.title && p.title.toLowerCase().includes(query)) ||
+          (p.city && p.city.toLowerCase().includes(query)) ||
+          (p.state && p.state.toLowerCase().includes(query)) ||
+          (p.address && p.address.toLowerCase().includes(query))
+        );
+      });
     }
 
     // Price filters
@@ -250,19 +264,25 @@ const MapSearch: React.FC = () => {
         {/* Property List */}
         <div className="w-96 bg-white overflow-y-auto">
           <div className="p-4 space-y-4">
-            {filteredProperties.map((property) => (
-              <div
-                key={property.id}
-                className={`cursor-pointer transition-all ${
-                  selectedProperty?.id === property.id
-                    ? 'ring-2 ring-blue-500 rounded-lg'
-                    : ''
-                }`}
-                onClick={() => handlePropertySelect(property)}
-              >
-                <PropertyCard property={property} />
+            {Array.isArray(filteredProperties) && filteredProperties.length > 0 ? (
+              filteredProperties.map((property) => (
+                <div
+                  key={property.id}
+                  className={`cursor-pointer transition-all ${
+                    selectedProperty?.id === property.id
+                      ? 'ring-2 ring-blue-500 rounded-lg'
+                      : ''
+                  }`}
+                  onClick={() => handlePropertySelect(property)}
+                >
+                  <PropertyCard property={property} />
+                </div>
+              ))
+            ) : (
+              <div className="text-center text-gray-500 py-8">
+                No se encontraron propiedades
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>

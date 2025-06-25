@@ -20,11 +20,15 @@ const RelatedPosts = ({ currentPost, category, tags }) => {
       const data = await response.json()
       
       // Filter out the current post and limit to 3
-      const filtered = data.posts
-        .filter(post => post.slug !== currentPost)
-        .slice(0, 3)
-      
-      setRelatedPosts(filtered)
+      const posts = data.posts || []
+      if (Array.isArray(posts)) {
+        const filtered = posts
+          .filter(post => post && post.slug !== currentPost)
+          .slice(0, 3)
+        setRelatedPosts(filtered)
+      } else {
+        setRelatedPosts([])
+      }
     } catch (error) {
       console.error('Error fetching related posts:', error)
     } finally {
@@ -38,7 +42,7 @@ const RelatedPosts = ({ currentPost, category, tags }) => {
     <div className="mt-12 border-t pt-8">
       <h2 className="text-2xl font-bold text-gray-900 mb-6">Artículos Relacionados</h2>
       <div className="grid gap-6 md:grid-cols-3">
-        {relatedPosts.map(post => (
+        {Array.isArray(relatedPosts) && relatedPosts.map(post => (
           <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
             {post.featured_image_url && (
               <Link to={`/blog/${post.slug}`}>

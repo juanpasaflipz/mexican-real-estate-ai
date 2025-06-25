@@ -30,7 +30,7 @@ const PropertySearchLinks = ({ post }) => {
 
   // Find cities mentioned in the post
   const mentionedCities = []
-  const searchableText = `${post.title_es} ${post.tags?.join(' ') || ''}`
+  const searchableText = `${post.title_es || ''} ${Array.isArray(post.tags) ? post.tags.join(' ') : ''}`
   
   Object.entries(cityMappings).forEach(([key, value]) => {
     if (searchableText.includes(key)) {
@@ -55,7 +55,7 @@ const PropertySearchLinks = ({ post }) => {
         Explora propiedades disponibles en las ubicaciones mencionadas en este artículo:
       </p>
       <div className="space-y-2">
-        {searchQueries.map((item, index) => (
+        {Array.isArray(searchQueries) && searchQueries.map((item, index) => (
           <Link
             key={index}
             to={item.link}
