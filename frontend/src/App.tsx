@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 import { BlogList, BlogPost } from './pages/Blog.jsx'
 import Properties from './pages/Properties'
 import PropertyDetail from './pages/PropertyDetail'
+import MapSearch from './pages/MapSearch'
 import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
 import Login from './pages/Login'
@@ -40,6 +41,7 @@ function App() {
                 <Route path="/ai-search" element={<ChatInterface />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/properties" element={<Properties />} />
+                <Route path="/map" element={<MapSearch />} />
                 <Route path="/properties/:id" element={<PropertyDetail />} />
                 <Route path="/blog" element={<BlogList />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />

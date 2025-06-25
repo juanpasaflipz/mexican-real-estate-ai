@@ -118,3 +118,12 @@
     }
   }
 }
+
+/* Google Maps custom styles */
+.map-price-label {
+  background-color: #1a73e8;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin-top: -4px;
+}
