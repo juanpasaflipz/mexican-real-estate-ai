@@ -101,9 +101,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     
     // Get the base URL from environment variable
     const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
-    // Remove the /api suffix since we're adding /auth/google
-    const baseUrl = apiUrl.replace('/api', '');
-    const authUrl = `${baseUrl}/api/auth/google`;
+    // Construct the auth URL properly
+    const authUrl = `${apiUrl}/auth/google`;
     
     debugAuth.log('Redirecting to OAuth', { authUrl });
     

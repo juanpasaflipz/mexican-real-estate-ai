@@ -22,10 +22,25 @@ function generateUsername(profile) {
   return `user${profile.id.slice(0, 8)}`;
 }
 
+// Determine the correct callback URL based on environment
+const apiUrl = process.env.NODE_ENV === 'production' 
+  ? process.env.API_URL 
+  : 'http://localhost:3001';
+
+const callbackURL = `${apiUrl}/api/auth/google/callback`;
+
+// Log configuration for debugging
+console.log('Google OAuth Config:', {
+  clientID: process.env.GOOGLE_CLIENT_ID ? 'Set' : 'Not set',
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET ? 'Set' : 'Not set',
+  callbackURL: callbackURL,
+  environment: process.env.NODE_ENV || 'development'
+});
+
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: `${process.env.API_URL || 'http://localhost:3001'}/api/auth/google/callback`
+  callbackURL: callbackURL
 }, async (accessToken, refreshToken, profile, done) => {
   try {
     // Check if user exists in auth.users (Supabase)
