@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: mexican-real-estate-api
+    name: mucha-casa-api
     runtime: node
     repo: https://github.com/juanpasaflipz/mexican-real-estate-ai
     branch: main

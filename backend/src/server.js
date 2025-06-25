@@ -24,6 +24,8 @@ const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
   'http://localhost:5175',
+  'https://mucha.casa',
+  'https://www.mucha.casa',
   'https://mexican-real-estate-ai-jy2t.vercel.app',
   process.env.CLIENT_URL
 ].filter(Boolean)

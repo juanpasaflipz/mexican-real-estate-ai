@@ -12,30 +12,30 @@ const BlogSchema = ({ post }) => {
     "dateModified": post.updated_at || post.published_at,
     "author": {
       "@type": "Organization",
-      "name": "Mexican Real Estate AI",
-      "url": "https://mexican-real-estate-ai-jy2t.vercel.app"
+      "name": "Mucha Casa",
+      "url": "https://mucha.casa"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Mexican Real Estate AI",
+      "name": "Mucha Casa",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://mexican-real-estate-ai-jy2t.vercel.app/logo.png"
+        "url": "https://mucha.casa/logo.png"
       }
     },
     "description": post.summary_es,
     "inLanguage": "es-MX",
     "keywords": post.tags ? post.tags.join(', ') : '',
     "articleSection": post.category,
-    "url": `https://mexican-real-estate-ai-jy2t.vercel.app/blog/${post.slug}`
+    "url": `https://mucha.casa/blog/${post.slug}`
   }
 
   // Real Estate specific schema for property-related posts
   const realEstateSchema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "name": "Mexican Real Estate AI",
-    "url": "https://mexican-real-estate-ai-jy2t.vercel.app",
+    "name": "Mucha Casa",
+    "url": "https://mucha.casa",
     "areaServed": {
       "@type": "Country",
       "name": "Mexico"
@@ -51,7 +51,7 @@ const BlogSchema = ({ post }) => {
       <meta property="og:title" content={post.title_es} />
       <meta property="og:description" content={post.summary_es} />
       <meta property="og:image" content={post.featured_image_url} />
-      <meta property="og:url" content={`https://mexican-real-estate-ai-jy2t.vercel.app/blog/${post.slug}`} />
+      <meta property="og:url" content={`https://mucha.casa/blog/${post.slug}`} />
       <meta property="og:type" content="article" />
       <meta name="twitter:card" content="summary_large_image" />
       <script type="application/ld+json">

@@ -1,6 +1,6 @@
-# Mexican Real Estate Platform (Redfin-like)
+# Mucha Casa - Mexican Real Estate Platform
 
-A comprehensive real estate platform for the Mexican market with AI-powered natural language search capabilities.
+Mucha Casa is a comprehensive real estate platform for the Mexican market with AI-powered natural language search capabilities. Find your perfect home in Mexico with our intelligent property search.
 
 ## Features
 

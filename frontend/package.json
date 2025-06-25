@@ -1,7 +1,7 @@
 {
-  "name": "nlp-database-frontend",
+  "name": "mucha-casa-frontend",
   "version": "1.0.0",
-  "description": "Natural Language Database Query Interface",
+  "description": "Mucha Casa - Mexican Real Estate Platform",
   "private": true,
   "scripts": {
     "dev": "vite",

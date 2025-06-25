@@ -1,5 +1,5 @@
 {
-  "name": "mexican-real-estate-platform",
+  "name": "mucha-casa",
   "version": "1.0.0",
   "scripts": {
     "install-backend": "cd backend && npm install",

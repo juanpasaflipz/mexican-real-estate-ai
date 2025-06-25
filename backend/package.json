@@ -1,7 +1,7 @@
 {
-  "name": "nlp-database-backend",
+  "name": "mucha-casa-backend",
   "version": "1.0.0",
-  "description": "Backend API for Natural Language Database Query System",
+  "description": "Backend API for Mucha Casa - Mexican Real Estate Platform",
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
