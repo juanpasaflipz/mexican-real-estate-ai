@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Search, BarChart3, BookOpen, Building2, User, LogOut, Settings, Heart } from 'lucide-react';
+import { Home, Search, BarChart3, BookOpen, Building2, LogOut, Settings, Heart } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const Navigation: React.FC = () => {

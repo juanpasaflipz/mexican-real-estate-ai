@@ -212,7 +212,7 @@ const Properties: React.FC = () => {
               />
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
               <button
-                onClick={handleAISearch}
+                onClick={() => handleAISearch()}
                 disabled={isSearching || !searchQuery.trim()}
                 className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 transition-colors"
               >

@@ -2,8 +2,6 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import Cookies from 'js-cookie';
 import api from '../services/api';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
-
 interface User {
   id: number;
   email: string;
