@@ -13,6 +13,7 @@ import HomePage from './pages/HomePage'
 import Login from './pages/Login'
 import AuthCallback from './pages/AuthCallback'
 import AuthTest from './pages/AuthTest'
+import LogoDemo from './pages/LogoDemo'
 import { AuthProvider } from './contexts/AuthContext'
 import ErrorBoundary from './components/ErrorBoundary'
 
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/properties/:id" element={<PropertyDetail />} />
                 <Route path="/blog" element={<BlogList />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/logo-demo" element={<LogoDemo />} />
               </Routes>
             <Toaster
             position="top-right"
