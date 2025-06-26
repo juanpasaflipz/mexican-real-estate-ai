@@ -97,8 +97,8 @@ const HomePage: React.FC = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Busca por ciudad, colonia, o descripción... ej: 'Casa de 3 recámaras en Polanco'"
-                className="w-full pl-14 pr-32 py-5 text-lg rounded-full shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-500/30"
+                placeholder="Ciudad, colonia o tipo de propiedad..."
+                className="w-full pl-14 pr-32 py-5 text-lg rounded-full shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-500/30 placeholder:text-gray-400 placeholder:opacity-60"
               />
               <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400" />
               <button

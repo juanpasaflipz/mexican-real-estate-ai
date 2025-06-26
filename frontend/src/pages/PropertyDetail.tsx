@@ -12,7 +12,9 @@ import {
   CheckCircle,
   Phone,
   Mail,
-  Calendar
+  Calendar,
+  Car,
+  Building
 } from 'lucide-react';
 import PropertyGallery from '../components/PropertyGallery';
 import PropertyCard from '../components/PropertyCard';
@@ -107,7 +109,8 @@ const PropertyDetail: React.FC = () => {
   }
 
   const images = propertyService.processImages(property);
-  const pricePerSqm = propertyService.calculatePricePerSqm(property.price, property.area_sqm);
+  const area = property.area_sqm || property.size_m2 || 0;
+  const pricePerSqm = propertyService.calculatePricePerSqm(property.price, area);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -186,7 +189,7 @@ const PropertyDetail: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Recámaras</p>
-                  <p className="font-semibold text-gray-900">{property.bedrooms}</p>
+                  <p className="font-semibold text-gray-900">{property.bedrooms || 0}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -195,7 +198,7 @@ const PropertyDetail: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Baños</p>
-                  <p className="font-semibold text-gray-900">{property.bathrooms}</p>
+                  <p className="font-semibold text-gray-900">{property.bathrooms || 0}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -204,18 +207,32 @@ const PropertyDetail: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Área</p>
-                  <p className="font-semibold text-gray-900">{property.area_sqm} m²</p>
+                  <p className="font-semibold text-gray-900">
+                    {property.area_sqm || property.size_m2 || 'N/A'} m²
+                  </p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-gray-100 rounded-lg">
-                  <Home className="w-5 h-5 text-gray-600" />
+              {property.parking_spaces !== undefined && property.parking_spaces >= 0 ? (
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-gray-100 rounded-lg">
+                    <Car className="w-5 h-5 text-gray-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">Estacionamiento</p>
+                    <p className="font-semibold text-gray-900">{property.parking_spaces}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm text-gray-500">Precio/m²</p>
-                  <p className="font-semibold text-gray-900">{pricePerSqm}</p>
+              ) : (
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-gray-100 rounded-lg">
+                    <Home className="w-5 h-5 text-gray-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500">Precio/m²</p>
+                    <p className="font-semibold text-gray-900">{pricePerSqm}</p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Description */}
@@ -223,24 +240,102 @@ const PropertyDetail: React.FC = () => {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
                 Descripción
               </h2>
-              <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-                {property.description || 'No hay descripción disponible para esta propiedad.'}
-              </p>
+              {property.description ? (
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                  {property.description}
+                </p>
+              ) : (
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <p className="text-amber-800">
+                    No hay descripción detallada disponible para esta propiedad. 
+                    <button 
+                      onClick={() => setShowContactForm(true)}
+                      className="text-amber-900 font-medium underline hover:text-amber-700"
+                    >
+                      Contacta al agente
+                    </button> para obtener más información.
+                  </p>
+                </div>
+              )}
             </div>
 
-            {/* Features */}
-            {property.features && property.features.length > 0 && (
+            {/* Amenities */}
+            {(() => {
+              const amenities = propertyService.processAmenities(property);
+              return amenities.length > 0 && (
+                <div>
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                    Características y Amenidades
+                  </h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    {amenities.map((amenity, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-gray-700">{amenity}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+
+            {/* Additional Property Details */}
+            {(property.year_built || property.lot_size_m2 || 
+              (property.parking_spaces !== undefined && property.parking_spaces >= 0) ||
+              property.property_type) && (
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                  Características y Amenidades
+                  Detalles de la Propiedad
                 </h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  {property.features.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                <div className="bg-gray-50 rounded-lg p-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {property.property_type && (
+                      <div className="flex items-center gap-3">
+                        <Building className="w-5 h-5 text-gray-600" />
+                        <div>
+                          <span className="text-sm text-gray-500">Tipo de Propiedad:</span>
+                          <span className="ml-2 font-medium text-gray-900">
+                            {propertyService.getPropertyTypeLabel(property.property_type)}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                    {property.year_built && (
+                      <div className="flex items-center gap-3">
+                        <Calendar className="w-5 h-5 text-gray-600" />
+                        <div>
+                          <span className="text-sm text-gray-500">Año de Construcción:</span>
+                          <span className="ml-2 font-medium text-gray-900">{property.year_built}</span>
+                        </div>
+                      </div>
+                    )}
+                    {property.lot_size_m2 && (
+                      <div className="flex items-center gap-3">
+                        <Square className="w-5 h-5 text-gray-600" />
+                        <div>
+                          <span className="text-sm text-gray-500">Tamaño del Terreno:</span>
+                          <span className="ml-2 font-medium text-gray-900">{property.lot_size_m2} m²</span>
+                        </div>
+                      </div>
+                    )}
+                    {property.parking_spaces !== undefined && property.parking_spaces >= 0 && (
+                      <div className="flex items-center gap-3">
+                        <Car className="w-5 h-5 text-gray-600" />
+                        <div>
+                          <span className="text-sm text-gray-500">Lugares de Estacionamiento:</span>
+                          <span className="ml-2 font-medium text-gray-900">{property.parking_spaces}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  {area > 0 && (
+                    <div className="mt-4 pt-4 border-t border-gray-200">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-500">Precio por Metro Cuadrado:</span>
+                        <span className="font-semibold text-gray-900">{pricePerSqm}</span>
+                      </div>
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             )}
@@ -268,13 +363,17 @@ const PropertyDetail: React.FC = () => {
                   )}
                 </div>
                 
-                {property.latitude && property.longitude && (
+                {property.latitude && property.longitude ? (
                   <div className="mt-6">
                     <div className="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
                       <p className="text-gray-600">
                         Mapa disponible cuando se active la facturación de Google Maps
                       </p>
                     </div>
+                  </div>
+                ) : (
+                  <div className="mt-4 text-sm text-gray-500">
+                    <p>Las coordenadas exactas no están disponibles para esta propiedad.</p>
                   </div>
                 )}
               </div>
@@ -406,7 +505,7 @@ const PropertyDetail: React.FC = () => {
                 </h3>
                 <div className="space-y-2 text-sm">
                   <p className="text-gray-600">
-                    Vistas: <span className="font-medium text-gray-900">{property.view_count}</span>
+                    Vistas: <span className="font-medium text-gray-900">{property.view_count || 0}</span>
                   </p>
                   <p className="text-gray-600">
                     Publicado: <span className="font-medium text-gray-900">
@@ -416,6 +515,16 @@ const PropertyDetail: React.FC = () => {
                   <p className="text-gray-600">
                     ID de Propiedad: <span className="font-medium text-gray-900">#{property.id}</span>
                   </p>
+                  {property.detail_scraped && (
+                    <p className="text-green-600 text-xs mt-2">
+                      ✓ Información completa disponible
+                    </p>
+                  )}
+                  {!property.detail_scraped && (
+                    <p className="text-amber-600 text-xs mt-2">
+                      ⚠ Información básica disponible
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

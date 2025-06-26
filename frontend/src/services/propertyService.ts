@@ -17,12 +17,18 @@ export interface PropertyDetailResponse {
   neighborhood?: string;
   latitude?: number;
   longitude?: number;
-  images?: string[];
-  primary_image?: string;
-  features?: string[];
+  images?: any; // Can be JSONB array or empty array
+  image_url?: string;
+  amenities?: any; // JSONB array of amenities
+  features?: any; // JSONB object with features
+  parking_spaces?: number;
+  size_m2?: number;
+  lot_size_m2?: number;
+  year_built?: number;
   created_at: string;
   updated_at: string;
   view_count: number;
+  detail_scraped?: boolean;
 }
 
 export interface SimilarProperty {
@@ -97,18 +103,51 @@ class PropertyService {
   }
 
   processImages(property: PropertyDetailResponse): string[] {
-    // If images array exists and has items, return it
-    if (property.images && property.images.length > 0) {
-      return property.images;
+    const imageUrls: string[] = [];
+    
+    // Process images JSONB array
+    if (property.images) {
+      try {
+        const imagesArray = typeof property.images === 'string' 
+          ? JSON.parse(property.images) 
+          : property.images;
+          
+        if (Array.isArray(imagesArray) && imagesArray.length > 0) {
+          imagesArray.forEach((img: any) => {
+            if (typeof img === 'string') {
+              imageUrls.push(img);
+            } else if (img && img.url) {
+              imageUrls.push(img.url);
+            }
+          });
+        }
+      } catch (e) {
+        console.error('Error parsing images:', e);
+      }
     }
     
-    // If primary_image exists, return it as an array
-    if (property.primary_image) {
-      return [property.primary_image];
+    // Add image_url if no images found
+    if (imageUrls.length === 0 && property.image_url) {
+      imageUrls.push(property.image_url);
     }
     
-    // Return default image
-    return [this.getDefaultImage()];
+    // Return default image if no images found
+    return imageUrls.length > 0 ? imageUrls : [this.getDefaultImage()];
+  }
+
+  processAmenities(property: PropertyDetailResponse): string[] {
+    if (!property.amenities) return [];
+    
+    try {
+      const amenities = typeof property.amenities === 'string'
+        ? JSON.parse(property.amenities)
+        : property.amenities;
+        
+      return Array.isArray(amenities) ? amenities : [];
+    } catch (e) {
+      console.error('Error parsing amenities:', e);
+      return [];
+    }
   }
 }
 
