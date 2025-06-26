@@ -138,7 +138,20 @@ class PineconeService {
         pineconeFilter.city = { $eq: filters.city };
       }
       
-      if (filters.state) {
+      if (filters.cdmx) {
+        // Handle CDMX search - include various Mexico City delegaciones
+        pineconeFilter.$or = [
+          { city: { $in: ['Ciudad de México', 'CDMX', 'Mexico City', 'Distrito Federal'] } },
+          { city: { $in: ['Cuauhtémoc', 'Miguel Hidalgo', 'Benito Juárez', 'Álvaro Obregón', 
+                          'Coyoacán', 'Tlalpan', 'Xochimilco', 'Azcapotzalco', 'Iztapalapa',
+                          'Gustavo A. Madero', 'Venustiano Carranza', 'Iztacalco', 'Magdalena Contreras',
+                          'Tláhuac', 'Cuajimalpa', 'Milpa Alta'] } },
+          { state: { $eq: 'Ciudad de México' } },
+          { state: { $eq: 'Distrito Federal' } }
+        ];
+      }
+      
+      if (filters.state && !filters.cdmx) {
         pineconeFilter.state = { $eq: filters.state };
       }
       

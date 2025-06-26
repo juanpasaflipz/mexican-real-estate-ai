@@ -160,19 +160,40 @@ class UnifiedSearchService {
 
     // Location extraction (cities/states)
     const majorCities = [
-      'cdmx', 'ciudad de méxico', 'mexico city', 'df',
-      'guadalajara', 'monterrey', 'puebla', 'cancún', 'cancun',
-      'playa del carmen', 'tulum', 'mérida', 'merida',
-      'querétaro', 'queretaro', 'san miguel de allende'
+      { search: ['cdmx', 'ciudad de méxico', 'ciudad de mexico', 'mexico city', 'df', 'distrito federal'], key: 'cdmx' },
+      { search: ['guadalajara'], key: 'city', value: 'Guadalajara' },
+      { search: ['monterrey'], key: 'city', value: 'Monterrey' },
+      { search: ['puebla'], key: 'city', value: 'Puebla' },
+      { search: ['cancún', 'cancun'], key: 'city', value: 'Cancún' },
+      { search: ['playa del carmen'], key: 'city', value: 'Playa del Carmen' },
+      { search: ['tulum'], key: 'city', value: 'Tulum' },
+      { search: ['mérida', 'merida'], key: 'city', value: 'Mérida' },
+      { search: ['querétaro', 'queretaro'], key: 'city', value: 'Querétaro' },
+      { search: ['san miguel de allende'], key: 'city', value: 'San Miguel de Allende' }
     ];
 
-    for (const city of majorCities) {
-      if (lowerQuery.includes(city)) {
-        if (city === 'cdmx' || city === 'ciudad de méxico' || city === 'mexico city' || city === 'df') {
+    // Check for city mentions
+    for (const cityInfo of majorCities) {
+      const found = cityInfo.search.some(term => lowerQuery.includes(term));
+      if (found) {
+        if (cityInfo.key === 'cdmx') {
           filters.cdmx = true;
         } else {
-          filters.city = city.charAt(0).toUpperCase() + city.slice(1);
+          filters[cityInfo.key] = cityInfo.value;
         }
+        break;
+      }
+    }
+    
+    // Also check for specific CDMX delegaciones
+    const cdmxDelegaciones = [
+      'polanco', 'roma norte', 'condesa', 'coyoacán', 'coyoacan',
+      'miguel hidalgo', 'cuauhtémoc', 'cuauhtemoc', 'benito juárez', 'benito juarez'
+    ];
+    
+    for (const delegacion of cdmxDelegaciones) {
+      if (lowerQuery.includes(delegacion)) {
+        filters.cdmx = true;
         break;
       }
     }
