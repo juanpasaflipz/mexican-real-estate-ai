@@ -4,7 +4,9 @@ import { Search, MapPin, TrendingUp, Home, Building, Briefcase } from 'lucide-re
 import PropertyCard from '../components/properties/PropertyCard';
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://mexican-real-estate-ai.onrender.com/api';
+console.log('HomePage API_URL:', API_URL);
+console.log('VITE_API_URL from env:', import.meta.env.VITE_API_URL);
 
 interface Property {
   id: number;

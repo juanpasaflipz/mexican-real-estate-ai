@@ -4,7 +4,7 @@ import PropertyCard from '../components/properties/PropertyCard';
 import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://mexican-real-estate-ai.onrender.com/api';
 
 interface Property {
   id: number;
