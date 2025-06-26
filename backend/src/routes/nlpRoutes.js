@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const nlpService = require('../services/nlpService')
+const nlpServiceV2 = require('../services/nlpServiceV2')
 
 // Execute natural language query
 router.post('/query', async (req, res, next) => {
@@ -13,7 +14,14 @@ router.post('/query', async (req, res, next) => {
       })
     }
 
-    const result = await nlpService.processQuery(query)
+    // Use vector search by default, with option to fallback to SQL
+    const useVectorSearch = req.body.useVectorSearch !== false; // Default true
+    const service = useVectorSearch ? nlpServiceV2 : nlpService;
+    
+    const result = await service.processQuery(query, {
+      limit: req.body.limit || 20,
+      startTime: Date.now()
+    })
     
     // Transform response for frontend compatibility
     // If the route is accessed via /chat-ai, use a different format

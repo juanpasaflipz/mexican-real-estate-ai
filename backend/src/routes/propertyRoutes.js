@@ -314,10 +314,10 @@ router.get('/featured/listings', async (req, res) => {
   }
 });
 
-// Search properties using AI (leverages existing NLP service)
+// Search properties using AI (leverages vector search)
 router.post('/search', async (req, res) => {
   try {
-    const { query } = req.body;
+    const { query, useVectorSearch = true, limit = 20 } = req.body;
 
     if (!query) {
       return res.status(400).json({
@@ -326,13 +326,22 @@ router.post('/search', async (req, res) => {
       });
     }
 
-    // Forward to the AI-powered search endpoint
-    const nlpService = require('../services/nlpService');
-    const result = await nlpService.processNaturalLanguageQuery(query);
+    // Use the new unified search service
+    const unifiedSearchService = require('../services/unifiedSearchService');
+    const result = await unifiedSearchService.naturalLanguageSearch(query, {
+      limit,
+      includeAnalysis: true
+    });
 
     res.json({
       success: true,
-      data: result
+      data: result.properties,
+      metadata: {
+        total: result.total,
+        query: result.query,
+        filters: result.filters,
+        analysis: result.analysis
+      }
     });
 
   } catch (error) {
