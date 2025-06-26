@@ -60,9 +60,11 @@ class LandingCacheService {
   }
 
   async getLatestListings() {
-    const cdmxAlcaldias = [
+    // Mexico City might be stored as delegaciones or as 'Ciudad de México'
+    const cdmxCities = [
       'Cuauhtémoc', 'Miguel Hidalgo', 'Benito Juárez', 'Álvaro Obregón',
-      'Coyoacán', 'Tlalpan', 'Xochimilco', 'Azcapotzalco'
+      'Coyoacán', 'Tlalpan', 'Xochimilco', 'Azcapotzalco',
+      'Ciudad de México', 'Distrito Federal', 'CDMX'
     ];
     
     const majorMarkets = [
@@ -111,7 +113,7 @@ class LandingCacheService {
     `;
 
     const [cdmxResult, otherResult] = await Promise.all([
-      pool.query(cdmxQuery, [cdmxAlcaldias]),
+      pool.query(cdmxQuery, [cdmxCities]),
       pool.query(otherMarketsQuery, [majorMarkets])
     ]);
 
@@ -119,9 +121,11 @@ class LandingCacheService {
   }
 
   async getByListingType() {
-    const cdmxAlcaldias = [
+    // Mexico City might be stored as delegaciones or as 'Ciudad de México'
+    const cdmxCities = [
       'Cuauhtémoc', 'Miguel Hidalgo', 'Benito Juárez', 'Álvaro Obregón',
-      'Coyoacán', 'Tlalpan', 'Xochimilco', 'Azcapotzalco'
+      'Coyoacán', 'Tlalpan', 'Xochimilco', 'Azcapotzalco',
+      'Ciudad de México', 'Distrito Federal', 'CDMX'
     ];
 
     const forSaleQuery = `
@@ -168,8 +172,8 @@ class LandingCacheService {
     `;
 
     const [forSaleResult, forRentResult] = await Promise.all([
-      pool.query(forSaleQuery, [cdmxAlcaldias]),
-      pool.query(forRentQuery, [cdmxAlcaldias])
+      pool.query(forSaleQuery, [cdmxCities]),
+      pool.query(forRentQuery, [cdmxCities])
     ]);
 
     return {
@@ -179,9 +183,10 @@ class LandingCacheService {
   }
 
   async getFeaturedCDMX() {
-    const cdmxAlcaldias = [
+    const cdmxCities = [
       'Cuauhtémoc', 'Miguel Hidalgo', 'Benito Juárez', 'Álvaro Obregón',
-      'Coyoacán', 'Tlalpan', 'Polanco', 'Roma Norte', 'Condesa'
+      'Coyoacán', 'Tlalpan', 'Polanco', 'Roma Norte', 'Condesa',
+      'Ciudad de México', 'Distrito Federal', 'CDMX'
     ];
 
     const query = `
@@ -214,7 +219,7 @@ class LandingCacheService {
       LIMIT 12
     `;
 
-    const result = await pool.query(query, [cdmxAlcaldias]);
+    const result = await pool.query(query, [cdmxCities]);
     return result.rows;
   }
 
