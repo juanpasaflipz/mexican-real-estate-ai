@@ -1,5 +1,4 @@
 import React from 'react';
-import MuchaCasaLogo from '../components/MuchaCasaLogo';
 import MuchaCasaLogoSimple from '../components/MuchaCasaLogoSimple';
 import MuchaCasaLogoModern from '../components/MuchaCasaLogoModern';
 
@@ -8,22 +7,6 @@ const LogoDemo: React.FC = () => {
     <div className="min-h-screen bg-gray-50 p-8">
       <h1 className="text-3xl font-bold text-center mb-12">Mucha Casa Logo Options</h1>
       
-      {/* Original Logos */}
-      <div className="mb-12">
-        <h2 className="text-xl font-semibold mb-6">Original (Current)</h2>
-        <div className="bg-white p-8 rounded-lg shadow-sm">
-          <div className="flex items-center justify-center space-x-8">
-            <div className="text-center">
-              <MuchaCasaLogo className="w-24 h-24 mx-auto mb-2" />
-              <p className="text-sm text-gray-600">Icon Only</p>
-            </div>
-            <div className="text-center">
-              <MuchaCasaLogo className="w-16 h-16" showText={true} />
-              <p className="text-sm text-gray-600 mt-2">With Text</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Simple Versions */}
       <div className="mb-12">
