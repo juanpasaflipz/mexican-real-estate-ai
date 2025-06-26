@@ -13,7 +13,6 @@ const Navigation: React.FC = () => {
     { path: '/', label: 'Inicio', icon: Home },
     { path: '/properties', label: 'Propiedades', icon: Building2 },
     { path: '/map', label: 'Mapa', icon: Map },
-    { path: '/ai-search', label: 'Búsqueda IA', icon: Search },
     { path: '/dashboard', label: 'Dashboard', icon: BarChart3 },
     { path: '/blog', label: 'Blog', icon: BookOpen },
   ];

@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Toaster } from 'react-hot-toast'
-import ChatInterface from './components/ChatInterface/ChatInterface'
 import Dashboard from './components/Dashboard/Dashboard'
 // @ts-ignore
 import { BlogList, BlogPost } from './pages/Blog.jsx'
@@ -39,7 +38,6 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/auth/callback" element={<AuthCallback />} />
                 <Route path="/auth/test" element={<AuthTest />} />
-                <Route path="/ai-search" element={<ChatInterface />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/properties" element={<Properties />} />
                 <Route path="/map" element={<MapSearch />} />
