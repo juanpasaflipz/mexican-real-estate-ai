@@ -138,8 +138,8 @@ const Properties: React.FC = () => {
         query: searchText
       });
 
-      if (response.data.success && response.data.data?.results) {
-        const results = response.data.data.results || [];
+      if (response.data.success && response.data.data) {
+        const results = response.data.data || [];
         setProperties(Array.isArray(results) ? results : []);
         setPagination({
           currentPage: 1,

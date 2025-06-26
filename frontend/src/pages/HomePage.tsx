@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, MapPin, TrendingUp, Home, Building, Briefcase } from 'lucide-react';
-import PropertyCard from '../components/properties/PropertyCard';
-import axios from 'axios';
+import { Search, MapPin, Home, Building, Briefcase } from 'lucide-react';
+import { LatestListings } from '../components/LatestListings/LatestListings';
+import { MarketStats } from '../components/MarketStats/MarketStats';
 
 const API_URL = import.meta.env.VITE_API_URL || 'https://mexican-real-estate-ai.onrender.com/api';
 console.log('HomePage API_URL:', API_URL);
@@ -25,27 +25,6 @@ interface Property {
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
-  const [featuredProperties, setFeaturedProperties] = useState<Property[]>([]);
-  const [loadingFeatured, setLoadingFeatured] = useState(true);
-
-  // Fetch featured properties on mount
-  useEffect(() => {
-    fetchFeaturedProperties();
-  }, []);
-
-  const fetchFeaturedProperties = async () => {
-    try {
-      const response = await axios.get(`${API_URL}/properties/featured/listings?limit=8`);
-      if (response.data.success) {
-        const data = response.data.data || [];
-        setFeaturedProperties(Array.isArray(data) ? data : []);
-      }
-    } catch (error) {
-      console.error('Error fetching featured properties:', error);
-    } finally {
-      setLoadingFeatured(false);
-    }
-  };
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,11 +40,6 @@ const HomePage: React.FC = () => {
     { label: 'Casas en Monterrey', query: 'Casa en Monterrey' },
   ];
 
-  const stats = [
-    { label: 'Propiedades Activas', value: '10,539', icon: Home },
-    { label: 'Ciudades', value: '150+', icon: MapPin },
-    { label: 'Nuevas Este Mes', value: '1,200+', icon: TrendingUp },
-  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -129,73 +103,12 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 bg-gray-50 border-y border-gray-200">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map((stat) => {
-              const Icon = stat.icon;
-              return (
-                <div key={stat.label} className="text-center">
-                  <Icon className="w-10 h-10 text-blue-600 mx-auto mb-3" />
-                  <div className="text-3xl font-bold text-gray-900">{stat.value}</div>
-                  <div className="text-gray-600">{stat.label}</div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* Dynamic Market Stats */}
+      <MarketStats />
 
-      {/* Featured Properties */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900">Propiedades Destacadas</h2>
-              <p className="text-gray-600 mt-2">Descubre las mejores oportunidades del mercado</p>
-            </div>
-            <Link
-              to="/properties"
-              className="hidden md:inline-flex items-center px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
-            >
-              Ver todas las propiedades
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
+      {/* Latest Listings Section - New Dynamic Component */}
+      <LatestListings />
 
-          {loadingFeatured ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[...Array(8)].map((_, i) => (
-                <div key={i} className="animate-pulse">
-                  <div className="bg-gray-200 h-56 rounded-t-xl"></div>
-                  <div className="bg-white p-6 rounded-b-xl border border-gray-200">
-                    <div className="h-6 bg-gray-200 rounded mb-2"></div>
-                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {Array.isArray(featuredProperties) && featuredProperties.map((property) => (
-                <PropertyCard key={property.id} property={property} />
-              ))}
-            </div>
-          )}
-
-          <div className="text-center mt-8 md:hidden">
-            <Link
-              to="/properties"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
-            >
-              Ver todas las propiedades
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-16 bg-blue-600">

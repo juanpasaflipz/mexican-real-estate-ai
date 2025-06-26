@@ -112,6 +112,8 @@ app.use('/api/queries', queryRoutes)
 app.use('/api/export', exportRoutes)
 app.use('/api/blog', require('./routes/blogRoutes'))
 app.use('/api/properties', require('./routes/propertyRoutes'))
+app.use('/api/vector-search', require('./routes/vectorSearchRoutes'))
+app.use('/api/landing', require('./routes/landingRoutes'))
 
 // Health check
 app.get('/health', (req, res) => {
