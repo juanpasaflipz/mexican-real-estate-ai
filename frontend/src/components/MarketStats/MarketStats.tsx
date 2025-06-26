@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { TrendingUp, Home, MapPin, Calendar } from 'lucide-react';
 
 interface MarketStatsData {

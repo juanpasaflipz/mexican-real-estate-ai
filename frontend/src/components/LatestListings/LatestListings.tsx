@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Home, MapPin, Bed, Bath, Maximize } from 'lucide-react';
-import { api } from '../../services/api';
 
 interface Property {
   id: number;
@@ -38,7 +37,8 @@ export function LatestListings() {
 
   const fetchLatestListings = async () => {
     try {
-      const response = await fetch(`${api.baseURL}/landing/by-listing-type`);
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+      const response = await fetch(`${apiUrl}/landing/by-listing-type`);
       const data = await response.json();
       
       if (data.success) {

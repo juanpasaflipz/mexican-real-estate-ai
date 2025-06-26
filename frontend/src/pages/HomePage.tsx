@@ -8,20 +8,6 @@ const API_URL = import.meta.env.VITE_API_URL || 'https://mexican-real-estate-ai.
 console.log('HomePage API_URL:', API_URL);
 console.log('VITE_API_URL from env:', import.meta.env.VITE_API_URL);
 
-interface Property {
-  id: number;
-  title: string;
-  price: string;
-  bedrooms: number;
-  bathrooms: number;
-  area_sqm: number | null;
-  property_type: string;
-  city: string;
-  state: string;
-  neighborhood: string | null;
-  primary_image: string;
-}
-
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
