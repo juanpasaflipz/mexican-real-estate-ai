@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { AlertCircle } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { checkAuthConfig, enableAuthDebug } from '../utils/debug';
-import MuchaCasaLogo from '../components/MuchaCasaLogo';
+import MuchaCasaLogoSimple from '../components/MuchaCasaLogoSimple';
 
 const Login: React.FC = () => {
   const { login } = useAuth();
@@ -22,8 +22,9 @@ const Login: React.FC = () => {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center justify-center">
-            <MuchaCasaLogo 
+            <MuchaCasaLogoSimple 
               className="w-12 h-12" 
+              variant="minimal"
               showText={true} 
               textClassName="ml-3 text-2xl font-bold text-gray-900"
             />

@@ -1,13 +1,21 @@
 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- House base -->
-  <path d="M50 15 L80 40 L80 75 L20 75 L20 40 Z" fill="#2563EB"/>
-  <!-- Roof -->
-  <path d="M50 5 L85 40 L80 40 L50 15 L20 40 L15 40 Z" fill="#DC2626"/>
-  <!-- Door -->
-  <rect x="42" y="50" width="16" height="25" fill="#7C3AED"/>
-  <!-- Windows -->
-  <rect x="25" y="45" width="12" height="12" fill="#FDE047"/>
-  <rect x="63" y="45" width="12" height="12" fill="#FDE047"/>
-  <!-- Foundation -->
-  <rect x="18" y="75" width="64" height="5" fill="#6B7280"/>
+  <!-- Simple house shape -->
+  <path
+    d="M15 50 L50 20 L85 50 L85 80 L15 80 Z"
+    stroke="#2563EB"
+    strokeWidth="6"
+    fill="none"
+  />
+  <!-- MC text inside -->
+  <text
+    x="50"
+    y="60"
+    text-anchor="middle"
+    fill="#2563EB"
+    font-size="28"
+    font-weight="bold"
+    font-family="system-ui, -apple-system, sans-serif"
+  >
+    MC
+  </text>
 </svg>
