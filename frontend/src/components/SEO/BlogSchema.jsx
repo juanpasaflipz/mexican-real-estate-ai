@@ -12,22 +12,22 @@ const BlogSchema = ({ post }) => {
     "dateModified": post.updated_at || post.published_at,
     "author": {
       "@type": "Organization",
-      "name": "Mucha Casa",
-      "url": "https://mucha.casa"
+      "name": "Haus Broker",
+      "url": "https://haus.broker"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Mucha Casa",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://mucha.casa/logo.png"
+        "url": "https://haus.broker/logo.png"
       }
     },
     "description": post.summary_es,
     "inLanguage": "es-MX",
     "keywords": post.tags ? post.tags.join(', ') : '',
     "articleSection": post.category,
-    "url": `https://mucha.casa/blog/${post.slug}`
+    "url": `https://haus.broker/blog/${post.slug}`
   }
 
   // Real Estate specific schema for property-related posts
@@ -51,7 +51,7 @@ const BlogSchema = ({ post }) => {
       <meta property="og:title" content={post.title_es} />
       <meta property="og:description" content={post.summary_es} />
       <meta property="og:image" content={post.featured_image_url} />
-      <meta property="og:url" content={`https://mucha.casa/blog/${post.slug}`} />
+      <meta property="og:url" content={`https://haus.broker/blog/${post.slug}`} />
       <meta property="og:type" content="article" />
       <meta name="twitter:card" content="summary_large_image" />
       <script type="application/ld+json">

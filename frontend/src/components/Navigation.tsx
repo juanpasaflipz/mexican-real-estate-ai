@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Search, BarChart3, BookOpen, Building2, LogOut, Settings, Heart, Map } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
-import MuchaCasaLogoSimple from './MuchaCasaLogoSimple';
+import HausBrokerLogo from './HausBrokerLogo';
 
 const Navigation: React.FC = () => {
   const location = useLocation();
@@ -24,7 +24,7 @@ const Navigation: React.FC = () => {
           <div className="flex">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <MuchaCasaLogoSimple className="w-8 h-8" variant="minimal" showText={true} />
+              <HausBrokerLogo size="sm" variant="default" showText={true} />
             </Link>
 
             {/* Navigation Links */}
