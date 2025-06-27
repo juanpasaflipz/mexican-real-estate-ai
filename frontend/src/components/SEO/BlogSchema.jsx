@@ -17,7 +17,7 @@ const BlogSchema = ({ post }) => {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Mucha Casa",
+      "name": "Haus Broker",
       "logo": {
         "@type": "ImageObject",
         "url": "https://haus.broker/logo.png"
@@ -34,8 +34,8 @@ const BlogSchema = ({ post }) => {
   const realEstateSchema = {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    "name": "Mucha Casa",
-    "url": "https://mucha.casa",
+    "name": "Haus Broker",
+    "url": "https://haus.broker",
     "areaServed": {
       "@type": "Country",
       "name": "Mexico"
