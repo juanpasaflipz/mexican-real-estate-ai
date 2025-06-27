@@ -105,13 +105,22 @@ const Dashboard: React.FC = () => {
               )}
               
               {user?.role === 'admin' && (
-                <a
-                  href="/admin/settings"
-                  className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors flex items-center gap-2"
-                >
-                  <Settings className="w-4 h-4" />
-                  Configuración
-                </a>
+                <>
+                  <a
+                    href="/admin/broker-applications"
+                    className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors flex items-center gap-2"
+                  >
+                    <Users className="w-4 h-4" />
+                    Solicitudes de Agentes
+                  </a>
+                  <a
+                    href="/admin/settings"
+                    className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors flex items-center gap-2"
+                  >
+                    <Settings className="w-4 h-4" />
+                    Configuración
+                  </a>
+                </>
               )}
             </div>
           </div>
@@ -129,11 +138,26 @@ const Dashboard: React.FC = () => {
 // User Dashboard Component
 const UserDashboard: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-      <SavedSearchesWidget />
-      <FavoritePropertiesWidget />
-      <RecentlyViewedWidget />
-      <MarketTrendsWidget />
+    <div className="space-y-6">
+      {/* Broker application banner */}
+      <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-6 text-white">
+        <h2 className="text-xl font-bold mb-2">¿Eres agente inmobiliario?</h2>
+        <p className="mb-4">Únete a nuestra red de profesionales y accede a herramientas exclusivas para hacer crecer tu negocio.</p>
+        <a 
+          href="/broker/apply" 
+          className="inline-block bg-white text-blue-600 px-6 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+        >
+          Solicitar acceso como agente
+        </a>
+      </div>
+      
+      {/* User widgets */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+        <SavedSearchesWidget />
+        <FavoritePropertiesWidget />
+        <RecentlyViewedWidget />
+        <MarketTrendsWidget />
+      </div>
     </div>
   );
 };

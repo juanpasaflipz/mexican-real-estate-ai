@@ -105,6 +105,7 @@ app.use('/api', limiter)
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'))
+app.use('/api/user', require('./routes/userRoutes'))
 app.use('/api/nlp', nlpRoutes)
 app.use('/api/chat-ai', nlpRoutes)  // Alias for compatibility with old frontend
 app.use('/api/database', databaseRoutes)

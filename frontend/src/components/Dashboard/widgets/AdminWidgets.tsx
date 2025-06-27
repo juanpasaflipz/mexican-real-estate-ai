@@ -109,13 +109,25 @@ export const UserManagementWidget: React.FC = () => {
 
 // Property moderation queue
 export const ModerationQueueWidget: React.FC = () => {
-  const { data, isLoading } = useQuery({
+  const { data: moderationData, isLoading: modLoading } = useQuery({
     queryKey: ['moderationQueue'],
     queryFn: async () => {
       const response = await api.get('/admin/moderation/queue');
       return response.data.data;
     }
   });
+
+  const { data: brokerApps, isLoading: brokerLoading } = useQuery({
+    queryKey: ['pendingBrokerApplications'],
+    queryFn: async () => {
+      const response = await api.get('/user/admin/broker-applications', {
+        params: { status: 'pending' }
+      });
+      return response.data.data;
+    }
+  });
+
+  const totalPending = (moderationData?.pending || 0) + (brokerApps?.pagination?.total || 0);
 
   return (
     <div className="bg-white rounded-lg shadow p-6">
@@ -125,11 +137,11 @@ export const ModerationQueueWidget: React.FC = () => {
           Cola de Moderación
         </h3>
         <span className="text-sm bg-orange-100 text-orange-800 px-2 py-1 rounded-full">
-          {data?.pending || 0} pendientes
+          {totalPending} pendientes
         </span>
       </div>
       
-      {isLoading ? (
+      {modLoading || brokerLoading ? (
         <div className="animate-pulse space-y-2">
           {[1, 2].map(i => (
             <div key={i} className="h-16 bg-gray-200 rounded"></div>
@@ -137,32 +149,64 @@ export const ModerationQueueWidget: React.FC = () => {
         </div>
       ) : (
         <div className="space-y-3">
-          {data?.items?.length === 0 ? (
+          {/* Broker Applications */}
+          {brokerApps?.applications?.length > 0 && (
+            <div className="space-y-3">
+              <h4 className="text-sm font-medium text-gray-700">Solicitudes de Agentes</h4>
+              {brokerApps.applications.slice(0, 2).map((app: any) => (
+                <div key={app.id} className="p-3 bg-blue-50 rounded-lg">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <p className="text-sm font-medium">{app.user_name}</p>
+                      <p className="text-xs text-gray-600">Licencia: {app.license_number}</p>
+                    </div>
+                    <span className="text-xs text-gray-500">
+                      {new Date(app.submitted_at).toLocaleDateString()}
+                    </span>
+                  </div>
+                </div>
+              ))}
+              <a 
+                href="/admin/broker-applications" 
+                className="text-xs text-blue-600 hover:underline block text-center"
+              >
+                Ver todas las solicitudes →
+              </a>
+            </div>
+          )}
+
+          {/* Property Moderation */}
+          {moderationData?.items?.length > 0 && (
+            <>
+              <h4 className="text-sm font-medium text-gray-700 mt-4">Propiedades</h4>
+              {moderationData.items.map((item: any) => (
+                <div key={item.id} className="p-3 bg-orange-50 rounded-lg">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <p className="text-sm font-medium">{item.title}</p>
+                      <p className="text-xs text-gray-600">Por: {item.brokerName}</p>
+                    </div>
+                    <span className="text-xs text-gray-500">
+                      {new Date(item.submittedAt).toLocaleDateString()}
+                    </span>
+                  </div>
+                  <div className="mt-2 flex gap-2">
+                    <button className="text-xs bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
+                      Aprobar
+                    </button>
+                    <button className="text-xs bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">
+                      Rechazar
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+
+          {totalPending === 0 && (
             <p className="text-sm text-gray-500 text-center py-4">
               No hay elementos pendientes
             </p>
-          ) : (
-            data?.items?.map((item: any) => (
-              <div key={item.id} className="p-3 bg-orange-50 rounded-lg">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <p className="text-sm font-medium">{item.title}</p>
-                    <p className="text-xs text-gray-600">Por: {item.brokerName}</p>
-                  </div>
-                  <span className="text-xs text-gray-500">
-                    {new Date(item.submittedAt).toLocaleDateString()}
-                  </span>
-                </div>
-                <div className="mt-2 flex gap-2">
-                  <button className="text-xs bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
-                    Aprobar
-                  </button>
-                  <button className="text-xs bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">
-                    Rechazar
-                  </button>
-                </div>
-              </div>
-            ))
           )}
         </div>
       )}
