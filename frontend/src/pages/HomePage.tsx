@@ -106,7 +106,7 @@ const HomePage: React.FC = () => {
             Usa nuestra búsqueda avanzada con IA para encontrar exactamente lo que necesitas
           </p>
           <Link
-            to="/ai-search"
+            to="/properties"
             className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition-colors font-medium"
           >
             <Search className="w-5 h-5 mr-2" />
