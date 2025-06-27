@@ -15,6 +15,7 @@ import Login from './pages/Login'
 import AuthCallback from './pages/AuthCallback'
 import AuthTest from './pages/AuthTest'
 import LogoDemo from './pages/LogoDemo'
+import NearbyMapTest from './pages/NearbyMapTest'
 import { AuthProvider } from './contexts/AuthContext'
 import ErrorBoundary from './components/ErrorBoundary'
 
@@ -49,6 +50,7 @@ function App() {
                 <Route path="/blog" element={<BlogList />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/logo-demo" element={<LogoDemo />} />
+                <Route path="/nearby-map-test" element={<NearbyMapTest />} />
               </Routes>
             <Toaster
             position="top-right"
