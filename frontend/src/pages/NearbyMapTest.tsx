@@ -1,9 +1,66 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { NearbyMap } from '../components/NearbyMap/NearbyMap'
+import axios from 'axios'
+import { API_BASE_URL } from '../config/api'
+
+interface PropertyOption {
+  id: string
+  title: string
+  city: string
+  lat?: number
+  lng?: number
+}
 
 const NearbyMapTest: React.FC = () => {
-  const [propertyId, setPropertyId] = useState('test-property-1')
+  const [propertyId, setPropertyId] = useState('')
   const [radius, setRadius] = useState(2)
+  const [properties, setProperties] = useState<PropertyOption[]>([])
+  const [loading, setLoading] = useState(true)
+
+  // Fetch properties with coordinates
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/properties`, {
+          params: { 
+            limit: 100,
+            // Only get properties with coordinates (once implemented)
+            // hasCoordinates: true 
+          }
+        })
+        
+        // For now, use the first few properties
+        const propertiesData = response.data.slice(0, 20).map((p: any) => ({
+          id: p.id,
+          title: p.title || p.address || 'Property ' + p.id,
+          city: p.city || 'Unknown',
+          lat: p.lat,
+          lng: p.lng
+        }))
+        
+        setProperties(propertiesData)
+        if (propertiesData.length > 0) {
+          setPropertyId(propertiesData[0].id)
+        }
+      } catch (error) {
+        console.error('Error fetching properties:', error)
+        // Use sample IDs if API fails
+        const sampleProperties = [
+          { id: '2', title: 'Casa en Jardines Del Sur', city: 'CDMX' },
+          { id: '3', title: 'Casa Porfiriana en Roma Norte', city: 'Roma Norte' },
+          { id: '4', title: 'Casa con 3 Departamentos', city: 'Nezahualcoyotl' },
+          { id: '5', title: 'Casa con Uso de Suelo', city: 'Iztapalapa' },
+          { id: '6', title: 'Casa en Corregidora', city: 'Querétaro' }
+        ]
+        setProperties(sampleProperties)
+        setPropertyId(sampleProperties[0].id)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchProperties()
+  }, [])
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4">
@@ -21,15 +78,32 @@ const NearbyMapTest: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Property ID
+                Select Property
               </label>
-              <input
-                type="text"
-                value={propertyId}
-                onChange={(e) => setPropertyId(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                placeholder="Enter property ID"
-              />
+              {loading ? (
+                <div className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 dark:bg-gray-700">
+                  Loading properties...
+                </div>
+              ) : (
+                <select
+                  value={propertyId}
+                  onChange={(e) => setPropertyId(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                >
+                  <option value="">Select a property</option>
+                  {properties.map(property => (
+                    <option key={property.id} value={property.id}>
+                      {property.title} - {property.city}
+                      {property.lat && property.lng ? ' ✓' : ' (No coordinates)'}
+                    </option>
+                  ))}
+                </select>
+              )}
+              {propertyId && (
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Property ID: {propertyId}
+                </p>
+              )}
             </div>
 
             <div>
@@ -70,8 +144,14 @@ const NearbyMapTest: React.FC = () => {
                 </a>
               </p>
             </div>
-          ) : (
+          ) : propertyId ? (
             <NearbyMap propertyId={propertyId} radiusKm={radius} />
+          ) : (
+            <div className="bg-gray-100 dark:bg-gray-700 rounded-lg p-8 text-center">
+              <p className="text-gray-600 dark:text-gray-300">
+                Please select a property from the dropdown above to view nearby properties on the map.
+              </p>
+            </div>
           )}
         </div>
 

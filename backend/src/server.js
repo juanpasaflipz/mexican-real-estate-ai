@@ -13,6 +13,7 @@ const nlpRoutes = require('./routes/nlpRoutes')
 const databaseRoutes = require('./routes/databaseRoutes')
 const queryRoutes = require('./routes/queryRoutes')
 const exportRoutes = require('./routes/exportRoutes')
+const nearbyRoutes = require('./routes/nearbyRoutes')
 const { errorHandler } = require('./middleware/errorHandler')
 const { setupSocketHandlers } = require('./services/socketService')
 
@@ -115,6 +116,7 @@ app.use('/api/blog', require('./routes/blogRoutes'))
 app.use('/api/properties', require('./routes/propertyRoutes'))
 app.use('/api/vector-search', require('./routes/vectorSearchRoutes'))
 app.use('/api/landing', require('./routes/landingRoutes'))
+app.use('/api', nearbyRoutes)  // Add nearby routes
 
 // Health check
 app.get('/health', (req, res) => {

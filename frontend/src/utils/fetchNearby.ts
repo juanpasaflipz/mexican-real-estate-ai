@@ -30,52 +30,62 @@ export async function fetchNearbyProperties(
   radiusKm: number
 ): Promise<NearbyResponse> {
   try {
-    // For now, we'll use mock data since the backend endpoint doesn't exist yet
-    // In production, this would call: ${API_BASE_URL}/properties/nearby/${propertyId}?radius=${radiusKm}
-    
-    // Mock data for testing
-    const mockTarget: Property = {
-      id: propertyId,
-      title: 'Beautiful House in Polanco',
-      lat: 19.4326,
-      lng: -99.1332,
-      price: 15000000,
-      price_type: 'sale',
-      area_m2: 350,
-      bedrooms: 4
-    }
-
-    // Generate mock nearby properties
-    const mockNearby: Property[] = Array.from({ length: 20 }, (_, i) => ({
-      id: `property-${i + 1}`,
-      title: `Property ${i + 1}`,
-      lat: mockTarget.lat + (Math.random() - 0.5) * 0.02,
-      lng: mockTarget.lng + (Math.random() - 0.5) * 0.02,
-      price: Math.floor(Math.random() * 10000000) + 5000000,
-      price_type: Math.random() > 0.5 ? 'sale' : 'rent' as 'sale' | 'rent',
-      area_m2: Math.floor(Math.random() * 300) + 100,
-      bedrooms: Math.floor(Math.random() * 4) + 1,
-      dist_km: Math.random() * radiusKm
-    }))
-
-    return {
-      target: mockTarget,
-      nearby: mockNearby
-    }
-
-    // Real implementation would be:
-    /*
-    const response = await axios.get<NearbyResponse>(
-      `${API_BASE_URL}/properties/nearby/${propertyId}`,
+    // Call the real API endpoint
+    const response = await axios.get(
+      `${API_BASE_URL}/properties/${propertyId}/nearby`,
       {
         params: { radius: radiusKm }
       }
     )
-    return response.data
-    */
+    
+    // The API returns the data in the correct format
+    return {
+      target: response.data.target,
+      nearby: response.data.nearby
+    }
   } catch (error) {
     console.error('Error fetching nearby properties:', error)
+    
+    // If the API fails, return mock data for testing
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('API failed, returning mock data for development')
+      return getMockData(propertyId, radiusKm)
+    }
+    
     throw new Error('Failed to fetch nearby properties')
+  }
+}
+
+/**
+ * Get mock data for development/testing
+ */
+function getMockData(propertyId: string, radiusKm: number): NearbyResponse {
+  const mockTarget: Property = {
+    id: propertyId,
+    title: 'Beautiful House in Polanco',
+    lat: 19.4326,
+    lng: -99.1332,
+    price: 15000000,
+    price_type: 'sale',
+    area_m2: 350,
+    bedrooms: 4
+  }
+
+  const mockNearby: Property[] = Array.from({ length: 20 }, (_, i) => ({
+    id: `property-${i + 1}`,
+    title: `Property ${i + 1}`,
+    lat: mockTarget.lat + (Math.random() - 0.5) * 0.02,
+    lng: mockTarget.lng + (Math.random() - 0.5) * 0.02,
+    price: Math.floor(Math.random() * 10000000) + 5000000,
+    price_type: Math.random() > 0.5 ? 'sale' : 'rent' as 'sale' | 'rent',
+    area_m2: Math.floor(Math.random() * 300) + 100,
+    bedrooms: Math.floor(Math.random() * 4) + 1,
+    dist_km: Math.random() * radiusKm
+  }))
+
+  return {
+    target: mockTarget,
+    nearby: mockNearby
   }
 }
 
