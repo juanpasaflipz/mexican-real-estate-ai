@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { NearbyMap } from '../components/NearbyMap/NearbyMap'
 import axios from 'axios'
-import { API_BASE_URL } from '../config/api'
+import { API_URL } from '../config/api'
 
 interface PropertyOption {
   id: string
@@ -21,7 +21,7 @@ const NearbyMapTest: React.FC = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/properties`, {
+        const response = await axios.get(`${API_URL}/properties`, {
           params: { 
             limit: 100,
             // Only get properties with coordinates (once implemented)

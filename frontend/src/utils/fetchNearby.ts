@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { API_BASE_URL } from '../config/api'
+import { API_URL } from '../config/api'
 
 interface Property {
   id: string
@@ -32,7 +32,7 @@ export async function fetchNearbyProperties(
   try {
     // Call the real API endpoint
     const response = await axios.get(
-      `${API_BASE_URL}/properties/${propertyId}/nearby`,
+      `${API_URL}/properties/${propertyId}/nearby`,
       {
         params: { radius: radiusKm }
       }
