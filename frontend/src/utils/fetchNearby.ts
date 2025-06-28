@@ -43,11 +43,20 @@ export async function fetchNearbyProperties(
       target: response.data.target,
       nearby: response.data.nearby
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching nearby properties:', error)
     
-    // If the API fails, return mock data for testing
-    if (process.env.NODE_ENV === 'development') {
+    // Check if it's a known error
+    if (error.response?.data?.error) {
+      const errorMsg = error.response.data.error
+      if (errorMsg.includes('coordinates')) {
+        console.warn('Property has no coordinates, using mock data')
+        return getMockData(propertyId, radiusKm)
+      }
+    }
+    
+    // If the API fails, return mock data for testing in development
+    if (process.env.NODE_ENV === 'development' || import.meta.env.MODE === 'development') {
       console.warn('API failed, returning mock data for development')
       return getMockData(propertyId, radiusKm)
     }

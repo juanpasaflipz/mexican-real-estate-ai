@@ -29,8 +29,9 @@ const NearbyMapTest: React.FC = () => {
           }
         })
         
-        // For now, use the first few properties
-        const propertiesData = response.data.slice(0, 20).map((p: any) => ({
+        // Handle paginated response - response.data contains { properties: [], total, page, totalPages }
+        const properties = response.data.properties || response.data || []
+        const propertiesData = properties.slice(0, 20).map((p: any) => ({
           id: p.id,
           title: p.title || p.address || 'Property ' + p.id,
           city: p.city || 'Unknown',

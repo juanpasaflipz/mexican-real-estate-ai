@@ -31,6 +31,7 @@ router.get('/properties/:id/nearby', async (req, res) => {
       WHERE id = $1
     `
     
+    console.log('Fetching target property:', id)
     const targetResult = await pool.query(targetQuery, [id])
     
     if (targetResult.rows.length === 0) {
@@ -38,6 +39,15 @@ router.get('/properties/:id/nearby', async (req, res) => {
     }
     
     const targetProperty = targetResult.rows[0]
+    console.log('Target property found:', targetProperty.title, 'Lat:', targetProperty.lat, 'Lng:', targetProperty.lng)
+    
+    // Check if target property has coordinates
+    if (!targetProperty.lat || !targetProperty.lng) {
+      return res.status(400).json({ 
+        error: 'Target property does not have coordinates',
+        message: 'This property needs to be geocoded before nearby properties can be found'
+      })
+    }
     
     // Check if we have PostGIS available
     const checkPostGIS = await pool.query(`
@@ -105,9 +115,11 @@ async function getNearbyPropertiesBasic(pool, targetProperty, radiusKm, excludeI
       -- Haversine formula for distance
       ROUND((
         6371 * acos(
-          cos(radians($1)) * cos(radians(lat)) *
-          cos(radians(lng) - radians($2)) +
-          sin(radians($1)) * sin(radians(lat))
+          LEAST(1.0, GREATEST(-1.0,
+            cos(radians($1)) * cos(radians(lat)) *
+            cos(radians(lng) - radians($2)) +
+            sin(radians($1)) * sin(radians(lat))
+          ))
         )
       )::numeric, 2) as dist_km
     FROM properties
@@ -117,11 +129,12 @@ async function getNearbyPropertiesBasic(pool, targetProperty, radiusKm, excludeI
       AND lng BETWEEN $6 AND $7
       AND lat IS NOT NULL 
       AND lng IS NOT NULL
-    HAVING 
-      6371 * acos(
-        cos(radians($1)) * cos(radians(lat)) *
-        cos(radians(lng) - radians($2)) +
-        sin(radians($1)) * sin(radians(lat))
+      AND 6371 * acos(
+        LEAST(1.0, GREATEST(-1.0,
+          cos(radians($1)) * cos(radians(lat)) *
+          cos(radians(lng) - radians($2)) +
+          sin(radians($1)) * sin(radians(lat))
+        ))
       ) <= $8
     ORDER BY dist_km ASC
     LIMIT 100
