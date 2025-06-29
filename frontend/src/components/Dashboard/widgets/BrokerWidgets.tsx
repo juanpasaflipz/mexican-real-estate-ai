@@ -110,7 +110,7 @@ export const LeadsWidget: React.FC = () => {
 
 // Commission tracker
 export const CommissionWidget: React.FC = () => {
-  const { data, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ['brokerCommissions'],
     queryFn: async () => {
       const response = await api.get('/broker/commissions');
@@ -213,7 +213,7 @@ export const AppointmentsWidget: React.FC = () => {
 
 // Performance metrics
 export const PerformanceWidget: React.FC = () => {
-  const { data, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ['brokerPerformance'],
     queryFn: async () => {
       const response = await api.get('/broker/performance');

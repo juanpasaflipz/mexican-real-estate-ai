@@ -1,5 +1,9 @@
 # Mucha Casa - Mexican Real Estate Platform
 
+[![CI](https://github.com/yourusername/mcp-ai-test-2/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/mcp-ai-test-2/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/yourusername/mcp-ai-test-2/branch/main/graph/badge.svg)](https://codecov.io/gh/yourusername/mcp-ai-test-2)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Mucha Casa is a comprehensive real estate platform for the Mexican market with AI-powered natural language search capabilities. Find your perfect home in Mexico with our intelligent property search.
 
 ## Features

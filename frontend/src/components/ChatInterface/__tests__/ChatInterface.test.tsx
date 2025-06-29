@@ -1,8 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ChatInterface from '../ChatInterface'
-import { useNaturalLanguageQuery } from '@/hooks/useNaturalLanguageQuery'
 
 // Mock the hooks and services
 vi.mock('@/hooks/useNaturalLanguageQuery', () => ({
@@ -127,8 +126,8 @@ describe('ChatInterface', () => {
   it('should handle successful query response', async () => {
     const { useNaturalLanguageQuery } = await import('@/hooks/useNaturalLanguageQuery')
     
-    let onSuccessCallback: any
-    ;(useNaturalLanguageQuery as any).mockImplementation(({ onSuccess }) => {
+    let onSuccessCallback: (data: any) => void
+    ;(useNaturalLanguageQuery as any).mockImplementation(({ onSuccess }: { onSuccess: (data: any) => void }) => {
       onSuccessCallback = onSuccess
       return {
         executeQuery: mockExecuteQuery,
@@ -160,8 +159,8 @@ describe('ChatInterface', () => {
   it('should handle error response', async () => {
     const { useNaturalLanguageQuery } = await import('@/hooks/useNaturalLanguageQuery')
     
-    let onErrorCallback: any
-    ;(useNaturalLanguageQuery as any).mockImplementation(({ onError }) => {
+    let onErrorCallback: (error: any) => void
+    ;(useNaturalLanguageQuery as any).mockImplementation(({ onError }: { onError: (error: any) => void }) => {
       onErrorCallback = onError
       return {
         executeQuery: mockExecuteQuery,
@@ -229,9 +228,8 @@ describe('ChatInterface', () => {
 
   it('should export data when requested', async () => {
     const { exportService } = await import('@/services/api')
-    const toast = (await import('react-hot-toast')).default
     
-    ;(exportService.exportData as any).mockResolvedValue(new Blob(['test']))
+    ;(exportService.exportResults as any).mockResolvedValue(new Blob(['test']))
     
     render(<ChatInterface />)
     
@@ -239,7 +237,7 @@ describe('ChatInterface', () => {
     // This would normally be triggered from MessageList component
     
     // Verify export service can be called
-    await exportService.exportData([], 'csv')
-    expect(exportService.exportData).toHaveBeenCalled()
+    await exportService.exportResults({ data: [], columns: [], rowCount: 0, executionTime: 0 }, 'csv')
+    expect(exportService.exportResults).toHaveBeenCalled()
   })
 });

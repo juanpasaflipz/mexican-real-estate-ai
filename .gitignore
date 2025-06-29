@@ -12,3 +12,5 @@ coverage/
 .vscode/
 *.orig
 CLAUDE.md
+.history/
+**/.history/

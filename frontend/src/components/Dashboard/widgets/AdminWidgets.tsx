@@ -5,7 +5,7 @@ import api from '../../../services/api';
 
 // Platform statistics
 export const PlatformStatsWidget: React.FC = () => {
-  const { data, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ['platformStats'],
     queryFn: async () => {
       const response = await api.get('/admin/stats');
@@ -291,7 +291,7 @@ export const SystemHealthWidget: React.FC = () => {
 
 // Revenue metrics widget
 export const RevenueWidget: React.FC = () => {
-  const { data, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ['revenueMetrics'],
     queryFn: async () => {
       const response = await api.get('/admin/revenue');

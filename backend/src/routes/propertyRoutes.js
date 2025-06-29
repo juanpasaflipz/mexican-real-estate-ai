@@ -147,6 +147,51 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Get properties with coordinates
+router.get('/with-coordinates', async (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit) || 100;
+    
+    const query = `
+      SELECT 
+        id, 
+        title, 
+        address, 
+        city, 
+        state, 
+        neighborhood,
+        lat,
+        lng,
+        price,
+        bedrooms,
+        bathrooms,
+        area_sqm,
+        property_type
+      FROM properties
+      WHERE lat IS NOT NULL 
+      AND lng IS NOT NULL
+      ORDER BY updated_at DESC, id DESC
+      LIMIT $1
+    `;
+    
+    const result = await pool.query(query, [limit]);
+    
+    res.json({
+      success: true,
+      count: result.rows.length,
+      properties: result.rows
+    });
+    
+  } catch (error) {
+    console.error('Error fetching properties with coordinates:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to fetch properties',
+      message: error.message
+    });
+  }
+});
+
 // Get single property by ID
 router.get('/:id', async (req, res) => {
   try {
@@ -218,6 +263,32 @@ router.get('/:id/similar', async (req, res) => {
     const property = propertyResult.rows[0];
     
     // Find similar properties based on location and characteristics
+    // Handle null values gracefully
+    const conditions = ['id != $1'];
+    const params = [id];
+    let paramCount = 2;
+
+    if (property.city) {
+      conditions.push(`city = $${paramCount}`);
+      params.push(property.city);
+      paramCount++;
+    }
+
+    if (property.property_type) {
+      conditions.push(`property_type = $${paramCount}`);
+      params.push(property.property_type);
+      paramCount++;
+    }
+
+    if (property.bedrooms) {
+      conditions.push(`bedrooms BETWEEN $${paramCount} - 1 AND $${paramCount} + 1`);
+      params.push(property.bedrooms);
+      paramCount++;
+    }
+
+    // Add limit
+    params.push(limit);
+
     const query = `
       SELECT 
         id,
@@ -235,25 +306,16 @@ router.get('/:id/similar', async (req, res) => {
           WHEN images IS NOT NULL AND jsonb_array_length(images) > 0 
           THEN images->0->>'url'
           ELSE NULL
-        END as primary_image,
-        ABS(price - $2) as price_difference
+        END as primary_image
+        ${property.price ? `, ABS(price - ${property.price}) as price_difference` : ''}
       FROM properties
-      WHERE id != $1
-        AND city = $3
-        AND property_type = $4
-        AND bedrooms BETWEEN $5 - 1 AND $5 + 1
-      ORDER BY price_difference
-      LIMIT $6
+      WHERE ${conditions.join(' AND ')}
+        ${property.price ? '' : 'AND price IS NOT NULL'}
+      ORDER BY ${property.price ? 'price_difference' : 'created_at DESC'}
+      LIMIT $${paramCount}
     `;
 
-    const result = await pool.query(query, [
-      id,
-      property.price,
-      property.city,
-      property.property_type,
-      property.bedrooms,
-      limit
-    ]);
+    const result = await pool.query(query, params);
 
     res.json({
       success: true,

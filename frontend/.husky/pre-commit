@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+cd frontend
+
+# Run linting
+echo "🔍 Running linter..."
+npm run lint
+
+# Run type checking
+echo "📝 Checking types..."
+npm run type-check
+
+# Run tests with coverage check
+echo "🧪 Running tests with coverage..."
+npm run test:coverage:check
+
+echo "✅ All checks passed!"

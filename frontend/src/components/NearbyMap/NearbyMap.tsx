@@ -6,14 +6,21 @@ import { fetchNearbyProperties } from '../../utils/fetchNearby'
 // Initialize Mapbox token (you'll need to set this in your .env file)
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_TOKEN || ''
 
+if (!mapboxgl.accessToken) {
+  console.error('Mapbox token not found! Please set VITE_MAPBOX_TOKEN in your .env file')
+} else {
+  console.log('Mapbox token loaded, length:', mapboxgl.accessToken.length)
+}
+
 interface Property {
   id: string
   title: string
   lat: number
   lng: number
-  price: number
-  price_type: 'sale' | 'rent'
-  area_m2: number
+  price: number | string
+  price_type?: 'sale' | 'rent'
+  area_m2?: number
+  area_sqm?: number
   bedrooms?: number
   url?: string
   dist_km?: number
@@ -39,7 +46,11 @@ interface Stats {
 export const NearbyMap: React.FC<NearbyMapProps> = ({ propertyId, radiusKm = 2 }) => {
   const mapContainer = useRef<HTMLDivElement>(null)
   const map = useRef<mapboxgl.Map | null>(null)
+  // @ts-ignore - Used for marker management
+  const markersRef = useRef<mapboxgl.Marker[]>([])
+  // @ts-ignore - Used in effect and calculations
   const [targetProperty, setTargetProperty] = useState<Property | null>(null)
+  // @ts-ignore - Used in effect and calculations
   const [nearbyProperties, setNearbyProperties] = useState<Property[]>([])
   const [stats, setStats] = useState<Stats | null>(null)
   const [loading, setLoading] = useState(true)
@@ -49,52 +60,153 @@ export const NearbyMap: React.FC<NearbyMapProps> = ({ propertyId, radiusKm = 2 }
     const initializeMap = async () => {
       try {
         setLoading(true)
+        setError(null) // Clear any previous errors
+        
+        console.log('Fetching nearby properties for:', propertyId, 'with radius:', radiusKm)
         
         // Fetch target property and nearby properties
         const { target, nearby } = await fetchNearbyProperties(propertyId, radiusKm)
+        
+        console.log('Received target:', target)
+        console.log('Received nearby properties:', nearby?.length || 0)
+        
+        // Ensure coordinates are numbers
+        if (target) {
+          target.lat = typeof target.lat === 'string' ? parseFloat(target.lat) : target.lat
+          target.lng = typeof target.lng === 'string' ? parseFloat(target.lng) : target.lng
+        }
+        
+        if (nearby) {
+          nearby.forEach(p => {
+            p.lat = typeof p.lat === 'string' ? parseFloat(p.lat) : p.lat
+            p.lng = typeof p.lng === 'string' ? parseFloat(p.lng) : p.lng
+          })
+        }
+        
         setTargetProperty(target)
         setNearbyProperties(nearby)
+        
+        // Check if we have valid target with coordinates
+        if (!target || !target.lat || !target.lng) {
+          throw new Error('Target property has no valid coordinates')
+        }
 
         // Calculate stats
-        const saleProperties = nearby.filter(p => p.price_type === 'sale')
-        const rentProperties = nearby.filter(p => p.price_type === 'rent')
+        // Since we don't have price_type, just calculate overall stats
+        const pricesAsNumbers = nearby
+          .map(p => parseFloat(String(p.price).replace(/[^0-9.-]+/g, '')))
+          .filter(price => !isNaN(price) && price > 0)
         
         const stats: Stats = {
-          medianSalePrice: calculateMedian(saleProperties.map(p => p.price)),
-          medianRentPrice: calculateMedian(rentProperties.map(p => p.price)),
+          medianSalePrice: calculateMedian(pricesAsNumbers), // Use same price for both
+          medianRentPrice: 0, // No rent data available
           avgPricePerM2: calculateAvgPricePerM2(nearby),
           totalProperties: nearby.length
         }
         setStats(stats)
 
-        // Initialize map
-        if (mapContainer.current && !map.current) {
-          map.current = new mapboxgl.Map({
-            container: mapContainer.current,
-            style: 'mapbox://styles/mapbox/streets-v12',
-            center: [target.lng, target.lat],
-            zoom: 15
-          })
+        // Initialize map or update existing map
+        if (mapContainer.current && target && target.lat && target.lng) {
+          console.log('Map instance exists?', !!map.current)
+          console.log('Target coordinates:', target.lat, target.lng)
+          if (map.current) {
+            console.log('Map loaded state:', map.current.loaded())
+          }
+          
+          if (!map.current) {
+            // Create new map
+            console.log('Creating new map instance')
+            map.current = new mapboxgl.Map({
+              container: mapContainer.current,
+              style: 'mapbox://styles/mapbox/streets-v12',
+              center: [target.lng, target.lat],
+              zoom: 15
+            })
 
-          // Add navigation controls
-          map.current.addControl(new mapboxgl.NavigationControl(), 'top-right')
+            // Add navigation controls
+            map.current.addControl(new mapboxgl.NavigationControl(), 'top-right')
+          } else {
+            // Update existing map center with animation
+            console.log('Updating map center to:', [target.lng, target.lat])
+            map.current.flyTo({
+              center: [target.lng, target.lat],
+              zoom: 15,
+              duration: 1000
+            })
+            
+            // After flyTo, the map is already loaded, so we should trigger marker update
+            // after the animation completes
+            setTimeout(() => {
+              console.log('FlyTo animation should be complete, checking loaded state')
+              if (map.current && map.current.loaded()) {
+                console.log('Map is loaded after flyTo, triggering marker update')
+              }
+            }, 1100) // Slightly longer than animation duration
+          }
 
-          // Wait for map to load
-          map.current.on('load', () => {
+          // Function to add markers
+          const addMarkers = () => {
+            console.log('addMarkers called - target:', target.title, 'nearby count:', nearby.length)
+            
+            // Remove all existing markers
+            const existingMarkers = document.getElementsByClassName('mapboxgl-marker')
+            console.log('Removing', existingMarkers.length, 'existing markers')
+            while(existingMarkers[0]) {
+              existingMarkers[0].remove()
+            }
+
             // Add target property marker (blue)
+            console.log('Adding target marker at:', [target.lng, target.lat])
             new mapboxgl.Marker({ color: '#3B82F6' })
               .setLngLat([target.lng, target.lat])
               .setPopup(createPopup(target, true))
               .addTo(map.current!)
 
-            // Add nearby property markers
-            nearby.forEach(property => {
-              const color = property.price_type === 'sale' ? '#EF4444' : '#10B981'
+            // Add nearby property markers (all red since we don't have price_type)
+            console.log('Adding', nearby.length, 'nearby markers')
+            nearby.forEach((property, index) => {
+              const color = '#EF4444' // Red for all properties
+              console.log(`Adding marker ${index + 1} at:`, [property.lng, property.lat])
               new mapboxgl.Marker({ color })
                 .setLngLat([property.lng, property.lat])
                 .setPopup(createPopup(property))
                 .addTo(map.current!)
             })
+            
+            console.log('Finished adding markers')
+          }
+
+          // Add markers when map is ready
+          const isNewMap = !mapContainer.current.querySelector('.mapboxgl-canvas')
+          
+          if (isNewMap) {
+            // New map, wait for load event
+            console.log('New map created, waiting for load event')
+            map.current.once('load', () => {
+              console.log('Map load event fired, adding markers')
+              addMarkers()
+            })
+          } else {
+            // Existing map, add markers after flyTo completes
+            console.log('Existing map, adding markers after flyTo')
+            if (map.current.loaded()) {
+              // If already loaded, wait for flyTo to complete
+              map.current.once('moveend', () => {
+                console.log('Map moveend event fired, adding markers')
+                addMarkers()
+              })
+            } else {
+              // Fallback: add markers immediately
+              console.log('Adding markers immediately as fallback')
+              setTimeout(addMarkers, 100)
+            }
+          }
+        } else {
+          console.log('Missing requirements for map update:', {
+            container: !!mapContainer.current,
+            target: !!target,
+            targetLat: target?.lat,
+            targetLng: target?.lng
           })
         }
       } catch (err) {
@@ -106,14 +218,21 @@ export const NearbyMap: React.FC<NearbyMapProps> = ({ propertyId, radiusKm = 2 }
 
     initializeMap()
 
-    // Cleanup
+    // Cleanup only on component unmount, not on property change
+    return () => {
+      // Don't remove map here, only on component unmount
+    }
+  }, [propertyId, radiusKm])
+  
+  // Separate cleanup effect for component unmount
+  useEffect(() => {
     return () => {
       if (map.current) {
         map.current.remove()
         map.current = null
       }
     }
-  }, [propertyId, radiusKm])
+  }, [])
 
   /**
    * Calculate median value from array of numbers
@@ -129,9 +248,17 @@ export const NearbyMap: React.FC<NearbyMapProps> = ({ propertyId, radiusKm = 2 }
    * Calculate average price per square meter
    */
   const calculateAvgPricePerM2 = (properties: Property[]): number => {
-    const validProperties = properties.filter(p => p.area_m2 > 0)
+    const validProperties = properties.filter(p => {
+      const price = parseFloat(String(p.price).replace(/[^0-9.-]+/g, ''))
+      const area = p.area_m2 || p.area_sqm || 0
+      return !isNaN(price) && price > 0 && area > 0
+    })
     if (validProperties.length === 0) return 0
-    const total = validProperties.reduce((sum, p) => sum + (p.price / p.area_m2), 0)
+    const total = validProperties.reduce((sum, p) => {
+      const price = parseFloat(String(p.price).replace(/[^0-9.-]+/g, ''))
+      const area = p.area_m2 || p.area_sqm || 1
+      return sum + (price / area)
+    }, 0)
     return total / validProperties.length
   }
 
@@ -141,12 +268,12 @@ export const NearbyMap: React.FC<NearbyMapProps> = ({ propertyId, radiusKm = 2 }
   const createPopup = (property: Property, isTarget = false): mapboxgl.Popup => {
     const content = `
       <div class="p-2 min-w-[200px]">
-        <h3 class="font-bold text-sm mb-1">${property.title}</h3>
+        <h3 class="font-bold text-sm mb-1">${property.title || 'Property'}</h3>
         ${isTarget ? '<span class="text-xs text-blue-600 font-semibold">Target Property</span>' : ''}
-        <p class="text-sm">Price: $${property.price.toLocaleString()} MXN</p>
-        <p class="text-sm">Type: ${property.price_type === 'sale' ? 'For Sale' : 'For Rent'}</p>
+        <p class="text-sm">Price: ${property.price}</p>
         ${property.bedrooms ? `<p class="text-sm">Bedrooms: ${property.bedrooms}</p>` : ''}
-        ${property.dist_km ? `<p class="text-sm">Distance: ${property.dist_km.toFixed(1)} km</p>` : ''}
+        ${property.area_m2 || property.area_sqm ? `<p class="text-sm">Area: ${property.area_m2 || property.area_sqm} m²</p>` : ''}
+        ${property.dist_km ? `<p class="text-sm">Distance: ${parseFloat(property.dist_km.toString()).toFixed(1)} km</p>` : ''}
         <a href="/properties/${property.id}" class="text-blue-600 text-sm hover:underline">View Details</a>
       </div>
     `
@@ -160,30 +287,28 @@ export const NearbyMap: React.FC<NearbyMapProps> = ({ propertyId, radiusKm = 2 }
     return `$${amount.toLocaleString()} MXN`
   }
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-[600px] bg-gray-100 dark:bg-gray-800 rounded-lg">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-300">Loading map...</p>
-        </div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="flex items-center justify-center h-[600px] bg-red-50 dark:bg-red-900/20 rounded-lg">
-        <div className="text-center">
-          <p className="text-red-600 dark:text-red-400">Error: {error}</p>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="relative h-[600px] rounded-lg overflow-hidden shadow-lg">
       <div ref={mapContainer} className="absolute inset-0" />
+      
+      {/* Loading overlay */}
+      {loading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100/90 dark:bg-gray-800/90 z-10">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600 dark:text-gray-300">Loading map...</p>
+          </div>
+        </div>
+      )}
+      
+      {/* Error overlay */}
+      {error && (
+        <div className="absolute inset-0 flex items-center justify-center bg-red-50/90 dark:bg-red-900/20 z-10">
+          <div className="text-center">
+            <p className="text-red-600 dark:text-red-400">Error: {error}</p>
+          </div>
+        </div>
+      )}
       
       {/* Stats Card */}
       {stats && (
@@ -196,10 +321,7 @@ export const NearbyMap: React.FC<NearbyMapProps> = ({ propertyId, radiusKm = 2 }
               Total Properties: <span className="font-semibold">{stats.totalProperties}</span>
             </p>
             <p className="text-gray-700 dark:text-gray-300">
-              Median Sale Price: <span className="font-semibold text-red-600">{formatCurrency(stats.medianSalePrice)}</span>
-            </p>
-            <p className="text-gray-700 dark:text-gray-300">
-              Median Rent Price: <span className="font-semibold text-green-600">{formatCurrency(stats.medianRentPrice)}</span>
+              Median Price: <span className="font-semibold text-red-600">{formatCurrency(stats.medianSalePrice)}</span>
             </p>
             <p className="text-gray-700 dark:text-gray-300">
               Avg Price/m²: <span className="font-semibold">{formatCurrency(Math.round(stats.avgPricePerM2))}</span>
@@ -218,11 +340,7 @@ export const NearbyMap: React.FC<NearbyMapProps> = ({ propertyId, radiusKm = 2 }
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            <span className="text-xs text-gray-700 dark:text-gray-300">For Sale</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-            <span className="text-xs text-gray-700 dark:text-gray-300">For Rent</span>
+            <span className="text-xs text-gray-700 dark:text-gray-300">Nearby Properties</span>
           </div>
         </div>
       </div>

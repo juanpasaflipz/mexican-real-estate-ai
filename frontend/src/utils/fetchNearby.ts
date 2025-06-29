@@ -38,10 +38,16 @@ export async function fetchNearbyProperties(
       }
     )
     
-    // The API returns the data in the correct format
+    // Map backend field names to frontend expectations
+    const mapProperty = (p: any) => ({
+      ...p,
+      area_m2: p.area_sqm || p.area_m2,  // Backend uses area_sqm, frontend expects area_m2
+      price_type: p.price_type || 'sale'  // Default to 'sale' if not specified
+    })
+    
     return {
-      target: response.data.target,
-      nearby: response.data.nearby
+      target: mapProperty(response.data.target),
+      nearby: response.data.nearby.map(mapProperty)
     }
   } catch (error: any) {
     console.error('Error fetching nearby properties:', error)
@@ -56,7 +62,7 @@ export async function fetchNearbyProperties(
     }
     
     // If the API fails, return mock data for testing in development
-    if (process.env.NODE_ENV === 'development' || import.meta.env.MODE === 'development') {
+    if (import.meta.env.MODE === 'development') {
       console.warn('API failed, returning mock data for development')
       return getMockData(propertyId, radiusKm)
     }

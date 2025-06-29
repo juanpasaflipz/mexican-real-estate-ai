@@ -1,14 +1,18 @@
 const { Pool } = require('pg')
 
 // Create a connection pool
+// Supabase requires SSL
+const isSupabase = (process.env.DATABASE_URL || process.env.SUPABASE_DATABASE_URL || '').includes('supabase.co')
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL || process.env.SUPABASE_DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  },
+  ssl: isSupabase ? {
+    rejectUnauthorized: false,
+    require: true
+  } : false,
   max: 10, // Maximum number of clients in the pool
   idleTimeoutMillis: 30000, // How long a client is allowed to remain idle before being closed
-  connectionTimeoutMillis: 2000, // How long to wait when connecting a new client
+  connectionTimeoutMillis: 20000, // Increased to 20 seconds for Supabase
 })
 
 // Test the connection

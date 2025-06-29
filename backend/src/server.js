@@ -100,9 +100,12 @@ app.use(passport.session())
 // Rate limiting
 const limiter = rateLimit({
   windowMs: process.env.RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000,
-  max: process.env.RATE_LIMIT_MAX_REQUESTS || 100
+  max: process.env.RATE_LIMIT_MAX_REQUESTS || 1000 // Increased for development
 })
-app.use('/api', limiter)
+// Only apply rate limiting in production
+if (process.env.NODE_ENV === 'production') {
+  app.use('/api', limiter)
+}
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'))

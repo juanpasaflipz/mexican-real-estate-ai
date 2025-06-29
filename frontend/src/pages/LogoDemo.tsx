@@ -20,7 +20,7 @@ const LogoDemo: React.FC = () => {
           
           <div className="bg-gray-900 p-8 rounded-lg shadow-sm">
             <HausBrokerIcon className="w-24 h-24 mx-auto mb-4 text-white" />
-            <HausBrokerLogo className="h-12 mx-auto mb-4" isDark />
+            <HausBrokerLogo className="h-12 mx-auto mb-4" />
             <p className="text-center text-sm text-gray-400">Dark Mode</p>
           </div>
           
@@ -93,7 +93,7 @@ const LogoDemo: React.FC = () => {
           
           <div className="bg-gray-900 p-4 rounded-lg shadow-sm">
             <div className="flex items-center justify-between">
-              <HausBrokerLogo className="h-8" isDark />
+              <HausBrokerLogo className="h-8" />
               <nav className="flex space-x-6 text-sm">
                 <a href="#" className="text-gray-300 hover:text-white">Properties</a>
                 <a href="#" className="text-gray-300 hover:text-white">Map</a>

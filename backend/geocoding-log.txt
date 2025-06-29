@@ -1,0 +1,2226 @@
+🚀 Fast Geocoding Options for Mexican Real Estate Properties
+
+This script supports multiple geocoding services:
+1. Mapbox - 100,000 requests/month free tier
+2. Google Maps - $200 free credit/month
+3. OpenCage - 2,500 requests/day free tier
+
+To use this script, set one of these environment variables:
+- MAPBOX_ACCESS_TOKEN
+- GOOGLE_MAPS_API_KEY
+- OPENCAGE_API_KEY
+
+✅ Using Google Maps for geocoding
+Rate limit: 50 requests per second
+
+Database connected successfully
+Found 2000 properties to geocode
+
+Geocoding 102: Condado De Sayavedra, Atizapán De Zaragoza, Estado... ✅ 19.5692645, -99.32178010000001
+Geocoding 131: Avenida Calimaya SN, San Andrés Ocotlan, Calimaya,... ✅ 19.1863997, -99.5816636
+Geocoding 143: San Nicolás Totolapan, La Magdalena Contreras, Dis... ✅ 19.2936452, -99.2466874
+Geocoding 200: Jardines Del Pedregal De San Ángel, Coyoacán, Dist... ✅ 19.3079512, -99.1968277
+Geocoding 213: José María Velasco 14, San José Insurgentes, Ciuda... ❌ Failed
+Geocoding 232: Ciudad Satélite, Naucalpan, Estado De México, Nauc... ✅ 19.5078424, -99.2334752
+Geocoding 234: Toluca, Estado De México, Toluca, Estado De México... ✅ 19.2826098, -99.6556653
+Geocoding 237: Jardines De San Miguel, Cuautitlán Izcalli, Estado... ✅ 19.6908517, -99.21413659999999
+Geocoding 238: Islas Hawai 16, MZ 023, Residencial Chiluca, Chilu... ❌ Failed
+Geocoding 239: Ciudad Satélite, Naucalpan, Estado De México, Nauc... ❌ Failed
+Progress: 10/2000 (1%) | Rate: 3.2/s | Success: 7
+Geocoding 275: Escuadrón 201, Col. Cristo Rey, Ciudad De México, ... ✅ 19.388065, -99.2003677
+Geocoding 286: San José Del Olivar, Alvaro Obregón, Distrito Fede... ✅ 19.3362822, -99.233527
+Geocoding 288: Roma Norte, Cuauhtémoc, Distrito Federal, Cuauhtém... ❌ Failed
+Geocoding 296: Polanco, Miguel Hidalgo, Distrito Federal, Miguel ... ✅ 19.4340199, -99.19560120000001
+Geocoding 306: Bosques De Las Lomas, Cuajimalpa De Morelos, Distr... ✅ 19.3904162, -99.25500029999999
+Geocoding 307: Uxmal 87, Narvarte Poniente, Benito Juárez, Distri... ✅ 19.3988159, -99.154358
+Geocoding 321: Punta Norte, Cuautitlán Izcalli, Edo De Mexico, Ha... ✅ 19.6033551, -99.192499
+Geocoding 339: Interlomas, Huixquilucan, Estado De México, Huixqu... ❌ Failed
+Geocoding 348: Huixquilucan De Degollado Centro, Huixquilucan, Es... ✅ 19.36045, -99.35114
+Geocoding 385: Santa Fe, Álvaro Obregón, Ciudad de México, Álvaro... ❌ Failed
+Progress: 20/2000 (1%) | Rate: 3.6/s | Success: 14
+Geocoding 389: Loreto, Álvaro Obregón, Ciudad de México, Álvaro O... ✅ 19.3157097, -99.2200485
+Geocoding 403: Iztacalco, Distrito Federal... ✅ 19.3948036, -99.09768079999999
+Geocoding 426: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 435: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 437: Miguel Hidalgo, Distrito Federal... ❌ Failed
+Geocoding 466: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 470: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 477: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 484: Azcapotzalco, Distrito Federal... ❌ Failed
+Geocoding 539: Temapache, Veracruz... ✅ 21.070814, -97.64206899999999
+Progress: 30/2000 (2%) | Rate: 4.1/s | Success: 22
+Geocoding 548: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 552: Veracruz Centro, Veracruz... ✅ 19.1969823, -96.13811880000002
+Geocoding 561: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 565: Xalapa, Veracruz... ✅ 19.5437751, -96.91018059999999
+Geocoding 575: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 590: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 601: Cordilleras, Chihuahua... ✅ 28.7021256, -106.1470668
+Geocoding 612: Cuauhtémoc, Chihuahua... ✅ 28.406359, -106.8654066
+Geocoding 739: Celaya, Guanajuato... ✅ 20.5279612, -100.8112885
+Geocoding 751: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Progress: 40/2000 (2%) | Rate: 4.3/s | Success: 32
+Geocoding 755: Celaya, Guanajuato... ✅ 20.5279612, -100.8112885
+Geocoding 756: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 763: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 767: Celaya, Guanajuato... ✅ 20.5279612, -100.8112885
+Geocoding 771: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 778: San Luis Potosí Centro, San Luis Potosí... ✅ 22.1507733, -100.9740614
+Geocoding 783: Tequisquiapan, San Luis Potosí... ✅ 22.1571378, -100.9909452
+Geocoding 788: Privadas Del Pedregal, San Luis Potosí... ✅ 22.1227651, -101.0153254
+Geocoding 806: Polanco, San Luis Potosí... ✅ 22.1500611, -100.98882
+Geocoding 807: Santiago Del Río, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Progress: 50/2000 (3%) | Rate: 4.6/s | Success: 42
+Geocoding 808: Soledad De Graciano Sánchez, San Luis Potosí... ✅ 22.1807042, -100.9417767
+Geocoding 809: Privadas Del Pedregal, San Luis Potosí... ✅ 22.1227651, -101.0153254
+Geocoding 810: Polanco, San Luis Potosí... ✅ 22.1500611, -100.98882
+Geocoding 811: Lomas 4a Sección, San Luis Potosí... ✅ 22.1391189, -101.0397118
+Geocoding 812: Libertad De México, San Luis Potosí... ✅ 22.1388817, -100.901957
+Geocoding 813: San Luis Potosí Centro, San Luis Potosí... ✅ 22.1507733, -100.9740614
+Geocoding 814: Tequisquiapan, San Luis Potosí... ✅ 22.1571378, -100.9909452
+Geocoding 815: Central, San Luis Potosí... ✅ 22.1461894, -100.9517378
+Geocoding 816: Bodega / Nave Industrial En Renta En San Luis Poto... ✅ 22.1427728, -100.9453942
+Geocoding 817: Bodega / Nave Industrial En Renta En San Luis Poto... ✅ 22.1427728, -100.9453942
+Progress: 60/2000 (3%) | Rate: 4.6/s | Success: 52
+Geocoding 818: Villa De Pozos, San Luis Potosí... ✅ 22.0828019, -100.877925
+Geocoding 819: Villas Del Pedregal, San Luis Potosí... ✅ 22.1348455, -101.0322892
+Geocoding 820: Vista Hermosa, San Luis Potosí... ✅ 22.1487224, -101.0011912
+Geocoding 821: Soledad De Graciano Sánchez, San Luis Potosí... ✅ 22.1807042, -100.9417767
+Geocoding 822: Atitalaquia, Hidalgo... ✅ 20.0509779, -99.2203687
+Geocoding 823: Zempoala, Hidalgo... ✅ 19.913647, -98.6683097
+Geocoding 824: Tepeji Del Río De Ocampo, Hidalgo... ✅ 19.9049725, -99.3423037
+Geocoding 825: Tepeji Del Río De Ocampo, Hidalgo... ✅ 19.9049725, -99.3423037
+Geocoding 826: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 827: Zapotlan De Juárez, Hidalgo... ✅ 19.9763386, -98.86430589999999
+Progress: 70/2000 (4%) | Rate: 4.4/s | Success: 62
+Geocoding 828: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Geocoding 829: Zempoala, Hidalgo... ✅ 19.913647, -98.6683097
+Geocoding 830: Tizayuca, Hidalgo... ✅ 19.8405004, -98.9801651
+Geocoding 831: Tizayuca, Hidalgo... ✅ 19.8405004, -98.9801651
+Geocoding 832: Tepeji Del Río De Ocampo, Hidalgo... ✅ 19.9049725, -99.3423037
+Geocoding 833: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 834: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 835: Zempoala, Hidalgo... ✅ 19.913647, -98.6683097
+Geocoding 836: Villa De Tezontepec, Hidalgo... ✅ 19.8820899, -98.8218947
+Geocoding 837: Tolcayuca, Hidalgo... ✅ 19.9552354, -98.9201124
+Progress: 80/2000 (4%) | Rate: 4.5/s | Success: 72
+Geocoding 838: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 839: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 840: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Geocoding 841: Tizayuca, Hidalgo... ❌ Failed
+Geocoding 842: Tepeapulco, Hidalgo... ✅ 19.7849637, -98.55379320000002
+Geocoding 843: Tolcayuca, Hidalgo... ✅ 19.9552354, -98.9201124
+Geocoding 844: Huejutla De Reyes, Hidalgo... ✅ 21.1392412, -98.4189061
+Geocoding 845: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Geocoding 846: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Geocoding 847: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Progress: 90/2000 (5%) | Rate: 4.6/s | Success: 81
+Geocoding 848: Zapotlan De Juárez, Hidalgo... ✅ 19.9763386, -98.86430589999999
+Geocoding 849: Tulancingo De Bravo, Hidalgo... ✅ 20.0904802, -98.3690922
+Geocoding 850: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 851: Tulancingo De Bravo, Hidalgo... ✅ 20.0904802, -98.3690922
+Geocoding 852: Mineral De La Reforma, Hidalgo... ❌ Failed
+Geocoding 853: Tepeji Del Río De Ocampo, Hidalgo... ✅ 19.9049725, -99.3423037
+Geocoding 854: Tepeapulco, Hidalgo... ✅ 19.7849637, -98.55379320000002
+Geocoding 855: Tepeji Del Río De Ocampo, Hidalgo... ✅ 19.9049725, -99.3423037
+Geocoding 856: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 857: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Progress: 100/2000 (5%) | Rate: 4.6/s | Success: 90
+Geocoding 858: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Geocoding 859: Tizayuca, Hidalgo... ✅ 19.8405004, -98.9801651
+Geocoding 860: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 861: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 862: Tepeji Del Río De Ocampo, Hidalgo... ✅ 19.9049725, -99.3423037
+Geocoding 863: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 864: Villa De Tezontepec, Hidalgo... ✅ 19.8820899, -98.8218947
+Geocoding 865: Pachuca De Soto, Hidalgo... ❌ Failed
+Geocoding 866: Tepeji Del Río De Ocampo, Hidalgo... ✅ 19.9049725, -99.3423037
+Geocoding 867: Tepeji Del Río De Ocampo, Hidalgo... ✅ 19.9049725, -99.3423037
+Progress: 110/2000 (6%) | Rate: 4.7/s | Success: 99
+Geocoding 868: Tepeji Del Río De Ocampo, Hidalgo... ✅ 19.9049725, -99.3423037
+Geocoding 869: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 870: Hermosillo, Sonora... ✅ 29.0729673, -110.9559192
+Geocoding 871: San Luis Río Colorado, Sonora... ✅ 32.4518877, -114.771711
+Geocoding 872: Hermosillo, Sonora... ✅ 29.0729673, -110.9559192
+Geocoding 873: Cajeme, Sonora... ✅ 27.4934041, -109.940064
+Geocoding 874: Hermosillo, Sonora... ✅ 29.0729673, -110.9559192
+Geocoding 875: Cajeme, Sonora... ✅ 27.4934041, -109.940064
+Geocoding 876: Hermosillo, Sonora... ✅ 29.0729673, -110.9559192
+Geocoding 877: Cajeme, Sonora... ✅ 27.4934041, -109.940064
+Progress: 120/2000 (6%) | Rate: 4.7/s | Success: 109
+Geocoding 878: Cajeme, Sonora... ✅ 27.4934041, -109.940064
+Geocoding 879: Cajeme, Sonora... ✅ 27.4934041, -109.940064
+Geocoding 880: Hermosillo, Sonora... ✅ 29.0729673, -110.9559192
+Geocoding 881: Hermosillo, Sonora... ❌ Failed
+Geocoding 882: Navojoa, Sonora... ✅ 27.0727573, -109.4437493
+Geocoding 883: Cajeme, Sonora... ✅ 27.4934041, -109.940064
+Geocoding 884: Hermosillo, Sonora... ✅ 29.0729673, -110.9559192
+Geocoding 885: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 886: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 887: Tlaxcoapan, Hidalgo... ✅ 20.0919675, -99.22224369999999
+Progress: 130/2000 (7%) | Rate: 4.7/s | Success: 118
+Geocoding 888: Tulancingo De Bravo, Hidalgo... ❌ Failed
+Geocoding 889: Tulancingo De Bravo, Hidalgo... ✅ 20.0904802, -98.3690922
+Geocoding 890: Tepeapulco, Hidalgo... ✅ 19.7849637, -98.55379320000002
+Geocoding 891: Tizayuca, Hidalgo... ✅ 19.8405004, -98.9801651
+Geocoding 892: Actopan, Hidalgo... ✅ 20.2743499, -98.95213570000001
+Geocoding 893: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 894: Huejutla De Reyes, Hidalgo... ✅ 21.1392412, -98.4189061
+Geocoding 895: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Geocoding 896: Tizayuca, Hidalgo... ❌ Failed
+Geocoding 897: Mixquiahuala De Juárez, Hidalgo... ✅ 20.2304048, -99.21065510000001
+Progress: 140/2000 (7%) | Rate: 4.8/s | Success: 126
+Geocoding 898: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 899: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Geocoding 900: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 901: Tizayuca, Hidalgo... ✅ 19.8405004, -98.9801651
+Geocoding 902: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Geocoding 903: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 904: Pachuca De Soto, Hidalgo... ❌ Failed
+Geocoding 905: Tizayuca, Hidalgo... ✅ 19.8405004, -98.9801651
+Geocoding 906: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 907: Tizayuca, Hidalgo... ✅ 19.8405004, -98.9801651
+Progress: 150/2000 (8%) | Rate: 4.8/s | Success: 135
+Geocoding 908: Tecozautla, Hidalgo... ✅ 20.5326359, -99.6323321
+Geocoding 909: Zapotlan De Juárez, Hidalgo... ✅ 19.9763386, -98.86430589999999
+Geocoding 910: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 911: Huejutla De Reyes, Hidalgo... ❌ Failed
+Geocoding 912: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 913: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 914: Actopan, Hidalgo... ✅ 20.2743499, -98.95213570000001
+Geocoding 915: Tepeji Del Río De Ocampo, Hidalgo... ✅ 19.9049725, -99.3423037
+Geocoding 916: Huejutla De Reyes, Hidalgo... ✅ 21.1392412, -98.4189061
+Geocoding 917: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Progress: 160/2000 (8%) | Rate: 4.9/s | Success: 144
+Geocoding 918: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 919: Tizayuca, Hidalgo... ✅ 19.8405004, -98.9801651
+Geocoding 920: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 921: Huejutla De Reyes, Hidalgo... ✅ 21.1392412, -98.4189061
+Geocoding 922: Tulancingo De Bravo, Hidalgo... ✅ 20.0904802, -98.3690922
+Geocoding 923: Agua Blanca De Iturbide, Hidalgo... ✅ 20.346547, -98.359504
+Geocoding 924: Pachuca De Soto, Hidalgo... ❌ Failed
+Geocoding 925: Agua Blanca De Iturbide, Hidalgo... ✅ 20.346547, -98.359504
+Geocoding 926: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 927: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Progress: 170/2000 (9%) | Rate: 4.9/s | Success: 153
+Geocoding 928: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Geocoding 929: Huejutla De Reyes, Hidalgo... ✅ 21.1392412, -98.4189061
+Geocoding 930: Omitlan De Juárez, Hidalgo... ✅ 20.1682638, -98.65068730000002
+Geocoding 931: Zapotlan De Juárez, Hidalgo... ✅ 19.9763386, -98.86430589999999
+Geocoding 932: Pachuca De Soto, Hidalgo... ❌ Failed
+Geocoding 933: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 934: San Pedro Garza García, Nuevo León... ✅ 25.6573447, -100.4017501
+Geocoding 935: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 936: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 937: Los Cabos, Baja California Sur... ✅ 22.8948129, -109.9152149
+Progress: 180/2000 (9%) | Rate: 5.0/s | Success: 162
+Geocoding 938: Venta DE Oficina EN Edificio Level Piso 12 .4, Que... ✅ 20.5887932, -100.3898881
+Geocoding 939: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 940: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 941: Tuxtla Gutiérrez, Chiapas... ✅ 16.7516009, -93.1029939
+Geocoding 942: Boca Del Río, Veracruz... ✅ 19.106273, -96.10632040000002
+Geocoding 943: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 944: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 945: Azcapotzalco, Distrito Federal... ✅ 19.4846606, -99.1886749
+Geocoding 946: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 947: Cancún/Benito Juárez, Quintana Roo... ❌ Failed
+Progress: 190/2000 (10%) | Rate: 5.0/s | Success: 171
+Geocoding 948: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 949: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 950: Cuauhtemoc, Colima... ✅ 19.3309433, -103.5986529
+Geocoding 951: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 952: Monterrey, Nuevo León... ✅ 25.6866142, -100.3161126
+Geocoding 953: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 954: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 955: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 956: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 957: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Progress: 200/2000 (10%) | Rate: 5.0/s | Success: 181
+Geocoding 958: Cuauhtémoc, Distrito Federal... ❌ Failed
+Geocoding 959: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 960: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 961: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 962: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 963: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 964: Mérida, Yucatán... ❌ Failed
+Geocoding 965: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 966: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 967: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Progress: 210/2000 (11%) | Rate: 5.0/s | Success: 189
+Geocoding 968: Benito Juárez, Distrito Federal... ❌ Failed
+Geocoding 969: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 970: Coyoacán, Distrito Federal... ✅ 19.3437444, -99.1561883
+Geocoding 971: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 972: Cuautla, Morelos... ✅ 18.8126047, -98.9548261
+Geocoding 973: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 974: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 975: Mérida, Yucatán... ❌ Failed
+Geocoding 976: San Andrés Cholula, Puebla... ❌ Failed
+Geocoding 977: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Progress: 220/2000 (11%) | Rate: 5.0/s | Success: 196
+Geocoding 978: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 979: Monterrey, Nuevo León... ✅ 25.6866142, -100.3161126
+Geocoding 980: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 981: Ignacio Zaragoza, Veracruz... ✅ 19.1780491, -96.1288426
+Geocoding 982: Geovillas Los Pinos, Veracruz... ✅ 19.2147592, -96.2256491
+Geocoding 983: Boca Del Río, Veracruz... ✅ 19.106273, -96.10632040000002
+Geocoding 984: Boca Del Río, Veracruz... ✅ 19.106273, -96.10632040000002
+Geocoding 985: Alvarado, Veracruz... ❌ Failed
+Geocoding 986: Faros, Veracruz... ❌ Failed
+Geocoding 987: Xalapa, Veracruz... ✅ 19.5437751, -96.91018059999999
+Progress: 230/2000 (12%) | Rate: 5.0/s | Success: 204
+Geocoding 988: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 989: Córdoba, Veracruz... ✅ 18.8838909, -96.9237751
+Geocoding 990: Fortín, Veracruz... ✅ 18.9017033, -96.99896299999999
+Geocoding 991: Poza Rica De Hidalgo, Veracruz... ✅ 20.5270592, -97.4629119
+Geocoding 992: Poza Rica De Hidalgo, Veracruz... ✅ 20.5270592, -97.4629119
+Geocoding 993: Tuxpan, Veracruz... ❌ Failed
+Geocoding 994: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 995: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 996: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 997: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Progress: 240/2000 (12%) | Rate: 5.0/s | Success: 213
+Geocoding 998: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 999: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1000: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1001: Tuxpan, Veracruz... ❌ Failed
+Geocoding 1002: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1003: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1004: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1005: Coatzacoalcos, Veracruz... ✅ 18.1497687, -94.41858099999999
+Geocoding 1006: Faros, Veracruz... ✅ 19.2001197, -96.1328179
+Geocoding 1007: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Progress: 250/2000 (13%) | Rate: 5.0/s | Success: 222
+Geocoding 1008: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1009: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1010: Boca Del Río, Veracruz... ✅ 19.106273, -96.10632040000002
+Geocoding 1011: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1012: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1013: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1014: Xalapa, Veracruz... ✅ 19.5437751, -96.91018059999999
+Geocoding 1015: Ricardo Flores Magón, Veracruz... ✅ 19.1914151, -96.1275175
+Geocoding 1016: Fortín, Veracruz... ✅ 18.9017033, -96.99896299999999
+Geocoding 1017: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Progress: 260/2000 (13%) | Rate: 5.0/s | Success: 232
+Geocoding 1018: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1019: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1020: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1021: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1022: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1023: Boca Del Río, Veracruz... ✅ 19.106273, -96.10632040000002
+Geocoding 1024: Xalapa, Veracruz... ✅ 19.5437751, -96.91018059999999
+Geocoding 1025: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1026: Coatzacoalcos, Veracruz... ✅ 18.1497687, -94.41858099999999
+Geocoding 1027: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Progress: 270/2000 (14%) | Rate: 5.1/s | Success: 242
+Geocoding 1028: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1029: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1030: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1031: Altamira, Tamaulipas... ✅ 22.4077462, -97.92115550000001
+Geocoding 1032: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1033: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1034: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1035: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1036: Ciudad Madero, Tamaulipas... ✅ 22.2494534, -97.8352027
+Geocoding 1037: Ciudad Madero, Tamaulipas... ✅ 22.2494534, -97.8352027
+Progress: 280/2000 (14%) | Rate: 5.0/s | Success: 252
+Geocoding 1038: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1039: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1040: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1041: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1042: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1043: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1044: Tampico, Tamaulipas... ❌ Failed
+Geocoding 1045: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1046: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1047: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Progress: 290/2000 (14%) | Rate: 5.1/s | Success: 261
+Geocoding 1048: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1049: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1050: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1051: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1052: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1053: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1054: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1055: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1056: Altamira, Tamaulipas... ✅ 22.4077462, -97.92115550000001
+Geocoding 1057: Altamira, Tamaulipas... ✅ 22.4077462, -97.92115550000001
+Progress: 300/2000 (15%) | Rate: 5.0/s | Success: 271
+Geocoding 1058: Tampico, Tamaulipas... ❌ Failed
+Geocoding 1059: Altamira, Tamaulipas... ✅ 22.4077462, -97.92115550000001
+Geocoding 1060: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1061: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1062: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1063: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1064: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1065: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1066: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1067: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Progress: 310/2000 (16%) | Rate: 5.0/s | Success: 280
+Geocoding 1068: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1069: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1070: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1071: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1072: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1073: Ciudad Madero, Tamaulipas... ✅ 22.2494534, -97.8352027
+Geocoding 1074: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1075: Ciudad Madero, Tamaulipas... ✅ 22.2494534, -97.8352027
+Geocoding 1076: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 1077: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Progress: 320/2000 (16%) | Rate: 5.0/s | Success: 290
+Geocoding 1078: Tijuana, Baja California... ❌ Failed
+Geocoding 1079: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Geocoding 1080: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Geocoding 1081: Ensenada, Baja California... ✅ 31.8557021, -116.6057392
+Geocoding 1082: Ensenada, Baja California... ✅ 31.8557021, -116.6057392
+Geocoding 1083: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 1084: Tecate, Baja California... ✅ 32.563609, -116.6256752
+Geocoding 1085: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 1086: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 1087: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Progress: 330/2000 (17%) | Rate: 5.1/s | Success: 299
+Geocoding 1088: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Geocoding 1089: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 1090: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 1091: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 1092: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 1093: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 1094: Ensenada, Baja California... ❌ Failed
+Geocoding 1095: Saltillo, Coahuila... ✅ 25.4383234, -100.973678
+Geocoding 1096: Saltillo, Coahuila... ✅ 25.4383234, -100.973678
+Geocoding 1097: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Progress: 340/2000 (17%) | Rate: 5.1/s | Success: 308
+Geocoding 1098: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1099: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1100: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1101: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1102: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1103: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1104: Torreón, Coahuila... ❌ Failed
+Geocoding 1105: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1106: Torreón, Coahuila... ❌ Failed
+Geocoding 1107: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Progress: 350/2000 (18%) | Rate: 5.1/s | Success: 316
+Geocoding 1108: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1109: Torreón, Coahuila... ❌ Failed
+Geocoding 1110: Saltillo, Coahuila... ✅ 25.4383234, -100.973678
+Geocoding 1111: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1112: Torreón, Coahuila... ❌ Failed
+Geocoding 1113: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1114: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1115: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1116: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1117: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Progress: 360/2000 (18%) | Rate: 5.1/s | Success: 324
+Geocoding 1118: Torreón, Coahuila... ❌ Failed
+Geocoding 1119: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1120: Saltillo, Coahuila... ✅ 25.4383234, -100.973678
+Geocoding 1121: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1122: Torreón, Coahuila... ❌ Failed
+Geocoding 1123: Torreón, Coahuila... ❌ Failed
+Geocoding 1124: Saltillo, Coahuila... ✅ 25.4383234, -100.973678
+Geocoding 1125: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1126: Saltillo, Coahuila... ✅ 25.4383234, -100.973678
+Geocoding 1127: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Progress: 370/2000 (19%) | Rate: 5.1/s | Success: 331
+Geocoding 1128: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1129: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1130: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1131: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1132: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1133: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 1134: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1135: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1136: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1137: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Progress: 380/2000 (19%) | Rate: 5.2/s | Success: 341
+Geocoding 1138: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1139: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1140: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1141: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1142: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1143: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1144: Rosales, Culiacán... ✅ 24.8090649, -107.3940117
+Geocoding 1145: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1146: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1147: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Progress: 390/2000 (20%) | Rate: 5.2/s | Success: 351
+Geocoding 1148: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1149: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1150: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1151: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1152: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1153: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1154: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1155: Culiacán, Sinaloa... ❌ Failed
+Geocoding 1156: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1157: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Progress: 400/2000 (20%) | Rate: 5.2/s | Success: 360
+Geocoding 1158: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1159: La Guamuchilera, Sinaloa... ✅ 25.8228017, -108.6490595
+Geocoding 1160: La Guamuchilera, Sinaloa... ✅ 25.8228017, -108.6490595
+Geocoding 1161: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1162: San Jerónimo, Sinaloa... ✅ 25.8226854, -108.2216704
+Geocoding 1163: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1164: Ahome, Sinaloa... ❌ Failed
+Geocoding 1165: Culiacán, Sinaloa... ❌ Failed
+Geocoding 1166: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1167: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Progress: 410/2000 (21%) | Rate: 5.3/s | Success: 368
+Geocoding 1168: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1169: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1170: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1171: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1172: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1173: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1174: Ahome, Sinaloa... ❌ Failed
+Geocoding 1175: Mazatlán, Sinaloa... ❌ Failed
+Geocoding 1176: Culiacán, Sinaloa... ❌ Failed
+Geocoding 1177: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Progress: 420/2000 (21%) | Rate: 5.3/s | Success: 375
+Geocoding 1178: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1179: Culiacán, Sinaloa... ❌ Failed
+Geocoding 1180: Guasave, Sinaloa... ✅ 25.5666987, -108.4673051
+Geocoding 1181: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1183: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1184: Mérida, Yucatán... ❌ Failed
+Geocoding 1185: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1186: Mérida, Yucatán... ❌ Failed
+Geocoding 1187: Hunucma, Yucatán... ✅ 21.016318, -89.8772303
+Geocoding 1188: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Progress: 430/2000 (22%) | Rate: 5.3/s | Success: 382
+Geocoding 1189: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1190: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1191: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1192: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1193: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1194: Conkal, Yucatán... ❌ Failed
+Geocoding 1195: Conkal, Yucatán... ❌ Failed
+Geocoding 1196: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Geocoding 1197: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1198: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Progress: 440/2000 (22%) | Rate: 5.4/s | Success: 390
+Geocoding 1199: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1200: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1201: Mérida, Yucatán... ❌ Failed
+Geocoding 1202: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1203: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1204: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1205: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1206: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1207: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Geocoding 1208: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Progress: 450/2000 (23%) | Rate: 5.4/s | Success: 399
+Geocoding 1209: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1210: Conkal, Yucatán... ❌ Failed
+Geocoding 1211: Hunucma, Yucatán... ✅ 21.016318, -89.8772303
+Geocoding 1212: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1213: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1214: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1215: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1216: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1217: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1218: Telchac Puerto, Yucatán... ✅ 21.3419002, -89.2636045
+Progress: 460/2000 (23%) | Rate: 5.4/s | Success: 408
+Geocoding 1219: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1220: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1221: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1222: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1223: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1224: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1225: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1226: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Geocoding 1227: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1228: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Progress: 470/2000 (24%) | Rate: 5.4/s | Success: 418
+Geocoding 1229: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1230: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1231: Medellín, Veracruz... ✅ 19.0594002, -96.158664
+Geocoding 1232: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1233: Tepeji Del Río De Ocampo, Hidalgo... ✅ 19.9049725, -99.3423037
+Geocoding 1234: Santa Maria Colotepec, Oaxaca... ✅ 15.8969852, -96.93780509999999
+Geocoding 1235: Atlixco, Puebla... ✅ 18.9131227, -98.4293891
+Geocoding 1236: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 1237: Boca Del Río, Veracruz... ✅ 19.106273, -96.10632040000002
+Geocoding 1238: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Progress: 480/2000 (24%) | Rate: 5.5/s | Success: 428
+Geocoding 1239: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1240: Jilotepec, Estado De México... ✅ 19.9516359, -99.536755
+Geocoding 1241: Temixco, Morelos... ✅ 18.8593026, -99.2393666
+Geocoding 1242: Xochitepec, Morelos... ✅ 18.7955184, -99.2314492
+Geocoding 1243: El Salto, Jalisco... ✅ 20.5178271, -103.1826862
+Geocoding 1244: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1245: Cuautla, Morelos... ✅ 18.8126047, -98.9548261
+Geocoding 1246: Ixtapan De La Sal, Estado De México... ❌ Failed
+Geocoding 1247: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1248: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Progress: 490/2000 (25%) | Rate: 5.5/s | Success: 437
+Geocoding 1249: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1250: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1251: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1252: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1253: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1254: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1255: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1256: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1257: Puerto Morelos, Quintana Roo... ✅ 20.8478084, -86.87553419999999
+Geocoding 1258: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Progress: 500/2000 (25%) | Rate: 5.5/s | Success: 447
+Geocoding 1259: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1260: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1261: Ixtapan De La Sal, Estado De México... ❌ Failed
+Geocoding 1262: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1263: Ixtapan De La Sal, Estado De México... ✅ 18.8390501, -99.6760096
+Geocoding 1264: San Miguel De Allende, Guanajuato... ❌ Failed
+Geocoding 1265: San Miguel De Allende, Guanajuato... ✅ 20.9144491, -100.745235
+Geocoding 1266: Chicxulub Pueblo, Yucatán... ✅ 21.1362559, -89.5161981
+Geocoding 1267: Tequisquiapan, Querétaro... ✅ 20.5187326, -99.8850586
+Geocoding 1268: Villa De Tezontepec, Hidalgo... ✅ 19.8820899, -98.8218947
+Progress: 510/2000 (26%) | Rate: 5.5/s | Success: 455
+Geocoding 1269: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Geocoding 1270: Valle De Bravo, Estado De México... ✅ 19.1950964, -100.1326725
+Geocoding 1271: Ensenada, Baja California... ✅ 31.8557021, -116.6057392
+Geocoding 1272: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1273: Coatepec, Veracruz... ✅ 19.451938, -96.9594511
+Geocoding 1274: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1275: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1276: San Pedro Mixtepec-juquila, Oaxaca... ❌ Failed
+Geocoding 1277: Nacajuca, Tabasco... ✅ 18.1697426, -93.0150692
+Geocoding 1278: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Progress: 520/2000 (26%) | Rate: 5.5/s | Success: 464
+Geocoding 1279: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 1280: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 1281: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 1282: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1283: Centro Sur, Querétaro... ✅ 20.5717189, -100.3624216
+Geocoding 1284: Coyoacán, Distrito Federal... ✅ 19.3437444, -99.1561883
+Geocoding 1285: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 1286: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 1287: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1288: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Progress: 530/2000 (27%) | Rate: 5.5/s | Success: 474
+Geocoding 1289: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1290: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 1291: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1292: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1293: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 1294: Cuauhtémoc, Distrito Federal... ❌ Failed
+Geocoding 1295: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1296: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1297: Atizapán De Zaragoza, Estado De México... ✅ 19.5562275, -99.2674713
+Geocoding 1298: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Progress: 540/2000 (27%) | Rate: 5.5/s | Success: 483
+Geocoding 1299: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 1300: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 1301: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 1302: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1303: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1304: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1305: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 1306: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 1307: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 1308: La Magdalena Contreras, Distrito Federal... ✅ 19.3149641, -99.24258859999999
+Progress: 550/2000 (28%) | Rate: 5.6/s | Success: 493
+Geocoding 1309: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1310: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 1311: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1312: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1313: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1314: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1315: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1316: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1317: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Geocoding 1318: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Progress: 560/2000 (28%) | Rate: 5.6/s | Success: 503
+Geocoding 1319: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1320: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1321: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1322: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1323: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1324: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1325: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1326: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1327: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Geocoding 1328: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Progress: 570/2000 (28%) | Rate: 5.6/s | Success: 513
+Geocoding 1329: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Geocoding 1330: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Geocoding 1331: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1332: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Geocoding 1333: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Geocoding 1334: Cozumel, Quintana Roo... ✅ 20.5071703, -86.9446237
+Geocoding 1335: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1336: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1337: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1338: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Progress: 580/2000 (29%) | Rate: 5.6/s | Success: 523
+Geocoding 1339: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1340: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1341: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1342: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1343: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1344: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1345: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1346: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1347: Cancún/Benito Juárez, Quintana Roo... ❌ Failed
+Geocoding 1348: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Progress: 590/2000 (30%) | Rate: 5.6/s | Success: 532
+Geocoding 1349: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1350: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1351: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1352: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Geocoding 1353: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1354: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1355: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1356: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1357: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1358: Solidaridad/Riviera Maya, Quintana Roo... ❌ Failed
+Progress: 600/2000 (30%) | Rate: 5.6/s | Success: 541
+Geocoding 1359: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1360: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1361: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1362: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1363: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1364: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1365: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1366: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1367: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1368: Culiacán, Sinaloa... ❌ Failed
+Progress: 610/2000 (31%) | Rate: 5.7/s | Success: 550
+Geocoding 1369: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1370: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1371: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1372: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1373: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1374: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1375: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1376: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1377: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1378: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Progress: 620/2000 (31%) | Rate: 5.7/s | Success: 560
+Geocoding 1379: Culiacán, Sinaloa... ❌ Failed
+Geocoding 1380: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1381: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1382: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1383: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1384: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1385: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1386: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1387: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1388: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Progress: 630/2000 (32%) | Rate: 5.7/s | Success: 569
+Geocoding 1389: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1390: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1391: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1392: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1393: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1394: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1395: Culiacán, Sinaloa... ❌ Failed
+Geocoding 1396: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1397: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1398: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Progress: 640/2000 (32%) | Rate: 5.7/s | Success: 578
+Geocoding 1399: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1400: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1401: Culiacán, Sinaloa... ❌ Failed
+Geocoding 1402: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1403: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1404: Mazatlán, Sinaloa... ❌ Failed
+Geocoding 1405: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1406: Ahome, Sinaloa... ✅ 25.7904061, -108.9917304
+Geocoding 1407: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 1408: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Progress: 650/2000 (33%) | Rate: 5.7/s | Success: 586
+Geocoding 1409: Culiacán, Sinaloa... ❌ Failed
+Geocoding 1410: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1411: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1412: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1413: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1414: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1415: Juárez, Chihuahua... ❌ Failed
+Geocoding 1416: Chihuahua, Chihuahua... ✅ 28.6433753, -106.0587908
+Geocoding 1417: Chihuahua, Chihuahua... ✅ 28.6433753, -106.0587908
+Geocoding 1418: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Progress: 660/2000 (33%) | Rate: 5.8/s | Success: 594
+Geocoding 1419: Aldama, Chihuahua... ❌ Failed
+Geocoding 1420: Las Granjas, Chihuahua... ✅ 28.6657409, -106.1022307
+Geocoding 1421: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1422: Inalámbrica, Chihuahua... ❌ Failed
+Geocoding 1423: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1424: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1425: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1426: Riberas Del Sacramento I Y II, Chihuahua... ✅ 28.7733769, -106.1674118
+Geocoding 1427: Nombre De Dios, Chihuahua... ✅ 28.67479789999999, -106.0860628
+Geocoding 1428: Aquiles Serdán, Chihuahua... ✅ 28.5936841, -105.8873746
+Progress: 670/2000 (34%) | Rate: 5.8/s | Success: 602
+Geocoding 1429: Vicente Guereca, Chihuahua... ❌ Failed
+Geocoding 1430: Recursos Hidráulicos, Chihuahua... ✅ 28.647586, -106.1261175
+Geocoding 1431: Sanesp, Chihuahua... ✅ 28.6433753, -106.0587908
+Geocoding 1432: Deportistas, Chihuahua... ✅ 28.696042, -106.1213399
+Geocoding 1433: Rosario, Chihuahua... ✅ 28.6109512, -106.0743052
+Geocoding 1434: Pedagu, Chihuahua... ❌ Failed
+Geocoding 1435: Colonia Riberas Del Sacramento I Y II, Chihuahua... ❌ Failed
+Geocoding 1436: Las Animas, Chihuahua... ✅ 28.5772181, -106.1183999
+Geocoding 1437: Renta De Bodega Industrial Al Norte De La Ciudad. ... ❌ Failed
+Geocoding 1438: Pauhen, Chihuahua... ✅ 28.6433753, -106.0587908
+Progress: 680/2000 (34%) | Rate: 5.8/s | Success: 608
+Geocoding 1439: Santa Rosa, Chihuahua... ✅ 28.6262114, -106.0654875
+Geocoding 1440: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1441: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1442: Aldama, Chihuahua... ✅ 28.8370715, -105.9288641
+Geocoding 1443: El Sacramento, Chihuahua... ✅ 29.3884572, -105.4452133
+Geocoding 1444: Jardines De Oriente IX Y X, Chihuahua... ✅ 28.6657709, -105.9799732
+Geocoding 1445: Plomeros, Chihuahua... ✅ 28.65213929999999, -106.0462001
+Geocoding 1446: Complejo Industrial Chihuahua, Chihuahua... ✅ 28.71465809999999, -106.1198699
+Geocoding 1447: Zona Industrial Nombre De Dios, Chihuahua... ❌ Failed
+Geocoding 1448: Las Granjas, Chihuahua... ❌ Failed
+Progress: 690/2000 (35%) | Rate: 5.8/s | Success: 616
+Geocoding 1449: Armmal, Chihuahua... ✅ 28.6433753, -106.0587908
+Geocoding 1450: Nuevo Triunfo, Chihuahua... ❌ Failed
+Geocoding 1451: Nombre De Dios, Chihuahua... ✅ 28.67479789999999, -106.0860628
+Geocoding 1452: Colonia Riberas Del Sacramento I Y II, Chihuahua... ✅ 28.7733769, -106.1674118
+Geocoding 1453: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1454: Juárez, Chihuahua... ✅ 31.6903638, -106.4245478
+Geocoding 1455: Sergio De La Torre Hernández I, Chihuahua... ✅ 28.6496116, -106.0017338
+Geocoding 1456: Sergio De La Torre Hernández I, Chihuahua... ✅ 28.6496116, -106.0017338
+Geocoding 1457: Armmal, Chihuahua... ✅ 28.6433753, -106.0587908
+Geocoding 1458: Complejo Industrial Chihuahua, Chihuahua... ✅ 28.71465809999999, -106.1198699
+Progress: 700/2000 (35%) | Rate: 5.8/s | Success: 625
+Geocoding 1459: Zapopan, Jalisco... ❌ Failed
+Geocoding 1460: Tlaquepaque, Jalisco... ✅ 20.6025191, -103.3361581
+Geocoding 1461: Guadalajara, Jalisco... ✅ 20.6751707, -103.3473385
+Geocoding 1462: Tlajomulco De Zúñiga, Jalisco... ✅ 20.4736865, -103.4479314
+Geocoding 1463: Ciudad Guzmán, Jalisco... ❌ Failed
+Geocoding 1464: Tlaquepaque, Jalisco... ✅ 20.6025191, -103.3361581
+Geocoding 1465: Guadalajara, Jalisco... ✅ 20.6751707, -103.3473385
+Geocoding 1466: El Salto, Jalisco... ❌ Failed
+Geocoding 1467: Tlaquepaque, Jalisco... ✅ 20.6025191, -103.3361581
+Geocoding 1468: Tonala, Jalisco... ✅ 20.6237413, -103.2413723
+Progress: 710/2000 (36%) | Rate: 5.8/s | Success: 632
+Geocoding 1469: Villa Corona, Jalisco... ✅ 20.4166263, -103.6649547
+Geocoding 1470: El Salto, Jalisco... ✅ 20.5178271, -103.1826862
+Geocoding 1471: Guadalajara, Jalisco... ✅ 20.6751707, -103.3473385
+Geocoding 1472: Tonala, Jalisco... ✅ 20.6237413, -103.2413723
+Geocoding 1473: Tlajomulco De Zúñiga, Jalisco... ✅ 20.4736865, -103.4479314
+Geocoding 1474: Zapopan, Jalisco... ✅ 20.6719563, -103.416501
+Geocoding 1475: Zapopan, Jalisco... ✅ 20.6719563, -103.416501
+Geocoding 1476: Zapopan, Jalisco... ✅ 20.6719563, -103.416501
+Geocoding 1477: Guadalajara, Jalisco... ✅ 20.6751707, -103.3473385
+Geocoding 1478: Tlajomulco De Zúñiga, Jalisco... ✅ 20.4736865, -103.4479314
+Progress: 720/2000 (36%) | Rate: 5.8/s | Success: 642
+Geocoding 1479: Tlajomulco De Zúñiga, Jalisco... ✅ 20.4736865, -103.4479314
+Geocoding 1480: Tonala, Jalisco... ✅ 20.6237413, -103.2413723
+Geocoding 1481: Lagos De Moreno, Jalisco... ✅ 21.3634964, -101.9291015
+Geocoding 1482: Tlajomulco De Zúñiga, Jalisco... ✅ 20.4736865, -103.4479314
+Geocoding 1483: Tlajomulco De Zúñiga, Jalisco... ✅ 20.4736865, -103.4479314
+Geocoding 1484: Tonala, Jalisco... ✅ 20.6237413, -103.2413723
+Geocoding 1485: Tlajomulco De Zúñiga, Jalisco... ✅ 20.4736865, -103.4479314
+Geocoding 1486: Tlajomulco De Zúñiga, Jalisco... ✅ 20.4736865, -103.4479314
+Geocoding 1487: Zapopan, Jalisco... ✅ 20.6719563, -103.416501
+Geocoding 1488: Guadalajara, Jalisco... ✅ 20.6751707, -103.3473385
+Progress: 730/2000 (37%) | Rate: 5.8/s | Success: 652
+Geocoding 1489: Jilotepec, Estado De México... ✅ 19.9516359, -99.536755
+Geocoding 1490: Texcoco, Estado De México... ✅ 19.5060382, -98.8831503
+Geocoding 1491: Santa Rosa De Jáuregui, Querétaro... ✅ 20.7414547, -100.447453
+Geocoding 1492: Tultitlán, Estado De México... ✅ 19.6392125, -99.1668646
+Geocoding 1493: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 1494: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1495: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1496: Morelia, Michoacán... ✅ 19.7059504, -101.1949825
+Geocoding 1497: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1498: Gustavo A. Madero, Distrito Federal... ✅ 19.4873329, -99.1236134
+Progress: 740/2000 (37%) | Rate: 5.8/s | Success: 662
+Geocoding 1499: Gustavo A. Madero, Distrito Federal... ✅ 19.4873329, -99.1236134
+Geocoding 1500: Santa Catarina, Nuevo León... ✅ 25.6746058, -100.4423188
+Geocoding 1501: Tlaquepaque, Jalisco... ✅ 20.6025191, -103.3361581
+Geocoding 1502: Zapopan, Jalisco... ✅ 20.6719563, -103.416501
+Geocoding 1503: Zapopan, Jalisco... ✅ 20.6719563, -103.416501
+Geocoding 1504: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1505: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1506: Peñuelas, Aguascalientes... ✅ 21.7224999, -102.2758333
+Geocoding 1507: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1508: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Progress: 750/2000 (38%) | Rate: 5.8/s | Success: 672
+Geocoding 1509: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 1510: Cuautlancingo, Puebla... ✅ 19.0966286, -98.2724536
+Geocoding 1511: Azcapotzalco, Distrito Federal... ✅ 19.4846606, -99.1886749
+Geocoding 1512: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1513: Apaseo El Alto, Guanajuato... ✅ 20.4602715, -100.6224706
+Geocoding 1514: Xonacatlan, Estado De México... ✅ 19.4042181, -99.5302705
+Geocoding 1515: Azcapotzalco, Distrito Federal... ✅ 19.4846606, -99.1886749
+Geocoding 1516: Cuautitlán, Estado De México... ✅ 19.6726588, -99.1648692
+Geocoding 1517: Toluca, Estado De México... ✅ 19.2826098, -99.6556653
+Geocoding 1518: Morelia, Michoacán... ✅ 19.7059504, -101.1949825
+Progress: 760/2000 (38%) | Rate: 5.8/s | Success: 682
+Geocoding 1519: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1520: Santa Catarina, Nuevo León... ✅ 25.6746058, -100.4423188
+Geocoding 1521: Monterrey, Nuevo León... ✅ 25.6866142, -100.3161126
+Geocoding 1522: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1523: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 1524: Santa Catarina, Nuevo León... ✅ 25.6746058, -100.4423188
+Geocoding 1525: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 1526: Lerma, Estado De México... ✅ 19.2895865, -99.5117391
+Geocoding 1527: Ixtapaluca, Estado De México... ✅ 19.3090538, -98.9079782
+Geocoding 1528: Santa Catarina, Nuevo León... ✅ 25.6746058, -100.4423188
+Progress: 770/2000 (39%) | Rate: 5.8/s | Success: 692
+Geocoding 1529: Ixtapaluca, Estado De México... ✅ 19.3090538, -98.9079782
+Geocoding 1530: Xalapa, Veracruz... ✅ 19.5437751, -96.91018059999999
+Geocoding 1531: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 1532: Toluca, Estado De México... ✅ 19.2826098, -99.6556653
+Geocoding 1533: Tlajomulco De Zúñiga, Jalisco... ✅ 20.4736865, -103.4479314
+Geocoding 1534: Azcapotzalco, Distrito Federal... ✅ 19.4846606, -99.1886749
+Geocoding 1535: Monterrey, Nuevo León... ✅ 25.6866142, -100.3161126
+Geocoding 1536: Azcapotzalco, Distrito Federal... ✅ 19.4846606, -99.1886749
+Geocoding 1537: San Miguel De Allende, Guanajuato... ✅ 20.9144491, -100.745235
+Geocoding 1538: San Miguel De Allende, Guanajuato... ✅ 20.9144491, -100.745235
+Progress: 780/2000 (39%) | Rate: 5.8/s | Success: 702
+Geocoding 1539: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1540: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1541: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1542: Guanajuato, Centro SCT Guanajuato... ✅ 20.9937172, -101.2822989
+Geocoding 1543: Morelos, Guanajuato... ✅ 21.0313603, -101.7815802
+Geocoding 1544: Acambaro, Guanajuato... ✅ 20.025105, -100.718241
+Geocoding 1545: Salamanca, Guanajuato... ✅ 20.5739314, -101.1957172
+Geocoding 1546: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1547: Irapuato, Guanajuato... ✅ 20.6786652, -101.3544964
+Geocoding 1548: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Progress: 790/2000 (40%) | Rate: 5.8/s | Success: 712
+Geocoding 1549: Irapuato, Guanajuato... ✅ 20.6786652, -101.3544964
+Geocoding 1550: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1551: Salamanca, Guanajuato... ✅ 20.5739314, -101.1957172
+Geocoding 1552: Celaya, Guanajuato... ✅ 20.5279612, -100.8112885
+Geocoding 1553: Celaya, Guanajuato... ✅ 20.5279612, -100.8112885
+Geocoding 1554: Celaya, Guanajuato... ✅ 20.5279612, -100.8112885
+Geocoding 1555: Celaya, Guanajuato... ✅ 20.5279612, -100.8112885
+Geocoding 1556: Irapuato, Guanajuato... ✅ 20.6786652, -101.3544964
+Geocoding 1557: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1558: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Progress: 800/2000 (40%) | Rate: 5.8/s | Success: 722
+Geocoding 1559: Acambaro, Guanajuato... ✅ 20.025105, -100.718241
+Geocoding 1560: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1561: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1562: Irapuato, Guanajuato... ✅ 20.6786652, -101.3544964
+Geocoding 1563: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1564: San Francisco Del Rincón, Guanajuato... ✅ 21.0170828, -101.8492577
+Geocoding 1565: Salamanca, Guanajuato... ✅ 20.5739314, -101.1957172
+Geocoding 1566: Celaya, Guanajuato... ✅ 20.5279612, -100.8112885
+Geocoding 1567: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1568: San Miguel De Allende, Guanajuato... ✅ 20.9144491, -100.745235
+Progress: 810/2000 (41%) | Rate: 5.8/s | Success: 732
+Geocoding 1569: Salamanca, Guanajuato... ✅ 20.5739314, -101.1957172
+Geocoding 1570: Celaya, Guanajuato... ✅ 20.5279612, -100.8112885
+Geocoding 1571: Celaya, Guanajuato... ✅ 20.5279612, -100.8112885
+Geocoding 1572: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1573: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1574: Irapuato, Guanajuato... ✅ 20.6786652, -101.3544964
+Geocoding 1575: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1576: Irapuato, Guanajuato... ✅ 20.6786652, -101.3544964
+Geocoding 1577: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1578: San Miguel De Allende, Guanajuato... ✅ 20.9144491, -100.745235
+Progress: 820/2000 (41%) | Rate: 5.8/s | Success: 742
+Geocoding 1579: Irapuato, Guanajuato... ✅ 20.6786652, -101.3544964
+Geocoding 1580: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1581: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1582: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1583: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 1584: Irapuato, Guanajuato... ✅ 20.6786652, -101.3544964
+Geocoding 1585: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1586: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1587: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1588: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Progress: 830/2000 (42%) | Rate: 5.8/s | Success: 752
+Geocoding 1589: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1590: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1591: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1592: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1593: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1594: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1595: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1596: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1597: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1598: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Progress: 840/2000 (42%) | Rate: 5.9/s | Success: 762
+Geocoding 1599: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1600: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Geocoding 1601: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1602: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1603: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1604: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1605: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1606: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1607: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1608: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Progress: 850/2000 (43%) | Rate: 5.9/s | Success: 772
+Geocoding 1609: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1610: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1611: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1612: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1613: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1614: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1615: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1616: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1617: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1618: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Progress: 860/2000 (43%) | Rate: 5.9/s | Success: 782
+Geocoding 1619: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1620: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1621: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1622: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1623: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Geocoding 1624: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1625: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1626: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1627: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1628: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Progress: 870/2000 (44%) | Rate: 5.9/s | Success: 792
+Geocoding 1629: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1630: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1631: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1632: Nicolás Romero, Estado De México... ✅ 19.6162033, -99.30011809999999
+Geocoding 1633: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 1635: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1637: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 1639: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1640: Zempoala, Hidalgo... ✅ 19.913647, -98.6683097
+Geocoding 1641: Yautepec, Morelos... ✅ 18.8891562, -99.0626377
+Progress: 880/2000 (44%) | Rate: 5.9/s | Success: 802
+Geocoding 1642: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 1644: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1645: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1646: Acapulco, Guerrero... ✅ 16.8639515, -99.8822807
+Geocoding 1647: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 1648: Nicolás Romero, Estado De México... ✅ 19.6162033, -99.30011809999999
+Geocoding 1649: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1650: Tlalnepantla De Baz, Estado De México... ✅ 19.5360618, -99.1968306
+Geocoding 1651: Zempoala, Hidalgo... ✅ 19.913647, -98.6683097
+Geocoding 1652: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Progress: 890/2000 (45%) | Rate: 5.9/s | Success: 812
+Geocoding 1653: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 1654: Ayala, Morelos... ✅ 18.7606059, -98.98250829999999
+Geocoding 1655: Toluca, Estado De México... ✅ 19.2826098, -99.6556653
+Geocoding 1656: Zempoala, Hidalgo... ✅ 19.913647, -98.6683097
+Geocoding 1657: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 1658: Calimaya, Estado De México... ✅ 19.161779, -99.61291039999999
+Geocoding 1659: Zempoala, Hidalgo... ✅ 19.913647, -98.6683097
+Geocoding 1660: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1661: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 1662: Xalapa, Veracruz... ✅ 19.5437751, -96.91018059999999
+Progress: 900/2000 (45%) | Rate: 5.9/s | Success: 822
+Geocoding 1663: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 1664: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 1665: Zempoala, Hidalgo... ✅ 19.913647, -98.6683097
+Geocoding 1666: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 1667: Atizapán De Zaragoza, Estado De México... ✅ 19.5562275, -99.2674713
+Geocoding 1668: Cuautla, Morelos... ✅ 18.8126047, -98.9548261
+Geocoding 1669: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1670: Jardín, Puebla... ✅ 19.0515837, -98.1273702
+Geocoding 1671: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 1672: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Progress: 910/2000 (46%) | Rate: 5.9/s | Success: 832
+Geocoding 1673: Toluca, Estado De México... ✅ 19.2826098, -99.6556653
+Geocoding 1674: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1675: Xochimilco, Distrito Federal... ✅ 19.2572314, -99.1029664
+Geocoding 1676: Cuautitlán Izcalli, Estado De México... ✅ 19.6528089, -99.22313869999999
+Geocoding 1677: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 1678: Chalco, Estado De México... ✅ 19.26244, -98.8969427
+Geocoding 1679: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1680: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1681: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1682: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Progress: 920/2000 (46%) | Rate: 5.9/s | Success: 842
+Geocoding 1683: Santa Fe, Veracruz... ✅ 19.2072631, -96.273198
+Geocoding 1684: Miguel Alemán, Veracruz... ✅ 19.2064973, -96.15236709999999
+Geocoding 1685: Córdoba, Veracruz... ✅ 18.8838909, -96.9237751
+Geocoding 1686: Con Posibilidad Inmediata De Luz Y Agua Listo Para... ✅ 19.173773, -96.1342241
+Geocoding 1687: Transitadas E Importantes Avenidas De Veracruz, Ve... ✅ 19.1718603, -96.1492009
+Geocoding 1688: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1689: Tihuatlan, Veracruz... ✅ 20.7157194, -97.5342015
+Geocoding 1690: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1691: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1692: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Progress: 930/2000 (47%) | Rate: 5.9/s | Success: 852
+Geocoding 1693: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1694: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1695: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1696: Cosamaloapan, Veracruz... ✅ 18.3663192, -95.79583629999999
+Geocoding 1697: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1698: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1699: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1700: Boca Del Río, Veracruz... ✅ 19.106273, -96.10632040000002
+Geocoding 1701: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1702: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Progress: 940/2000 (47%) | Rate: 5.9/s | Success: 862
+Geocoding 1703: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1704: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1705: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1706: Medellín, Veracruz... ✅ 19.0594002, -96.158664
+Geocoding 1707: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1708: Minatitlan, Veracruz... ✅ 17.9859818, -94.54519379999999
+Geocoding 1709: Huatusco, Veracruz... ✅ 19.1508248, -96.9624892
+Geocoding 1710: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1711: Medellín, Veracruz... ✅ 19.0594002, -96.158664
+Geocoding 1712: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Progress: 950/2000 (48%) | Rate: 5.9/s | Success: 872
+Geocoding 1713: Valle Alto, Veracruz... ✅ 19.1261415, -96.2203407
+Geocoding 1714: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1715: Boca Del Río, Veracruz... ✅ 19.106273, -96.10632040000002
+Geocoding 1716: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1717: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1718: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1719: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 1720: Medellín, Veracruz... ✅ 19.0594002, -96.158664
+Geocoding 1721: Alvarado, Veracruz... ✅ 18.7696195, -95.758949
+Geocoding 1722: Cotaxtla, Veracruz... ✅ 18.8354263, -96.396423
+Progress: 960/2000 (48%) | Rate: 5.9/s | Success: 882
+Geocoding 1723: Tihuatlan, Veracruz... ✅ 20.7157194, -97.5342015
+Geocoding 1724: Omealca, Veracruz... ✅ 18.7456104, -96.7855404
+Geocoding 1725: Tihuatlan, Veracruz... ✅ 20.7157194, -97.5342015
+Geocoding 1726: Coatzacoalcos, Veracruz... ✅ 18.1497687, -94.41858099999999
+Geocoding 1727: Tulum, Quintana Roo... ✅ 20.2114185, -87.46535019999999
+Geocoding 1728: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1730: Mazatlán, Sinaloa... ✅ 23.2494148, -106.4111425
+Geocoding 1731: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1732: Coyoacán, Distrito Federal... ✅ 19.3437444, -99.1561883
+Geocoding 1733: Coyoacán, Distrito Federal... ✅ 19.3437444, -99.1561883
+Progress: 970/2000 (49%) | Rate: 5.9/s | Success: 892
+Geocoding 1734: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 1735: Monterrey, Nuevo León... ✅ 25.6866142, -100.3161126
+Geocoding 1736: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 1737: El Refugio, Querétaro... ✅ 20.6536084, -100.3469826
+Geocoding 1738: La Magdalena Contreras, Distrito Federal... ✅ 19.3149641, -99.24258859999999
+Geocoding 1739: Acapulco, Guerrero... ✅ 16.8639515, -99.8822807
+Geocoding 1740: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1741: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1742: Iztacalco, Distrito Federal... ✅ 19.3948036, -99.09768079999999
+Geocoding 1743: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Progress: 980/2000 (49%) | Rate: 5.9/s | Success: 902
+Geocoding 1744: El Refugio Residencial, Querétaro... ✅ 20.6437209, -100.3466174
+Geocoding 1745: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 1746: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1747: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 1748: Monterrey, Nuevo León... ✅ 25.6866142, -100.3161126
+Geocoding 1749: General Escobedo, Nuevo León... ✅ 25.8002233, -100.3122083
+Geocoding 1750: San Miguel De Allende, Guanajuato... ✅ 20.9144491, -100.745235
+Geocoding 1751: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1752: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 1753: Chicoloapan, Estado De México... ✅ 19.4143591, -98.9062442
+Progress: 990/2000 (50%) | Rate: 5.9/s | Success: 912
+Geocoding 1754: Valle De Chalco Solidaridad, Estado De México... ✅ 19.2924017, -98.9403667
+Geocoding 1755: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 1756: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 1757: Jiutepec, Morelos... ✅ 18.8954874, -99.1732936
+Geocoding 1758: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1759: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1760: Centro Sur, Querétaro... ✅ 20.5717189, -100.3624216
+Geocoding 1761: Chimalhuacán, Estado De México... ✅ 19.4314047, -98.95820479999999
+Geocoding 1762: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1763: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Progress: 1000/2000 (50%) | Rate: 5.9/s | Success: 922
+Geocoding 1764: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1765: Iztacalco, Distrito Federal... ✅ 19.3948036, -99.09768079999999
+Geocoding 1766: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 1767: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Geocoding 1768: Acapulco, Guerrero... ✅ 16.8639515, -99.8822807
+Geocoding 1769: Coyoacán, Distrito Federal... ✅ 19.3437444, -99.1561883
+Geocoding 1770: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1771: Arellano, Aguascalientes... ✅ 21.8008333, -102.2744444
+Geocoding 1772: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1774: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Progress: 1010/2000 (51%) | Rate: 5.9/s | Success: 932
+Geocoding 1775: Nezahualcoyotl, Estado De México... ✅ 19.3994934, -98.9896643
+Geocoding 1778: Xochimilco, Distrito Federal... ✅ 19.2572314, -99.1029664
+Geocoding 1779: Zinacantepec, Estado De México... ✅ 19.2816191, -99.73162819999999
+Geocoding 1780: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1784: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 1814: Huitzilac, Morelos... ✅ 19.0282112, -99.2679119
+Geocoding 1817: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 1818: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1819: Tlalnepantla De Baz, Estado De México... ✅ 19.5360618, -99.1968306
+Geocoding 1820: Anzures, Puebla... ✅ 19.0259359, -98.1987443
+Progress: 1020/2000 (51%) | Rate: 5.9/s | Success: 942
+Geocoding 1821: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 1822: Coyoacán, Distrito Federal... ✅ 19.3437444, -99.1561883
+Geocoding 1823: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 1824: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1825: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1826: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1827: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1828: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1829: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1830: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Progress: 1030/2000 (52%) | Rate: 5.9/s | Success: 952
+Geocoding 1831: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 1832: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1833: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1834: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1835: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1836: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1837: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1838: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 1839: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1840: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Progress: 1040/2000 (52%) | Rate: 5.9/s | Success: 962
+Geocoding 1841: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1842: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1843: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 1844: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1845: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1846: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 1847: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1848: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1849: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1850: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Progress: 1050/2000 (53%) | Rate: 5.9/s | Success: 972
+Geocoding 1851: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1852: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1853: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 1854: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1855: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 1856: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1857: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1858: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 1859: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1860: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Progress: 1060/2000 (53%) | Rate: 5.9/s | Success: 982
+Geocoding 1861: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1862: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1863: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 1864: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 1865: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1866: Jiutepec, Morelos... ✅ 18.8954874, -99.1732936
+Geocoding 1867: Cuautla, Morelos... ✅ 18.8126047, -98.9548261
+Geocoding 1868: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1869: Cuautla, Morelos... ✅ 18.8126047, -98.9548261
+Geocoding 1870: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Progress: 1070/2000 (54%) | Rate: 6.0/s | Success: 992
+Geocoding 1871: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1872: Xochitepec, Morelos... ✅ 18.7955184, -99.2314492
+Geocoding 1873: Jiutepec, Morelos... ✅ 18.8954874, -99.1732936
+Geocoding 1874: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1875: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1876: Ayala, Morelos... ✅ 18.7606059, -98.98250829999999
+Geocoding 1877: Jiutepec, Morelos... ✅ 18.8954874, -99.1732936
+Geocoding 1878: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1879: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1880: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Progress: 1080/2000 (54%) | Rate: 6.0/s | Success: 1002
+Geocoding 1881: Jojutla, Morelos... ✅ 18.6144195, -99.1781178
+Geocoding 1882: Xochitepec, Morelos... ✅ 18.7955184, -99.2314492
+Geocoding 1883: Zacatepec, Morelos... ✅ 18.6590633, -99.1954432
+Geocoding 1884: Jiutepec, Morelos... ✅ 18.8954874, -99.1732936
+Geocoding 1885: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1886: Tequesquitengo, Morelos... ✅ 18.6116664, -99.25943559999999
+Geocoding 1887: Xochitepec, Morelos... ✅ 18.7955184, -99.2314492
+Geocoding 1888: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1889: Jiutepec, Morelos... ✅ 18.8954874, -99.1732936
+Geocoding 1890: Emiliano Zapata, Morelos... ✅ 18.8478608, -99.1843676
+Progress: 1090/2000 (55%) | Rate: 6.0/s | Success: 1012
+Geocoding 1891: Cuautla, Morelos... ✅ 18.8126047, -98.9548261
+Geocoding 1892: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1893: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1894: Tequesquitengo, Morelos... ✅ 18.6116664, -99.25943559999999
+Geocoding 1895: Yautepec, Morelos... ✅ 18.8891562, -99.0626377
+Geocoding 1896: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1897: Emiliano Zapata, Morelos... ✅ 18.8478608, -99.1843676
+Geocoding 1898: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1899: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1900: Jiutepec, Morelos... ✅ 18.8954874, -99.1732936
+Progress: 1100/2000 (55%) | Rate: 6.0/s | Success: 1022
+Geocoding 1901: Huitzilac, Morelos... ✅ 19.0282112, -99.2679119
+Geocoding 1902: Puente De Ixtla, Morelos... ✅ 18.6146871, -99.3201479
+Geocoding 1903: Jojutla, Morelos... ✅ 18.6144195, -99.1781178
+Geocoding 1904: Emiliano Zapata, Morelos... ✅ 18.8478608, -99.1843676
+Geocoding 1905: Emiliano Zapata, Morelos... ✅ 18.8478608, -99.1843676
+Geocoding 1906: Emiliano Zapata, Morelos... ✅ 18.8478608, -99.1843676
+Geocoding 1907: Emiliano Zapata, Morelos... ✅ 18.8478608, -99.1843676
+Geocoding 1908: Jiutepec, Morelos... ✅ 18.8954874, -99.1732936
+Geocoding 1909: Emiliano Zapata, Morelos... ✅ 18.8478608, -99.1843676
+Geocoding 1910: Santa Rosa De Jáuregui, Querétaro... ✅ 20.7414547, -100.447453
+Progress: 1110/2000 (56%) | Rate: 6.0/s | Success: 1032
+Geocoding 1911: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 1912: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 1913: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1914: Cuautitlán Izcalli, Estado De México... ✅ 19.6528089, -99.22313869999999
+Geocoding 1915: Cuernavaca, Morelos... ✅ 18.9242095, -99.22156590000002
+Geocoding 1916: Sendero, Querétaro... ✅ 20.61768, -100.4379
+Geocoding 1917: Pedro Escobedo, Querétaro... ✅ 20.5010443, -100.1395169
+Geocoding 1918: Cuautitlán, Estado De México... ✅ 19.6726588, -99.1648692
+Geocoding 1919: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 1920: Iztacalco, Distrito Federal... ✅ 19.3948036, -99.09768079999999
+Progress: 1120/2000 (56%) | Rate: 6.0/s | Success: 1042
+Geocoding 1921: Alvaro Obregón, Distrito Federal... ✅ 19.3605334, -99.2267067
+Geocoding 1922: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 1923: Iztacalco, Distrito Federal... ✅ 19.3948036, -99.09768079999999
+Geocoding 1924: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1925: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 1926: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 1927: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1928: Tlajomulco De Zúñiga, Jalisco... ✅ 20.4736865, -103.4479314
+Geocoding 1929: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1930: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Progress: 1130/2000 (56%) | Rate: 6.0/s | Success: 1052
+Geocoding 1931: Monterrey, Nuevo León... ✅ 25.6866142, -100.3161126
+Geocoding 1932: Azcapotzalco, Distrito Federal... ✅ 19.4846606, -99.1886749
+Geocoding 1933: General Escobedo, Nuevo León... ✅ 25.8002233, -100.3122083
+Geocoding 1934: Cuautlancingo, Puebla... ✅ 19.0966286, -98.2724536
+Geocoding 1935: Morelos, Estado De México... ✅ 19.7899891, -99.6684882
+Geocoding 1936: Ixtapaluca, Estado De México... ✅ 19.3090538, -98.9079782
+Geocoding 1937: Toluca, Estado De México... ✅ 19.2826098, -99.6556653
+Geocoding 1938: Iztacalco, Distrito Federal... ✅ 19.3948036, -99.09768079999999
+Geocoding 1939: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1940: Parques Industriales, Querétaro... ✅ 20.8263477, -100.4334781
+Progress: 1140/2000 (57%) | Rate: 6.0/s | Success: 1062
+Geocoding 1941: Monterrey, Nuevo León... ✅ 25.6866142, -100.3161126
+Geocoding 1942: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 1943: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 1944: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1945: Venustiano Carranza, Distrito Federal... ✅ 19.4306069, -99.0949899
+Geocoding 1946: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 1947: General Escobedo, Nuevo León... ✅ 25.8002233, -100.3122083
+Geocoding 1948: General Escobedo, Nuevo León... ✅ 25.8002233, -100.3122083
+Geocoding 1949: San José El Alto, Querétaro... ✅ 20.6512354, -100.386287
+Geocoding 1950: Monterrey, Nuevo León... ✅ 25.6866142, -100.3161126
+Progress: 1150/2000 (57%) | Rate: 6.0/s | Success: 1072
+Geocoding 1951: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 1952: Cuautitlán Izcalli, Estado De México... ✅ 19.6528089, -99.22313869999999
+Geocoding 1953: Cuautitlán Izcalli, Estado De México... ✅ 19.6528089, -99.22313869999999
+Geocoding 1954: Iztacalco, Distrito Federal... ✅ 19.3948036, -99.09768079999999
+Geocoding 1955: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1956: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1957: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1958: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1959: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1960: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Progress: 1160/2000 (58%) | Rate: 6.0/s | Success: 1082
+Geocoding 1961: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1962: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Geocoding 1963: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1964: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1965: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1966: Kanasin, Yucatán... ✅ 20.9441486, -89.56391190000001
+Geocoding 1967: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1968: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1969: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1970: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Progress: 1170/2000 (59%) | Rate: 6.0/s | Success: 1092
+Geocoding 1971: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1972: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1973: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1974: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1975: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Geocoding 1976: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1977: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1978: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1979: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1980: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Progress: 1180/2000 (59%) | Rate: 6.0/s | Success: 1102
+Geocoding 1981: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1982: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1983: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1984: Kanasin, Yucatán... ✅ 20.9441486, -89.56391190000001
+Geocoding 1985: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1986: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1987: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1988: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1989: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1990: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Progress: 1190/2000 (60%) | Rate: 6.0/s | Success: 1112
+Geocoding 1991: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1992: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1993: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1994: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1995: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1996: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1997: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1998: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 1999: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2000: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Progress: 1200/2000 (60%) | Rate: 6.0/s | Success: 1122
+Geocoding 2001: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2002: La Purísima, Querétaro... ✅ 20.629458, -100.3498397
+Geocoding 2003: Peñuelas, Querétaro... ✅ 20.6328929, -100.39752
+Geocoding 2004: El Refugio Residencial, Querétaro... ✅ 20.6437209, -100.3466174
+Geocoding 2005: Corregidora, Querétaro... ✅ 20.5334645, -100.4462861
+Geocoding 2006: Corregidora, Querétaro... ✅ 20.5334645, -100.4462861
+Geocoding 2007: Residencial Italia, Querétaro... ✅ 20.5878217, -100.4178024
+Geocoding 2008: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 2009: Residencial Italia, Querétaro... ✅ 20.5878217, -100.4178024
+Geocoding 2010: El Mirador, Querétaro... ✅ 20.5969576, -100.3343527
+Progress: 1210/2000 (61%) | Rate: 6.0/s | Success: 1132
+Geocoding 2011: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2012: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2013: Centro Sur, Querétaro... ✅ 20.5717189, -100.3624216
+Geocoding 2014: Insurgentes, Querétaro... ✅ 20.6306897, -100.4459781
+Geocoding 2015: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2016: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2017: Corregidora, Querétaro... ✅ 20.5334645, -100.4462861
+Geocoding 2018: Local Nuevo-centro Sur  (mt), Querétaro... ✅ 20.5717189, -100.3624216
+Geocoding 2019: Corregidora, Querétaro... ✅ 20.5334645, -100.4462861
+Geocoding 2020: Reforma Agraria, Querétaro... ✅ 20.5548737, -100.3962035
+Progress: 1220/2000 (61%) | Rate: 6.0/s | Success: 1142
+Geocoding 2021: Tequisquiapan, Querétaro... ✅ 20.5187326, -99.8850586
+Geocoding 2022: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 2023: Peñuelas, Querétaro... ✅ 20.6328929, -100.39752
+Geocoding 2024: Local Comercial En Venta En El Centro Histórico A ... ✅ 20.5887932, -100.3898881
+Geocoding 2025: San Angel, Querétaro... ✅ 20.5814707, -100.4020838
+Geocoding 2026: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2027: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2028: Ezequiel Montes, Querétaro... ✅ 20.6656983, -99.8987561
+Geocoding 2029: Niños Héroes, Querétaro... ✅ 20.5866716, -100.40735
+Geocoding 2030: San Angel, Querétaro... ✅ 20.5814707, -100.4020838
+Progress: 1230/2000 (62%) | Rate: 6.0/s | Success: 1152
+Geocoding 2031: Cerrito Colorado, Querétaro... ✅ 20.6360722, -100.4663523
+Geocoding 2032: Villas Del Parque, Querétaro... ✅ 20.6192921, -100.3912012
+Geocoding 2033: Cerrito Colorado, Querétaro... ✅ 20.6360722, -100.4663523
+Geocoding 2034: Satélite, Querétaro... ✅ 20.6392636, -100.4501931
+Geocoding 2035: Otros, Querétaro... ✅ 20.5887932, -100.3898881
+Geocoding 2036: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 2037: Corregidora, Querétaro... ✅ 20.5334645, -100.4462861
+Geocoding 2038: Corregidora, Querétaro... ✅ 20.5334645, -100.4462861
+Geocoding 2039: Álamos 3a Sección, Querétaro... ✅ 20.6136588, -100.3856904
+Geocoding 2040: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Progress: 1240/2000 (62%) | Rate: 6.0/s | Success: 1162
+Geocoding 2041: Corregidora, Querétaro... ✅ 20.5334645, -100.4462861
+Geocoding 2042: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 2043: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2044: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2045: Morelia, Michoacán... ✅ 19.7059504, -101.1949825
+Geocoding 2046: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 2047: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2048: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 2049: Venustiano Carranza, Distrito Federal... ✅ 19.4306069, -99.0949899
+Geocoding 2050: Ixtacuixtla De M Matamoros, Tlaxcala... ✅ 19.3278754, -98.3764217
+Progress: 1250/2000 (63%) | Rate: 6.0/s | Success: 1172
+Geocoding 2051: Corregidora, Querétaro... ✅ 20.5334645, -100.4462861
+Geocoding 2052: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 2053: Venustiano Carranza, Distrito Federal... ✅ 19.4306069, -99.0949899
+Geocoding 2054: Tlalnepantla De Baz, Estado De México... ✅ 19.5360618, -99.1968306
+Geocoding 2055: Gustavo A. Madero, Distrito Federal... ✅ 19.4873329, -99.1236134
+Geocoding 2056: Colinas Del Cimatario, Querétaro... ✅ 20.5654935, -100.3680364
+Geocoding 2057: Jojutla, Morelos... ✅ 18.6144195, -99.1781178
+Geocoding 2058: Zapopan, Jalisco... ✅ 20.6719563, -103.416501
+Geocoding 2059: Nezahualcoyotl, Estado De México... ✅ 19.3994934, -98.9896643
+Geocoding 2060: Coyoacán, Distrito Federal... ✅ 19.3437444, -99.1561883
+Progress: 1260/2000 (63%) | Rate: 6.0/s | Success: 1182
+Geocoding 2061: Xochimilco, Distrito Federal... ✅ 19.2572314, -99.1029664
+Geocoding 2062: Metepec, Estado De México... ✅ 19.2528864, -99.598551
+Geocoding 2063: Tuxtla Gutiérrez, Chiapas... ✅ 16.7516009, -93.1029939
+Geocoding 2064: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 2065: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 2066: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 2067: 1er Piso De La Plaza Framboyanes., Veracruz... ✅ 19.173773, -96.1342241
+Geocoding 2068: Villas Del Parque, Querétaro... ✅ 20.6192921, -100.3912012
+Geocoding 2069: Coyoacán, Distrito Federal... ✅ 19.3437444, -99.1561883
+Geocoding 2070: Metepec, Estado De México... ✅ 19.2528864, -99.598551
+Progress: 1270/2000 (64%) | Rate: 6.0/s | Success: 1192
+Geocoding 2071: Niños Héroes, Querétaro... ✅ 20.5866716, -100.40735
+Geocoding 2072: Ubicados En El Interior De Plaza Martí, Veracruz... ✅ 19.170432, -96.12354219999999
+Geocoding 2073: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 2074: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 2075: La Magdalena Contreras, Distrito Federal...Google error: read ETIMEDOUT
+ ❌ Failed
+Geocoding 2076: Tultitlán, Estado De México... ✅ 19.6392125, -99.1668646
+Geocoding 2077: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 2078: Santa Rosa De Jáuregui, Querétaro... ✅ 20.7414547, -100.447453
+Geocoding 2079: Las Animas, Puebla... ✅ 19.0443704, -98.2400979
+Geocoding 2080: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Progress: 1280/2000 (64%) | Rate: 5.5/s | Success: 1201
+Geocoding 2081: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 2082: Santa María, Durango... ✅ 24.0379579, -104.6842915
+Geocoding 2083: Toluca, Estado De México... ✅ 19.2826098, -99.6556653
+Geocoding 2084: Patriotismo, Puebla... ✅ 19.0836719, -98.23924319999999
+Geocoding 2085: Juriquilla Santa Fe, Querétaro... ✅ 20.6954259, -100.4452328
+Geocoding 2086: Jardines De La Hacienda, Querétaro... ✅ 20.5745579, -100.4129676
+Geocoding 2087: Lomas De San Pedrito, Querétaro... ✅ 20.6486584, -100.4045413
+Geocoding 2088: Guadalajara, Jalisco... ✅ 20.6751707, -103.3473385
+Geocoding 2089: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 2090: Orizaba, Veracruz... ✅ 18.8504744, -97.1036396
+Progress: 1290/2000 (65%) | Rate: 5.5/s | Success: 1211
+Geocoding 2091: San Juan Bautista Tuxtepec, Oaxaca... ✅ 18.0809028, -96.1420947
+Geocoding 2092: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2093: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2094: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2095: Milenio III, Querétaro... ✅ 20.5951924, -100.3479663
+Geocoding 2096: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2097: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2098: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2099: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2100: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Progress: 1300/2000 (65%) | Rate: 5.5/s | Success: 1221
+Geocoding 2101: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2102: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2103: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2104: Arboledas, Querétaro... ✅ 20.6153006, -100.384181
+Geocoding 2105: Arboledas, Querétaro... ✅ 20.6153006, -100.384181
+Geocoding 2106: Jurica, Querétaro... ✅ 20.6582325, -100.4443402
+Geocoding 2107: C. Francisco I. Madero 300, Querétaro... ✅ 20.5868949, -100.4086007
+Geocoding 2108: Álamos 3a Sección, Querétaro... ✅ 20.6136588, -100.3856904
+Geocoding 2109: Milenio III, Querétaro... ✅ 20.5951924, -100.3479663
+Geocoding 2110: San Angel, Querétaro... ✅ 20.5814707, -100.4020838
+Progress: 1310/2000 (66%) | Rate: 5.5/s | Success: 1231
+Geocoding 2111: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2112: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 2113: Milenio III, Querétaro... ✅ 20.5951924, -100.3479663
+Geocoding 2114: Jurica, Querétaro... ✅ 20.6582325, -100.4443402
+Geocoding 2115: Jurica, Querétaro... ✅ 20.6582325, -100.4443402
+Geocoding 2116: Jurica, Querétaro... ✅ 20.6582325, -100.4443402
+Geocoding 2117: Cimatario, Querétaro... ✅ 20.5810239, -100.3912012
+Geocoding 2118: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2119: Centro Sur, Querétaro... ✅ 20.5717189, -100.3624216
+Geocoding 2120: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Progress: 1320/2000 (66%) | Rate: 5.5/s | Success: 1241
+Geocoding 2121: San Isidro Miranda, Querétaro... ✅ 20.5709659, -100.3259337
+Geocoding 2122: Milenio III, Querétaro... ✅ 20.5951924, -100.3479663
+Geocoding 2123: Juriquilla Santa Fe, Querétaro... ✅ 20.6954259, -100.4452328
+Geocoding 2124: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2125: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2126: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2127: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2128: Jurica, Querétaro... ✅ 20.6582325, -100.4443402
+Geocoding 2129: Jurica, Querétaro... ✅ 20.6582325, -100.4443402
+Geocoding 2130: Colinas Del Cimatario, Querétaro... ✅ 20.5654935, -100.3680364
+Progress: 1330/2000 (67%) | Rate: 5.5/s | Success: 1251
+Geocoding 2131: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2132: Corregidora, Querétaro... ✅ 20.5334645, -100.4462861
+Geocoding 2133: Milenio III, Querétaro... ✅ 20.5951924, -100.3479663
+Geocoding 2135: Juriquilla Santa Fe, Querétaro... ✅ 20.6954259, -100.4452328
+Geocoding 2136: Otros, Querétaro... ✅ 20.5887932, -100.3898881
+Geocoding 2137: Centro Sur, Querétaro... ✅ 20.5717189, -100.3624216
+Geocoding 2138: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2139: Cumbres Del Lago, Querétaro... ✅ 20.6990975, -100.4705682
+Geocoding 2140: Milenio III, Querétaro... ✅ 20.5951924, -100.3479663
+Geocoding 2141: Centro Sur, Querétaro... ✅ 20.5717189, -100.3624216
+Progress: 1340/2000 (67%) | Rate: 5.5/s | Success: 1261
+Geocoding 2142: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2143: Balcones De Juriquilla, Querétaro... ✅ 20.6961393, -100.4620696
+Geocoding 2144: Cumbres Del Lago, Querétaro... ✅ 20.6990975, -100.4705682
+Geocoding 2145: La Vista Residencial, Querétaro... ✅ 20.6419878, -100.3514731
+Geocoding 2146: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 2147: Milenio III, Querétaro... ✅ 20.5951924, -100.3479663
+Geocoding 2148: Centro Sur, Querétaro... ✅ 20.5717189, -100.3624216
+Geocoding 2149: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2150: Venceremos, Querétaro... ✅ 20.552721, -100.3968179
+Geocoding 2151: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Progress: 1350/2000 (68%) | Rate: 5.5/s | Success: 1271
+Geocoding 2152: Cumbres Del Lago, Querétaro... ✅ 20.6990975, -100.4705682
+Geocoding 2153: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2154: Balcones Coloniales, Querétaro... ✅ 20.6170268, -100.3799691
+Geocoding 2155: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2156: Álamos 3a Sección, Querétaro... ✅ 20.6136588, -100.3856904
+Geocoding 2157: Residencial El Refugio, Querétaro... ✅ 20.6536084, -100.3469826
+Geocoding 2158: Cumbres Del Lago, Querétaro... ✅ 20.6990975, -100.4705682
+Geocoding 2159: San Isidro Miranda, Querétaro... ✅ 20.5709659, -100.3259337
+Geocoding 2160: Centro Sur, Querétaro... ✅ 20.5717189, -100.3624216
+Geocoding 2161: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Progress: 1360/2000 (68%) | Rate: 5.5/s | Success: 1281
+Geocoding 2162: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2163: El Campanario, Querétaro... ✅ 20.6168441, -100.3492959
+Geocoding 2164: Corregidora, Querétaro... ✅ 20.5334645, -100.4462861
+Geocoding 2165: Centro, Querétaro... ✅ 20.5920203, -100.3919033
+Geocoding 2166: Zakia, Querétaro... ✅ 20.6540779, -100.3147096
+Geocoding 2167: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 2168: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 2169: Juriquilla Santa Fe, Querétaro... ✅ 20.6954259, -100.4452328
+Geocoding 2170: Corregidora, Querétaro... ✅ 20.5334645, -100.4462861
+Geocoding 2171: El Salitre, Querétaro... ✅ 20.6658384, -100.4221186
+Progress: 1370/2000 (69%) | Rate: 5.5/s | Success: 1291
+Geocoding 2172: Otros, Querétaro... ✅ 20.5887932, -100.3898881
+Geocoding 2173: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2174: Juriquilla Santa Fe, Querétaro... ✅ 20.6954259, -100.4452328
+Geocoding 2175: Milenio III, Querétaro... ✅ 20.5951924, -100.3479663
+Geocoding 2176: Juriquilla, Querétaro... ✅ 20.6962084, -100.4506587
+Geocoding 2177: Jurica, Querétaro... ✅ 20.6582325, -100.4443402
+Geocoding 2178: El Refugio Residencial, Querétaro... ✅ 20.6437209, -100.3466174
+Geocoding 2179: Centro Sur, Querétaro... ✅ 20.5717189, -100.3624216
+Geocoding 2180: Fray Junípero Serra, Querétaro... ✅ 20.5965131, -100.3754986
+Geocoding 2181: El Marques, Querétaro... ✅ 20.6113606, -100.3288581
+Progress: 1380/2000 (69%) | Rate: 5.6/s | Success: 1301
+Geocoding 2182: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2183: Huexotitla, Puebla... ✅ 19.0272478, -98.2107037
+Geocoding 2184: San Pedro Cholula, Puebla... ✅ 19.0715049, -98.31567419999999
+Geocoding 2185: Ocoyucan, Puebla... ✅ 18.9416539, -98.3197946
+Geocoding 2186: San Pedro Cholula, Puebla... ✅ 19.0715049, -98.31567419999999
+Geocoding 2187: Zavaleta (Zavaleta), Puebla... ✅ 19.0618382, -98.2534317
+Geocoding 2188: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2189: San José Del Puente, Puebla... ✅ 19.0670746, -98.24351659999999
+Geocoding 2190: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2191: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Progress: 1390/2000 (70%) | Rate: 5.5/s | Success: 1311
+Geocoding 2192: Concepción La Cruz, Puebla... ✅ 19.028067, -98.2504886
+Geocoding 2193: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2194: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2195: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2196: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2197: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2198: San Pedro Cholula, Puebla... ✅ 19.0715049, -98.31567419999999
+Geocoding 2199: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2200: Angelopolis, Puebla... ✅ 19.0414398, -98.2062727
+Geocoding 2201: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Progress: 1400/2000 (70%) | Rate: 5.5/s | Success: 1321
+Geocoding 2202: Bello Horizonte, Puebla... ✅ 19.0575751, -98.2679156
+Geocoding 2203: Zavaleta, Puebla... ✅ 19.0618382, -98.2534317
+Geocoding 2204: Centro, Puebla... ✅ 19.0437335, -98.1980244
+Geocoding 2205: San Ramon 1a Secc., Puebla... ✅ 19.089123, -98.1624957
+Geocoding 2206: Acajete, Puebla... ✅ 19.105729, -97.94294210000001
+Geocoding 2207: La Noria, Puebla... ✅ 19.0336894, -98.2233486
+Geocoding 2208: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2209: Anzures, Puebla... ✅ 19.0259359, -98.1987443
+Geocoding 2210: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2211: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Progress: 1410/2000 (71%) | Rate: 5.5/s | Success: 1331
+Geocoding 2212: Zavaleta (Zavaleta), Puebla... ✅ 19.0618382, -98.2534317
+Geocoding 2213: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2214: La Noria, Puebla... ✅ 19.0336894, -98.2233486
+Geocoding 2215: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2216: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2217: Niza 41, Puebla... ✅ 19.0452747, -98.2486629
+Geocoding 2218: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2219: San Bernardo, Puebla... ✅ 18.2133332, -98.1036111
+Geocoding 2220: Angelopolis, Puebla... ✅ 19.0414398, -98.2062727
+Geocoding 2221: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Progress: 1420/2000 (71%) | Rate: 5.5/s | Success: 1341
+Geocoding 2222: La Calera, Puebla... ✅ 19.011249, -98.1724404
+Geocoding 2223: Amozoc, Puebla... ✅ 19.043829, -98.0437894
+Geocoding 2224: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2225: La Paz, Puebla... ✅ 19.0564551, -98.22539929999999
+Geocoding 2226: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2227: Los Héroes De Puebla, Puebla... ✅ 18.9684688, -98.2144627
+Geocoding 2228: Cuautlancingo, Puebla... ✅ 19.0966286, -98.2724536
+Geocoding 2277: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 2278: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 2279: Metepec, Estado De México... ✅ 19.2528864, -99.598551
+Progress: 1430/2000 (72%) | Rate: 5.5/s | Success: 1351
+Geocoding 2280: Metepec, Estado De México... ✅ 19.2528864, -99.598551
+Geocoding 2281: Toluca, Estado De México... ✅ 19.2826098, -99.6556653
+Geocoding 2282: Atizapán De Zaragoza, Estado De México... ✅ 19.5562275, -99.2674713
+Geocoding 2283: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 2284: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Geocoding 2285: Cuautitlán Izcalli, Estado De México... ✅ 19.6528089, -99.22313869999999
+Geocoding 2286: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 2287: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Geocoding 2288: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 2289: Tecámac, Estado De México... ✅ 19.7122732, -98.96830729999999
+Progress: 1440/2000 (72%) | Rate: 5.6/s | Success: 1361
+Geocoding 2290: Tecámac, Estado De México... ✅ 19.7122732, -98.96830729999999
+Geocoding 2291: Atizapán De Zaragoza, Estado De México... ✅ 19.5562275, -99.2674713
+Geocoding 2292: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 2293: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Geocoding 2294: Calimaya, Estado De México... ✅ 19.161779, -99.61291039999999
+Geocoding 2295: Tlalnepantla De Baz, Estado De México... ✅ 19.5360618, -99.1968306
+Geocoding 2296: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 2297: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 2298: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Geocoding 2299: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Progress: 1450/2000 (73%) | Rate: 5.6/s | Success: 1371
+Geocoding 2300: Valle De Bravo, Estado De México... ✅ 19.1950964, -100.1326725
+Geocoding 2301: Atizapán De Zaragoza, Estado De México... ✅ 19.5562275, -99.2674713
+Geocoding 2302: Calimaya, Estado De México... ✅ 19.161779, -99.61291039999999
+Geocoding 2303: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 2304: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 2305: Metepec, Estado De México... ✅ 19.2528864, -99.598551
+Geocoding 2306: Atizapán De Zaragoza, Estado De México... ✅ 19.5562275, -99.2674713
+Geocoding 2307: Atizapán De Zaragoza, Estado De México... ✅ 19.5562275, -99.2674713
+Geocoding 2308: Metepec, Estado De México... ✅ 19.2528864, -99.598551
+Geocoding 2309: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Progress: 1460/2000 (73%) | Rate: 5.6/s | Success: 1381
+Geocoding 2310: Metepec, Estado De México... ✅ 19.2528864, -99.598551
+Geocoding 2311: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Geocoding 2312: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Geocoding 2313: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Geocoding 2314: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Geocoding 2315: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Geocoding 2316: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 2317: Metepec, Estado De México... ✅ 19.2528864, -99.598551
+Geocoding 2318: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Geocoding 2319: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Progress: 1470/2000 (74%) | Rate: 5.6/s | Success: 1391
+Geocoding 2320: Atizapán De Zaragoza, Estado De México... ✅ 19.5562275, -99.2674713
+Geocoding 2321: Metepec, Estado De México... ✅ 19.2528864, -99.598551
+Geocoding 2322: Huixquilucan, Estado De México... ✅ 19.3602606, -99.3510312
+Geocoding 2323: San Mateo Atenco, Estado De México... ✅ 19.2630031, -99.5324296
+Geocoding 2324: Metepec, Estado De México... ✅ 19.2528864, -99.598551
+Geocoding 2325: Salinas Victoria, Nuevo León... ✅ 25.96442, -100.2948171
+Geocoding 2326: Santa Catarina, Nuevo León... ✅ 25.6746058, -100.4423188
+Geocoding 2327: Pesqueria, Nuevo León... ✅ 25.7917265, -100.0485536
+Geocoding 2328: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2330: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Progress: 1480/2000 (74%) | Rate: 5.6/s | Success: 1401
+Geocoding 2331: General Escobedo, Nuevo León... ✅ 25.8002233, -100.3122083
+Geocoding 2332: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2333: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2335: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2336: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2337: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2338: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2339: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2340: Guadalupe, Nuevo León... ✅ 25.6748291, -100.2155063
+Geocoding 2341: Salinas Victoria, Nuevo León... ✅ 25.96442, -100.2948171
+Progress: 1490/2000 (75%) | Rate: 5.6/s | Success: 1411
+Geocoding 2342: García, Nuevo León... ✅ 25.801032, -100.5861995
+Geocoding 2343: Guadalupe, Nuevo León... ✅ 25.6748291, -100.2155063
+Geocoding 2344: Guadalupe, Nuevo León... ✅ 25.6748291, -100.2155063
+Geocoding 2345: Guadalupe, Nuevo León... ✅ 25.6748291, -100.2155063
+Geocoding 2346: Guadalupe, Nuevo León... ✅ 25.6748291, -100.2155063
+Geocoding 2347: Guadalupe, Nuevo León... ✅ 25.6748291, -100.2155063
+Geocoding 2348: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2349: García, Nuevo León... ✅ 25.801032, -100.5861995
+Geocoding 2350: García, Nuevo León... ✅ 25.801032, -100.5861995
+Geocoding 2351: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Progress: 1500/2000 (75%) | Rate: 5.6/s | Success: 1421
+Geocoding 2352: Guadalupe, Nuevo León... ✅ 25.6748291, -100.2155063
+Geocoding 2353: Salinas Victoria, Nuevo León... ✅ 25.96442, -100.2948171
+Geocoding 2354: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2355: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2356: Santa Catarina, Nuevo León... ✅ 25.6746058, -100.4423188
+Geocoding 2357: García, Nuevo León... ✅ 25.801032, -100.5861995
+Geocoding 2358: García, Nuevo León... ✅ 25.801032, -100.5861995
+Geocoding 2359: Monterrey, Nuevo León... ✅ 25.6866142, -100.3161126
+Geocoding 2360: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2362: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Progress: 1510/2000 (76%) | Rate: 5.6/s | Success: 1431
+Geocoding 2363: San Nicolás De Los Garza, Nuevo León... ✅ 25.7481625, -100.2844842
+Geocoding 2364: Ciénega De Flores, Nuevo León... ✅ 25.9543957, -100.166333
+Geocoding 2365: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2366: Santa Catarina, Nuevo León... ✅ 25.6746058, -100.4423188
+Geocoding 2368: San Nicolás De Los Garza, Nuevo León... ✅ 25.7481625, -100.2844842
+Geocoding 2370: Apodaca, Nuevo León... ✅ 25.776468, -100.1858743
+Geocoding 2372: Nuevo León, Ciénega De Flores... ✅ 25.9543957, -100.166333
+Geocoding 2373: Cuautitlán Izcalli, Estado De México... ✅ 19.6528089, -99.22313869999999
+Geocoding 2374: Mineral De La Reforma, Hidalgo... ✅ 20.0708947, -98.6960424
+Geocoding 2375: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Progress: 1520/2000 (76%) | Rate: 5.6/s | Success: 1441
+Geocoding 2376: Santa María Magdalena, Querétaro... ✅ 20.5961422, -100.4466876
+Geocoding 2377: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 2378: Azcapotzalco, Distrito Federal... ✅ 19.4846606, -99.1886749
+Geocoding 2379: Monterrey, Nuevo León... ✅ 25.6866142, -100.3161126
+Geocoding 2380: Lomas De Casa Blanca, Querétaro... ✅ 20.5698582, -100.3933074
+Geocoding 2381: El Marques, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 2382: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 2383: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2384: Santa Rosa De Jáuregui, Querétaro... ✅ 20.7414547, -100.447453
+Geocoding 2385: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Progress: 1530/2000 (77%) | Rate: 5.6/s | Success: 1451
+Geocoding 2386: La Magdalena Contreras, Distrito Federal... ✅ 19.3149641, -99.24258859999999
+Geocoding 2387: La Magdalena Contreras, Distrito Federal... ✅ 19.3149641, -99.24258859999999
+Geocoding 2388: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2389: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2390: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2391: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2392: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2393: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2394: La Magdalena Contreras, Distrito Federal... ✅ 19.3149641, -99.24258859999999
+Geocoding 2395: La Magdalena Contreras, Distrito Federal... ✅ 19.3149641, -99.24258859999999
+Progress: 1540/2000 (77%) | Rate: 5.6/s | Success: 1461
+Geocoding 2396: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2397: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2398: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2399: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2400: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2401: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2402: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2403: La Magdalena Contreras, Distrito Federal... ✅ 19.3149641, -99.24258859999999
+Geocoding 2404: La Magdalena Contreras, Distrito Federal... ✅ 19.3149641, -99.24258859999999
+Geocoding 2405: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Progress: 1550/2000 (78%) | Rate: 5.6/s | Success: 1471
+Geocoding 2406: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2407: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2408: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2409: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2410: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2411: Tlalpan, Distrito Federal... ✅ 19.2790911, -99.2114234
+Geocoding 2412: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2413: Iztacalco, Distrito Federal... ✅ 19.3948036, -99.09768079999999
+Geocoding 2414: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 2415: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Progress: 1560/2000 (78%) | Rate: 5.6/s | Success: 1481
+Geocoding 2416: Zapopan, Jalisco... ✅ 20.6719563, -103.416501
+Geocoding 2417: Zapopan, Jalisco... ✅ 20.6719563, -103.416501
+Geocoding 2418: El Marqués, Querétaro... ✅ 20.6113606, -100.3288581
+Geocoding 2419: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 2420: Azcapotzalco, Distrito Federal... ✅ 19.4846606, -99.1886749
+Geocoding 2421: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2422: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2423: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2424: Ucu, Yucatán... ✅ 21.0311039, -89.7441766
+Geocoding 2425: Ucu, Yucatán... ✅ 21.0311039, -89.7441766
+Progress: 1570/2000 (79%) | Rate: 5.6/s | Success: 1491
+Geocoding 2426: Ucu, Yucatán... ✅ 21.0311039, -89.7441766
+Geocoding 2427: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2428: Uman, Yucatán... ✅ 20.8878393, -89.7480635
+Geocoding 2429: Uman, Yucatán... ✅ 20.8878393, -89.7480635
+Geocoding 2430: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Geocoding 2431: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Geocoding 2432: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2433: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2434: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2435: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Progress: 1580/2000 (79%) | Rate: 5.6/s | Success: 1501
+Geocoding 2436: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2437: Teya, Yucatán... ✅ 21.0508574, -89.0738791
+Geocoding 2438: Teya, Yucatán... ✅ 21.0508574, -89.0738791
+Geocoding 2439: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2440: Progreso, Yucatán... ✅ 21.2811908, -89.66516279999999
+Geocoding 2441: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2442: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2443: Progreso, Yucatán... ✅ 21.2811908, -89.66516279999999
+Geocoding 2444: Progreso, Yucatán... ✅ 21.2811908, -89.66516279999999
+Geocoding 2445: Progreso, Yucatán... ✅ 21.2811908, -89.66516279999999
+Progress: 1590/2000 (80%) | Rate: 5.6/s | Success: 1511
+Geocoding 2446: Uman, Yucatán... ✅ 20.8878393, -89.7480635
+Geocoding 2447: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2448: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2449: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2450: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2451: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2452: Progreso, Yucatán... ✅ 21.2811908, -89.66516279999999
+Geocoding 2453: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2454: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Geocoding 2455: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Progress: 1600/2000 (80%) | Rate: 5.6/s | Success: 1521
+Geocoding 2456: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2457: Opichen, Yucatán... ✅ 20.5500929, -89.8573759
+Geocoding 2458: Opichen, Yucatán... ✅ 20.5500929, -89.8573759
+Geocoding 2459: Opichen, Yucatán... ✅ 20.5500929, -89.8573759
+Geocoding 2460: Tetiz, Yucatán... ✅ 20.9626882, -89.9345214
+Geocoding 2461: Chicxulub Pueblo, Yucatán... ✅ 21.1362559, -89.5161981
+Geocoding 2462: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2463: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2464: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2465: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Progress: 1610/2000 (81%) | Rate: 5.6/s | Success: 1531
+Geocoding 2466: Mérida, Yucatán... ✅ 20.9673702, -89.5925857
+Geocoding 2467: Uman, Yucatán... ✅ 20.8878393, -89.7480635
+Geocoding 2468: Aguascalientes, Aguascalientes... ✅ 21.8852562, -102.2915677
+Geocoding 2469: Aguascalientes, Aguascalientes... ✅ 21.8852562, -102.2915677
+Geocoding 2470: Jardines Del Lago, Aguascalientes... ✅ 21.8590267, -102.3478193
+Geocoding 2471: Paseos De Santa Mónica, Aguascalientes... ✅ 21.8430057, -102.3151979
+Geocoding 2472: Paseos De Santa Mónica, Aguascalientes... ✅ 21.8430057, -102.3151979
+Geocoding 2473: Aguascalientes, Aguascalientes... ✅ 21.8852562, -102.2915677
+Geocoding 2474: Trojes De Kristal, Aguascalientes... ✅ 21.9360538, -102.322408
+Geocoding 2475: Condominio San Nicolás, Aguascalientes... ✅ 21.8541666, -102.7002777
+Progress: 1620/2000 (81%) | Rate: 5.6/s | Success: 1541
+Geocoding 2476: Aguascalientes, Aguascalientes... ✅ 21.8852562, -102.2915677
+Geocoding 2477: Fuentes Del Lago, Aguascalientes... ✅ 21.8525743, -102.3442595
+Geocoding 2478: Residencial, Aguascalientes... ✅ 21.8852562, -102.2915677
+Geocoding 2479: Jesús María, Aguascalientes... ✅ 21.9635744, -102.3441041
+Geocoding 2480: Aguascalientes, Aguascalientes... ✅ 21.8852562, -102.2915677
+Geocoding 2481: Jesús Maria, Aguascalientes... ✅ 21.9635744, -102.3441041
+Geocoding 2482: Aguascalientes, Aguascalientes... ✅ 21.8852562, -102.2915677
+Geocoding 2483: Aguascalientes, Aguascalientes... ✅ 21.8852562, -102.2915677
+Geocoding 2484: Los Calicantos, Aguascalientes... ✅ 21.9341119, -102.3141774
+Geocoding 2485: Aguascalientes, Aguascalientes... ✅ 21.8852562, -102.2915677
+Progress: 1630/2000 (82%) | Rate: 5.6/s | Success: 1551
+Geocoding 2486: Jardines De Las Fuentes, Aguascalientes... ✅ 21.8602926, -102.2873427
+Geocoding 2487: Jesús Maria, Aguascalientes... ✅ 21.9635744, -102.3441041
+Geocoding 2488: Aeropuerto Aguascalientes (Lic. Jesús Terán Peredo... ✅ 21.701298, -102.3162276
+Geocoding 2489: Aguascalientes, Aguascalientes... ✅ 21.8852562, -102.2915677
+Geocoding 2490: Colonia Los Pericos, Aguascalientes... ✅ 21.8994838, -102.2437054
+Geocoding 2491: Los Bosques, Aguascalientes... ✅ 21.9204599, -102.310599
+Geocoding 2492: Jesús María, Aguascalientes... ✅ 21.9635744, -102.3441041
+Geocoding 2493: Canteras De San José, Aguascalientes... ✅ 21.857965, -102.3327866
+Geocoding 2494: Villas De Nuestra Señora De La Asunción, Aguascali... ✅ 21.9229122, -102.2683834
+Geocoding 2495: Valle Dorado, Aguascalientes... ✅ 21.8630564, -102.3041583
+Progress: 1640/2000 (82%) | Rate: 5.6/s | Success: 1561
+Geocoding 2496: Jesús Maria, Aguascalientes... ✅ 21.9635744, -102.3441041
+Geocoding 2497: Valle Dorado, Aguascalientes... ✅ 21.8630564, -102.3041583
+Geocoding 2498: Miravalle, Aguascalientes... ✅ 21.9724999, -102.3113888
+Geocoding 2499: San Gerardo, Aguascalientes... ✅ 21.804847, -102.2937824
+Geocoding 2500: Club Campestre, Aguascalientes... ✅ 21.9204415, -102.3195123
+Geocoding 2501: Rancho Santa Mónica, Aguascalientes... ✅ 21.8393074, -102.3184831
+Geocoding 2502: Jesús Maria, Aguascalientes... ✅ 21.9635744, -102.3441041
+Geocoding 2503: Jesús Maria, Aguascalientes... ✅ 21.9635744, -102.3441041
+Geocoding 2504: Trojes De Alonso, Aguascalientes... ✅ 21.9381251, -102.2998647
+Geocoding 2505: Jesús Maria, Aguascalientes... ✅ 21.9635744, -102.3441041
+Progress: 1650/2000 (83%) | Rate: 5.6/s | Success: 1571
+Geocoding 2506: Residencial, Aguascalientes... ✅ 21.8852562, -102.2915677
+Geocoding 2507: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2508: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2509: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2510: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2511: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2512: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2513: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2514: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2515: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Progress: 1660/2000 (83%) | Rate: 5.6/s | Success: 1581
+Geocoding 2516: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2517: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2518: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2519: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2520: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2521: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 2522: Isla Mujeres, Quintana Roo... ✅ 21.2366438, -86.7357804
+Geocoding 2523: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2524: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2525: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Progress: 1670/2000 (84%) | Rate: 5.6/s | Success: 1591
+Geocoding 2526: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2527: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2528: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2529: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2530: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2531: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2532: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2533: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2534: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2535: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Progress: 1680/2000 (84%) | Rate: 5.6/s | Success: 1601
+Geocoding 2536: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 2537: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 2538: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2539: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 2540: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2541: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2542: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2543: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2544: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 2545: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Progress: 1690/2000 (85%) | Rate: 5.6/s | Success: 1611
+Geocoding 2546: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2547: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2548: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2549: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2550: Solidaridad/Riviera Maya, Quintana Roo... ✅ 20.5501224, -87.42075179999999
+Geocoding 2551: Othon P Blanco, Quintana Roo... ✅ 18.607127, -88.0118473
+Geocoding 2552: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2553: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2554: Metepec, Estado De México... ✅ 19.2528864, -99.598551
+Geocoding 2555: Coyoacán, Distrito Federal... ✅ 19.3437444, -99.1561883
+Progress: 1700/2000 (85%) | Rate: 5.6/s | Success: 1621
+Geocoding 2556: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 2557: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2558: Gustavo A. Madero, Distrito Federal... ✅ 19.4873329, -99.1236134
+Geocoding 2559: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 2560: Centro Sur, Querétaro... ✅ 20.5717189, -100.3624216
+Geocoding 2561: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 2562: Gustavo A. Madero, Distrito Federal... ✅ 19.4873329, -99.1236134
+Geocoding 2563: Xalapa, Veracruz... ✅ 19.5437751, -96.91018059999999
+Geocoding 2564: Gustavo A. Madero, Distrito Federal... ✅ 19.4873329, -99.1236134
+Geocoding 2565: Gustavo A. Madero, Distrito Federal... ✅ 19.4873329, -99.1236134
+Progress: 1710/2000 (86%) | Rate: 5.6/s | Success: 1631
+Geocoding 2566: Cancún/Benito Juárez, Quintana Roo... ✅ 21.161908, -86.8515279
+Geocoding 2567: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 2568: Azcapotzalco, Distrito Federal... ✅ 19.4846606, -99.1886749
+Geocoding 2569: El Carrizal, Querétaro... ✅ 20.5839752, -100.3971689
+Geocoding 2570: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 2571: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 2572: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Geocoding 2573: Guadalajara, Jalisco... ✅ 20.6751707, -103.3473385
+Geocoding 2574: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 2575: Naucalpan, Estado De México... ✅ 19.4737133, -99.2336657
+Progress: 1720/2000 (86%) | Rate: 5.6/s | Success: 1641
+Geocoding 2576: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 2577: Tlalnepantla De Baz, Estado De México... ✅ 19.5360618, -99.1968306
+Geocoding 2578: Gustavo A. Madero, Distrito Federal... ✅ 19.4873329, -99.1236134
+Geocoding 2579: Tlalnepantla De Baz, Estado De México... ✅ 19.5360618, -99.1968306
+Geocoding 2580: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 2581: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 2582: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 2583: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 2584: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 2585: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Progress: 1730/2000 (87%) | Rate: 5.6/s | Success: 1651
+Geocoding 2586: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 2587: Tlalnepantla De Baz, Estado De México... ✅ 19.5360618, -99.1968306
+Geocoding 2588: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 2589: Gustavo A. Madero, Distrito Federal... ✅ 19.4873329, -99.1236134
+Geocoding 2590: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 2591: Atizapán De Zaragoza, Estado De México... ✅ 19.5562275, -99.2674713
+Geocoding 2592: Miguel Hidalgo, Distrito Federal... ✅ 19.4306575, -99.20839529999999
+Geocoding 2593: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 2594: Atizapán De Zaragoza, Estado De México... ✅ 19.5562275, -99.2674713
+Geocoding 2595: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Progress: 1740/2000 (87%) | Rate: 5.6/s | Success: 1661
+Geocoding 2596: Jurica, Querétaro... ✅ 20.6582325, -100.4443402
+Geocoding 2597: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 2598: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 2599: Atizapán De Zaragoza, Estado De México... ✅ 19.5562275, -99.2674713
+Geocoding 2600: Cuajimalpa De Morelos, Distrito Federal... ✅ 19.3631419, -99.28805969999999
+Geocoding 2601: Arboledas, Querétaro... ✅ 20.6153006, -100.384181
+Geocoding 2602: Cuauhtémoc, Chihuahua... ✅ 28.406359, -106.8654066
+Geocoding 2603: Las Granjas, Chihuahua... ✅ 28.6657409, -106.1022307
+Geocoding 2604: Cuauhtémoc, Chihuahua... ✅ 28.406359, -106.8654066
+Geocoding 2605: Delicias, Chihuahua... ✅ 28.1871201, -105.4595306
+Progress: 1750/2000 (88%) | Rate: 5.6/s | Success: 1671
+Geocoding 2606: Saucito, Chihuahua... ✅ 28.6679354, -106.125015
+Geocoding 2607: Los Frailes, Chihuahua... ✅ 28.6595936, -106.1105663
+Geocoding 2608: Vista Del Sol, Chihuahua... ✅ 28.6229672, -106.0988317
+Geocoding 2609: Vista Del Sol, Chihuahua... ✅ 28.6229672, -106.0988317
+Geocoding 2610: Vista Del Sol, Chihuahua... ✅ 28.6229672, -106.0988317
+Geocoding 2611: Cuauhtémoc, Chihuahua... ✅ 28.406359, -106.8654066
+Geocoding 2612: Vista Del Sol, Chihuahua... ✅ 28.6229672, -106.0988317
+Geocoding 2613: Zona Centro, Chihuahua... ✅ 28.6393341, -106.0743052
+Geocoding 2614: Residencial Campestre Washington, Chihuahua... ✅ 28.6457737, -106.1206049
+Geocoding 2615: San Fernando, Chihuahua... ✅ 26.2186895, -107.2195083
+Progress: 1760/2000 (88%) | Rate: 5.6/s | Success: 1681
+Geocoding 2616: Nombre De Dios, Chihuahua... ✅ 28.67479789999999, -106.0860628
+Geocoding 2617: Cuauhtémoc, Chihuahua... ✅ 28.406359, -106.8654066
+Geocoding 2618: Vista Del Sol, Chihuahua... ✅ 28.6229672, -106.0988317
+Geocoding 2619: Vista Del Sol, Chihuahua... ✅ 28.6229672, -106.0988317
+Geocoding 2620: Quintas Del Sol, Chihuahua... ✅ 28.6298287, -106.1000259
+Geocoding 2621: Vista Del Sol, Chihuahua... ✅ 28.6229672, -106.0988317
+Geocoding 2622: Vista Del Sol, Chihuahua... ✅ 28.6229672, -106.0988317
+Geocoding 2623: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Geocoding 2624: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Geocoding 2625: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Progress: 1770/2000 (89%) | Rate: 5.6/s | Success: 1691
+Geocoding 2626: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 2627: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 2628: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 2629: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 2630: Tecate, Baja California... ✅ 32.563609, -116.6256752
+Geocoding 2631: Ensenada, Baja California... ✅ 31.8557021, -116.6057392
+Geocoding 2632: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 2633: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Geocoding 2634: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 2635: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Progress: 1780/2000 (89%) | Rate: 5.6/s | Success: 1701
+Geocoding 2636: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 2637: Ensenada, Baja California... ✅ 31.8557021, -116.6057392
+Geocoding 2638: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 2639: Tijuana, Baja California... ✅ 32.5331957, -117.0192784
+Geocoding 2640: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Geocoding 2641: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Geocoding 2642: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Geocoding 2643: Mexicali, Baja California... ✅ 32.6245389, -115.4522623
+Geocoding 2644: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2645: Mexquitic De Carmona, San Luis Potosí... ✅ 22.2717903, -101.1237987
+Progress: 1790/2000 (90%) | Rate: 5.6/s | Success: 1711
+Geocoding 2646: Mexquitic De Carmona, San Luis Potosí... ✅ 22.2717903, -101.1237987
+Geocoding 2647: Rural Atlas, San Luis Potosí... ✅ 22.1817442, -101.0108905
+Geocoding 2648: Horizontes Residencial, San Luis Potosí... ✅ 22.1705276, -101.0480394
+Geocoding 2649: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2650: San Miguelito, San Luis Potosí... ✅ 22.1429987, -100.9771678
+Geocoding 2651: Villa Magna, San Luis Potosí... ✅ 22.1593377, -101.0443504
+Geocoding 2652: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2653: San Luis Potosi, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2654: El Mezquital, San Luis Potosí... ✅ 21.4647265, -99.4512974
+Geocoding 2655: Santiago Del Río, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Progress: 1800/2000 (90%) | Rate: 5.6/s | Success: 1721
+Geocoding 2656: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2657: Santo Domingo, San Luis Potosí... ✅ 22.8649999, -100.2833329
+Geocoding 2658: Matehuala, San Luis Potosí... ✅ 23.6448029, -100.64279
+Geocoding 2659: Matehuala, San Luis Potosí... ✅ 23.6448029, -100.64279
+Geocoding 2660: Cerro De San Pedro, San Luis Potosí... ✅ 22.2166591, -100.8006949
+Geocoding 2661: Río Verde, San Luis Potosí... ✅ 21.9277923, -99.9856344
+Geocoding 2662: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2663: Villa De Pozos, San Luis Potosí... ✅ 22.0828019, -100.877925
+Geocoding 2664: Vega De La Roca 200, San Luis Potosí... ✅ 22.124053, -101.028463
+Geocoding 2665: Villa De Pozos, San Luis Potosí... ✅ 22.0828019, -100.877925
+Progress: 1810/2000 (91%) | Rate: 5.6/s | Success: 1731
+Geocoding 2666: Mexquitic De Carmona, San Luis Potosí... ✅ 22.2717903, -101.1237987
+Geocoding 2667: Residencial Los Lagos, San Luis Potosí... ✅ 22.0654812, -100.8613748
+Geocoding 2668: Ciudad Valles, San Luis Potosí... ✅ 22.0025712, -99.0018424
+Geocoding 2669: Charcas, San Luis Potosí... ✅ 23.1289548, -101.1126076
+Geocoding 2670: Las Aguilas, San Luis Potosí... ✅ 21.9796773, -98.974914
+Geocoding 2671: Morales, San Luis Potosí... ✅ 22.1577668, -101.0195661
+Geocoding 2672: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2673: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2674: Alquerías De Pozos, San Luis Potosí... ✅ 22.0913929, -100.8698427
+Geocoding 2675: Industrial San Luis, San Luis Potosí... ✅ 22.0995699, -100.9036439
+Progress: 1820/2000 (91%) | Rate: 5.6/s | Success: 1741
+Geocoding 2676: Las Piedras, San Luis Potosí... ✅ 22.1671661, -101.011085
+Geocoding 2677: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2678: Pozos Residencial, San Luis Potosí... ✅ 22.1138775, -100.8869595
+Geocoding 2679: Río Verde, San Luis Potosí... ✅ 21.9277923, -99.9856344
+Geocoding 2680: Ciudad Valles, San Luis Potosí... ✅ 22.0025712, -99.0018424
+Geocoding 2681: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2682: Los Magueyes, San Luis Potosí... ✅ 22.2127054, -100.9792873
+Geocoding 2683: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2684: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2685: Río Verde, San Luis Potosí... ✅ 21.9277923, -99.9856344
+Progress: 1830/2000 (92%) | Rate: 5.6/s | Success: 1751
+Geocoding 2686: Santa Maria Del Río, San Luis Potosí... ✅ 21.8031036, -100.7336555
+Geocoding 2687: Mexquitic De Carmona, San Luis Potosí... ✅ 22.2717903, -101.1237987
+Geocoding 2688: Lomas Del Tecnológico, San Luis Potosí... ✅ 22.126518, -101.0358237
+Geocoding 2689: Ciudad Valles, San Luis Potosí... ✅ 22.0025712, -99.0018424
+Geocoding 2690: Santa Maria Del Río, San Luis Potosí... ✅ 21.8031036, -100.7336555
+Geocoding 2691: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2695: Av. Damián Carmona 1300, San Luis Potosí... ✅ 22.16303, -100.98009
+Geocoding 2696: Villa De Reyes, San Luis Potosí... ✅ 21.8058423, -100.9324541
+Geocoding 2697: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2698: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Progress: 1840/2000 (92%) | Rate: 5.6/s | Success: 1761
+Geocoding 2699: El Aguaje, San Luis Potosí... ✅ 22.1082382, -100.9475002
+Geocoding 2700: La Pila, San Luis Potosí... ✅ 22.0345627, -100.8687639
+Geocoding 2701: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2702: Centro De Abastos, San Luis Potosí... ✅ 22.1424027, -100.9206659
+Geocoding 2703: Los Reyes, San Luis Potosí... ✅ 22.1681264, -100.9969514
+Geocoding 2704: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2705: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2706: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2707: Las Pilitas, San Luis Potosí... ✅ 22.1325718, -100.9573884
+Geocoding 2708: Azteca, San Luis Potosí... ✅ 22.129546, -100.9150175
+Progress: 1850/2000 (93%) | Rate: 5.6/s | Success: 1771
+Geocoding 2709: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2710: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2711: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2712: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2713: Soledad De Graciano Sánchez, San Luis Potosí... ✅ 22.1807042, -100.9417767
+Geocoding 2714: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2715: San Luis Potosí, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2716: San Luis Potosí, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2717: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2718: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Progress: 1860/2000 (93%) | Rate: 5.6/s | Success: 1781
+Geocoding 2719: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2720: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2721: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2722: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2723: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2724: Constitución, San Luis Potosí... ✅ 22.1354272, -100.9640988
+Geocoding 2725: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2726: San Luis Potosi, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2727: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2728: San Luis Potosí, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Progress: 1870/2000 (94%) | Rate: 5.6/s | Success: 1791
+Geocoding 2729: Lomas Del Mezquital, San Luis Potosí... ✅ 22.1772667, -101.0139119
+Geocoding 2730: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2731: Angostura El Saucito, San Luis Potosí... ✅ 22.183354, -101.0027812
+Geocoding 2732: Bodega / Nave Industrial En Renta En San Luis Poto... ✅ 22.1427728, -100.9453942
+Geocoding 2733: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2734: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2735: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2736: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2737: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 2738: Zona Industrial, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Progress: 1880/2000 (94%) | Rate: 5.6/s | Success: 1801
+Geocoding 2739: Los Jassos, San Luis Potosí... ✅ 22.1288889, -100.8341669
+Geocoding 2740: Ocoyucan, Puebla... ✅ 18.9416539, -98.3197946
+Geocoding 2741: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2742: Cuautlancingo, Puebla... ✅ 19.0966286, -98.2724536
+Geocoding 2743: La Paz, Puebla... ✅ 19.0564551, -98.22539929999999
+Geocoding 2744: Puebla Centro, Puebla... ✅ 19.0437335, -98.1980244
+Geocoding 2745: Prados Agua Azul, Puebla... ✅ 19.0273276, -98.2171967
+Geocoding 2746: La Paz, Puebla... ✅ 19.0564551, -98.22539929999999
+Geocoding 2747: Coronango, Puebla... ✅ 19.1201907, -98.3069426
+Geocoding 2748: Lomas De San Alfonso, Puebla... ✅ 19.0034269, -98.1784177
+Progress: 1890/2000 (95%) | Rate: 5.6/s | Success: 1811
+Geocoding 2749: Ocoyucan, Puebla... ✅ 18.9416539, -98.3197946
+Geocoding 2750: San Francisco, Puebla... ✅ 19.0484206, -98.1905446
+Geocoding 2751: Camino Real A Cholula, Puebla... ✅ 19.044045, -98.2432337
+Geocoding 2752: Coronango, Puebla... ✅ 19.1201907, -98.3069426
+Geocoding 2753: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2754: Coronango, Puebla... ✅ 19.1201907, -98.3069426
+Geocoding 2755: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2756: Coronango, Puebla... ✅ 19.1201907, -98.3069426
+Geocoding 2757: Centro, Puebla... ✅ 19.0437335, -98.1980244
+Geocoding 2758: Coronango, Puebla... ✅ 19.1201907, -98.3069426
+Progress: 1900/2000 (95%) | Rate: 5.6/s | Success: 1821
+Geocoding 2759: Cuautlancingo, Puebla... ✅ 19.0966286, -98.2724536
+Geocoding 2760: Cuautlancingo, Puebla... ✅ 19.0966286, -98.2724536
+Geocoding 2761: Zaragoza, Puebla... ✅ 19.7693245, -97.5545143
+Geocoding 2762: Gabriel Pastor 2a Sección, Puebla... ✅ 19.0243882, -98.2467991
+Geocoding 2763: Coronango, Puebla... ✅ 19.1201907, -98.3069426
+Geocoding 2764: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2765: El Carmen, Puebla... ✅ 19.0369049, -98.2007943
+Geocoding 2766: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2767: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2768: Angelopolis, Puebla... ✅ 19.0414398, -98.2062727
+Progress: 1910/2000 (96%) | Rate: 5.6/s | Success: 1831
+Geocoding 2769: Puebla, Puebla... ✅ 19.0414398, -98.2062727
+Geocoding 2770: La Paz, Puebla... ✅ 19.0564551, -98.22539929999999
+Geocoding 2771: Zavaleta (Zavaleta), Puebla... ✅ 19.0618382, -98.2534317
+Geocoding 2772: La Paz, Puebla... ✅ 19.0564551, -98.22539929999999
+Geocoding 2773: Zavaleta (Zavaleta), Puebla... ✅ 19.0618382, -98.2534317
+Geocoding 2774: Bello Horizonte, Puebla... ✅ 19.0575751, -98.2679156
+Geocoding 2775: San Pedro Cholula, Puebla... ✅ 19.0715049, -98.31567419999999
+Geocoding 2776: Los Volcanes, Puebla... ✅ 19.0392463, -98.2144627
+Geocoding 2777: Reforma Agua Azul, Puebla... ✅ 19.0293873, -98.22061430000001
+Geocoding 2778: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Progress: 1920/2000 (96%) | Rate: 5.6/s | Success: 1841
+Geocoding 2779: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2780: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2781: Ciprés De Zavaleta, Puebla... ✅ 19.0618994, -98.25206399999999
+Geocoding 2782: Zona Cementos Atoyac, Puebla... ✅ 19.0802949, -98.2199308
+Geocoding 2783: Ciprés De Zavaleta, Puebla... ✅ 19.0618994, -98.25206399999999
+Geocoding 2784: Cuautlancingo, Puebla... ✅ 19.0966286, -98.2724536
+Geocoding 2785: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2786: Cuautlancingo, Puebla... ✅ 19.0966286, -98.2724536
+Geocoding 2787: Belisario Domínguez, Puebla... ✅ 19.0501593, -98.22955909999999
+Geocoding 2799: Nezahualcoyotl, Estado De México... ✅ 19.3994934, -98.9896643
+Progress: 1930/2000 (97%) | Rate: 5.6/s | Success: 1851
+Geocoding 2800: Nezahualcoyotl, Estado De México... ✅ 19.3994934, -98.9896643
+Geocoding 2802: Cuautitlán Izcalli, Estado De México... ✅ 19.6528089, -99.22313869999999
+Geocoding 2804: Tecámac, Estado De México... ✅ 19.7122732, -98.96830729999999
+Geocoding 2805: Tecámac, Estado De México... ✅ 19.7122732, -98.96830729999999
+Geocoding 2806: Coacalco De Berriozabal, Estado De México... ✅ 19.6326046, -99.1090105
+Geocoding 2807: Coacalco De Berriozabal, Estado De México... ✅ 19.6326046, -99.1090105
+Geocoding 2808: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 2809: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 2810: Nezahualcoyotl, Estado De México... ✅ 19.3994934, -98.9896643
+Geocoding 2812: Tecámac, Estado De México... ✅ 19.7122732, -98.96830729999999
+Progress: 1940/2000 (97%) | Rate: 5.6/s | Success: 1861
+Geocoding 2813: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 2814: Ecatepec De Morelos, Estado De México... ✅ 19.5671142, -99.04451929999999
+Geocoding 2815: Nezahualcoyotl, Estado De México... ✅ 19.3994934, -98.9896643
+Geocoding 2816: Tultitlán, Estado De México... ✅ 19.6392125, -99.1668646
+Geocoding 2818: Zumpango, Estado De México... ✅ 19.8039297, -99.0930528
+Geocoding 2820: Toluca, Estado De México... ✅ 19.2826098, -99.6556653
+Geocoding 2821: Valle De Chalco Solidaridad, Estado De México... ✅ 19.2924017, -98.9403667
+Geocoding 2822: Nicolás Romero, Estado De México... ✅ 19.6162033, -99.30011809999999
+Geocoding 2827: Azcapotzalco, Distrito Federal... ✅ 19.4846606, -99.1886749
+Geocoding 2872: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Progress: 1950/2000 (98%) | Rate: 5.6/s | Success: 1871
+Geocoding 2873: Atlixco, Puebla... ✅ 18.9131227, -98.4293891
+Geocoding 2874: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2875: Constitución Mexicana, Puebla... ✅ 18.9557022, -98.23633749999999
+Geocoding 2876: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2877: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2878: Atlixco, Puebla... ✅ 18.9131227, -98.4293891
+Geocoding 2879: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2880: Zavaleta (Zavaleta), Puebla... ✅ 19.0618382, -98.2534317
+Geocoding 2881: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2882: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Progress: 1960/2000 (98%) | Rate: 5.6/s | Success: 1881
+Geocoding 2883: Reserva Territorial Atlixcáyotl, Puebla... ✅ 19.0263097, -98.2409187
+Geocoding 2884: San Andrés Cholula, Puebla... ✅ 19.059957, -98.2949146
+Geocoding 2887: Iztapalapa, Distrito Federal... ✅ 19.3467093, -99.0798926
+Geocoding 2888: Cuauhtémoc, Distrito Federal... ✅ 19.4356338, -99.1495107
+Geocoding 2889: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 2890: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 2916: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 2920: Amecameca, Estado De México... ✅ 19.1223754, -98.7667481
+Geocoding 2921: León, Guanajuato... ✅ 21.1250077, -101.6859605
+Geocoding 2922: Coyoacán, Distrito Federal... ✅ 19.3437444, -99.1561883
+Progress: 1970/2000 (99%) | Rate: 5.6/s | Success: 1891
+Geocoding 2925: Tenango Del Aire, Estado De México... ✅ 19.1576292, -98.85993719999999
+Geocoding 2927: Manzanillo, Colima... ✅ 19.0536292, -104.3170724
+Geocoding 2928: Villa De Álvarez, Colima... ✅ 19.2662338, -103.7390574
+Geocoding 2929: Torreón, Coahuila... ✅ 25.5428443, -103.4067861
+Geocoding 2930: Salinas Victoria, Nuevo León... ✅ 25.96442, -100.2948171
+Geocoding 2931: San Nicolás De Los Garza, Nuevo León... ✅ 25.7481625, -100.2844842
+Geocoding 2932: Navolato, Sinaloa... ✅ 24.7637822, -107.7014482
+Geocoding 2933: Coatzacoalcos, Veracruz... ✅ 18.1497687, -94.41858099999999
+Geocoding 2935: Tuxpan, Veracruz... ✅ 20.9561149, -97.40633509999999
+Geocoding 2939: San Mateo Atenco, Estado De México... ✅ 19.2630031, -99.5324296
+Progress: 1980/2000 (99%) | Rate: 5.6/s | Success: 1901
+Geocoding 2942: La Paz, Baja California Sur... ✅ 24.1426408, -110.3127531
+Geocoding 2944: Tampico, Tamaulipas... ✅ 22.2331041, -97.861099
+Geocoding 2946: Culiacán, Sinaloa... ✅ 24.8090649, -107.3940117
+Geocoding 2948: Pachuca De Soto, Hidalgo... ✅ 20.1010608, -98.7591311
+Geocoding 2949: Irapuato, Guanajuato... ✅ 20.6786652, -101.3544964
+Geocoding 2950: Zacualtipan De Ángeles, Hidalgo... ✅ 20.6485245, -98.6576724
+Geocoding 2951: Ciudad Madero, Tamaulipas... ✅ 22.2494534, -97.8352027
+Geocoding 2952: Zacualtipan De Ángeles, Hidalgo... ✅ 20.6485245, -98.6576724
+Geocoding 2953: Santa Catarina, Nuevo León... ✅ 25.6746058, -100.4423188
+Geocoding 2954: Tecámac, Estado De México... ✅ 19.7122732, -98.96830729999999
+Progress: 1990/2000 (100%) | Rate: 5.6/s | Success: 1911
+Geocoding 2955: Benito Juárez, Distrito Federal... ✅ 19.3794059, -99.15914459999999
+Geocoding 2956: Cajeme, Sonora... ✅ 27.4934041, -109.940064
+Geocoding 2957: Zacualtipan De Ángeles, Hidalgo... ✅ 20.6485245, -98.6576724
+Geocoding 2958: Zacualtipan De Ángeles, Hidalgo... ✅ 20.6485245, -98.6576724
+Geocoding 2959: Matamoros, Coahuila... ✅ 25.5260426, -103.2259525
+Geocoding 2960: Conkal, Yucatán... ✅ 21.0749983, -89.5195181
+Geocoding 2961: San Agustín Tlaxiaca, Hidalgo... ✅ 20.10989, -98.88623559999999
+Geocoding 3010: San Luis Potosí, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 3011: San Luis Potosí, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Geocoding 3012: San Luis Potosí, San Luis Potosí... ✅ 22.1520892, -100.9733024
+Progress: 2000/2000 (100%) | Rate: 5.6/s | Success: 1921
+
+✅ Complete!
+Geocoded 1921 out of 2000 properties (96% success rate)
+Total time: 360.0 seconds
+Average rate: 5.6 properties/second
+
+Remaining properties to geocode: 9380

@@ -13,7 +13,7 @@ interface ApplicationStatus {
 }
 
 const BrokerApplication: React.FC = () => {
-  const { user } = useAuth();
+  const { } = useAuth();
   const [formData, setFormData] = useState({
     licenseNumber: '',
     brokerageName: '',

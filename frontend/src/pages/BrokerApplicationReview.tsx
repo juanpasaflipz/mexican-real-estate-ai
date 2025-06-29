@@ -7,9 +7,6 @@ import toast from 'react-hot-toast';
 import { 
   FileText, 
   User, 
-  Building, 
-  Phone, 
-  Calendar,
   Check,
   X,
   Clock,

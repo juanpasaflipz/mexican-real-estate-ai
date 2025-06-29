@@ -24,8 +24,8 @@ router.get('/properties/:id/nearby', async (req, res) => {
     // First, get the target property
     const targetQuery = `
       SELECT 
-        id, title, address, lat, lng, price, price_type, 
-        area_m2, bedrooms, bathrooms, property_type, 
+        id, title, address, lat, lng, price, 
+        area_sqm, bedrooms, bathrooms, property_type, 
         city, state, country, description, url, image_url
       FROM properties 
       WHERE id = $1
@@ -39,12 +39,17 @@ router.get('/properties/:id/nearby', async (req, res) => {
     }
     
     const targetProperty = targetResult.rows[0]
+    
+    // Parse coordinates as numbers
+    targetProperty.lat = parseFloat(targetProperty.lat)
+    targetProperty.lng = parseFloat(targetProperty.lng)
+    
     console.log('Target property found:', targetProperty.title, 'Lat:', targetProperty.lat, 'Lng:', targetProperty.lng)
     
     // Check if target property has coordinates
-    if (!targetProperty.lat || !targetProperty.lng) {
+    if (isNaN(targetProperty.lat) || isNaN(targetProperty.lng)) {
       return res.status(400).json({ 
-        error: 'Target property does not have coordinates',
+        error: 'Target property does not have valid coordinates',
         message: 'This property needs to be geocoded before nearby properties can be found'
       })
     }
@@ -109,8 +114,8 @@ async function getNearbyPropertiesBasic(pool, targetProperty, radiusKm, excludeI
   
   const query = `
     SELECT 
-      id, title, address, lat, lng, price, price_type,
-      area_m2, bedrooms, bathrooms, property_type,
+      id, title, address, lat, lng, price,
+      area_sqm, bedrooms, bathrooms, property_type,
       city, state, country, description, url, image_url,
       -- Haversine formula for distance
       ROUND((
@@ -158,32 +163,30 @@ async function getNearbyPropertiesBasic(pool, targetProperty, radiusKm, excludeI
  * Calculate statistics for nearby properties
  */
 function calculateStats(properties) {
-  const saleProperties = properties.filter(p => p.price_type === 'sale' && p.price > 0)
-  const rentProperties = properties.filter(p => p.price_type === 'rent' && p.price > 0)
+  // Convert price strings to numbers
+  const propertiesWithPrice = properties.filter(p => {
+    const price = parseFloat(String(p.price).replace(/[^0-9.-]+/g, ''))
+    return !isNaN(price) && price > 0
+  }).map(p => ({
+    ...p,
+    numericPrice: parseFloat(String(p.price).replace(/[^0-9.-]+/g, ''))
+  }))
   
   const stats = {
     totalProperties: properties.length,
-    totalForSale: saleProperties.length,
-    totalForRent: rentProperties.length,
-    medianSalePrice: calculateMedian(saleProperties.map(p => p.price)),
-    medianRentPrice: calculateMedian(rentProperties.map(p => p.price)),
+    totalWithPrice: propertiesWithPrice.length,
+    medianPrice: calculateMedian(propertiesWithPrice.map(p => p.numericPrice)),
     avgPricePerM2: 0,
     priceRange: {
-      sale: {
-        min: saleProperties.length > 0 ? Math.min(...saleProperties.map(p => p.price)) : 0,
-        max: saleProperties.length > 0 ? Math.max(...saleProperties.map(p => p.price)) : 0
-      },
-      rent: {
-        min: rentProperties.length > 0 ? Math.min(...rentProperties.map(p => p.price)) : 0,
-        max: rentProperties.length > 0 ? Math.max(...rentProperties.map(p => p.price)) : 0
-      }
+      min: propertiesWithPrice.length > 0 ? Math.min(...propertiesWithPrice.map(p => p.numericPrice)) : 0,
+      max: propertiesWithPrice.length > 0 ? Math.max(...propertiesWithPrice.map(p => p.numericPrice)) : 0
     }
   }
   
   // Calculate average price per m2
-  const propertiesWithArea = properties.filter(p => p.area_m2 > 0 && p.price > 0)
+  const propertiesWithArea = propertiesWithPrice.filter(p => p.area_sqm > 0)
   if (propertiesWithArea.length > 0) {
-    const totalPricePerM2 = propertiesWithArea.reduce((sum, p) => sum + (p.price / p.area_m2), 0)
+    const totalPricePerM2 = propertiesWithArea.reduce((sum, p) => sum + (p.numericPrice / p.area_sqm), 0)
     stats.avgPricePerM2 = Math.round(totalPricePerM2 / propertiesWithArea.length)
   }
   

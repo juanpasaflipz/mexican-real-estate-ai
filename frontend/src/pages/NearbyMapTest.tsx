@@ -21,37 +21,34 @@ const NearbyMapTest: React.FC = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get(`${API_URL}/properties`, {
-          params: { 
-            limit: 100,
-            // Only get properties with coordinates (once implemented)
-            // hasCoordinates: true 
-          }
+        // Fetch properties from API
+        const response = await axios.get(`${API_URL}/properties/with-coordinates`, {
+          params: { limit: 100 }
         })
         
-        // Handle paginated response - response.data contains { properties: [], total, page, totalPages }
-        const properties = response.data.properties || response.data || []
-        const propertiesData = properties.slice(0, 20).map((p: any) => ({
-          id: p.id,
-          title: p.title || p.address || 'Property ' + p.id,
+        const propertiesData = response.data.properties || []
+        const formattedProperties = propertiesData.map((p: any) => ({
+          id: p.id.toString(),
+          title: p.title || `Property ${p.id}`,
           city: p.city || 'Unknown',
-          lat: p.lat,
-          lng: p.lng
+          lat: parseFloat(p.lat),
+          lng: parseFloat(p.lng)
         }))
         
-        setProperties(propertiesData)
-        if (propertiesData.length > 0) {
-          setPropertyId(propertiesData[0].id)
+        setProperties(formattedProperties)
+        if (formattedProperties.length > 0) {
+          setPropertyId(formattedProperties[0].id)
         }
       } catch (error) {
         console.error('Error fetching properties:', error)
-        // Use sample IDs if API fails
+        // Fall back to sample properties if API fails
         const sampleProperties = [
-          { id: '2', title: 'Casa en Jardines Del Sur', city: 'CDMX' },
-          { id: '3', title: 'Casa Porfiriana en Roma Norte', city: 'Roma Norte' },
-          { id: '4', title: 'Casa con 3 Departamentos', city: 'Nezahualcoyotl' },
-          { id: '5', title: 'Casa con Uso de Suelo', city: 'Iztapalapa' },
-          { id: '6', title: 'Casa en Corregidora', city: 'Querétaro' }
+          { id: '2', title: 'Casa en Jardines Del Sur', city: 'CDMX', lat: 19.4326, lng: -99.1332 },
+          { id: '3', title: 'Casa Porfiriana en Roma Norte', city: 'Roma Norte', lat: 19.4199, lng: -99.1605 },
+          { id: '4', title: 'Casa con 3 Departamentos', city: 'Esperanza', lat: 19.4127, lng: -99.1717 },
+          { id: '5', title: 'Casa con Uso de Suelo', city: 'Iztapalapa', lat: 19.3574, lng: -99.0889 },
+          { id: '6', title: 'Casa en Corregidora', city: 'Querétaro', lat: 20.5888, lng: -100.3899 },
+          { id: '8', title: 'Casa En Satelite', city: 'Ciudad Satélite', lat: 20.6597, lng: -103.3496 }
         ]
         setProperties(sampleProperties)
         setPropertyId(sampleProperties[0].id)
@@ -59,7 +56,7 @@ const NearbyMapTest: React.FC = () => {
         setLoading(false)
       }
     }
-
+    
     fetchProperties()
   }, [])
 

@@ -5,7 +5,6 @@ import {
   LayoutDashboard, 
   Users, 
   Home, 
-  TrendingUp,
   Settings
 } from 'lucide-react';
 
